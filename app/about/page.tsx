@@ -23,15 +23,13 @@ export default function AboutPage() {
 
           {/* Bio */}
           <p className="text-lg leading-relaxed text-text max-w-2xl">
-            Physics student, photographer, and writer. I share notes on classical mechanics 
-            and electromagnetism, capture moments through my lens, and write about the 
-            intersection of science and creativity.
+            Bio
           </p>
 
           {/* Social Links */}
           <div className="flex gap-6 pt-4">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/JEly613"
               target="_blank"
               rel="noopener noreferrer"
               className="text-text hover:text-accent transition-colors"
@@ -52,7 +50,7 @@ export default function AboutPage() {
             </a>
 
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:jely6@jh.edu"
               className="text-text hover:text-accent transition-colors"
               aria-label="Email"
             >
