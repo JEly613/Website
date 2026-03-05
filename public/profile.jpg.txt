@@ -1,0 +1,2 @@
+This is a placeholder for profile.jpg
+Replace this file with an actual profile photo (400x400px recommended)
