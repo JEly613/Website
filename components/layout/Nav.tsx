@@ -40,7 +40,7 @@ export default function Nav() {
                 href={link.href}
                 className={`transition-colors ${
                   isActive(link.href)
-                    ? 'text-accent font-medium'
+                    ? 'text-accent-2 font-medium'
                     : 'text-text hover:text-accent'
                 }`}
               >

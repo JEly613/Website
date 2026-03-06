@@ -97,7 +97,7 @@ export default function NotesSidebar({ notesTree, currentSubject }: NotesSidebar
                         href={`/notes/${subject.subject}/${note.slug}`}
                         className={`block text-sm transition-colors ${
                           isActive(subject.subject, note.slug)
-                            ? 'text-accent font-medium'
+                            ? 'text-accent-2 font-medium'
                             : 'text-text-muted hover:text-accent'
                         }`}
                       >

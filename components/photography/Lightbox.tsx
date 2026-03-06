@@ -56,6 +56,7 @@ export default function Lightbox({ photos }: LightboxProps) {
                 width={photo.width}
                 height={photo.height}
                 loading="lazy"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
               />
             </button>

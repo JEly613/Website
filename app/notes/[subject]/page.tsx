@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllSubjects, getNotesBySubject } from '@/lib/notes'
@@ -5,6 +6,35 @@ import { getAllSubjects, getNotesBySubject } from '@/lib/notes'
 interface PageProps {
   params: {
     subject: string
+  }
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const notes = getNotesBySubject(params.subject)
+
+  if (notes.length === 0) {
+    return {
+      title: 'Subject Not Found',
+    }
+  }
+
+  const formatSubjectName = (subject: string) => {
+    return subject
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ')
+  }
+
+  const subjectName = formatSubjectName(params.subject)
+
+  return {
+    title: subjectName,
+    description: `Physics notes on ${subjectName}. ${notes.length} ${notes.length === 1 ? 'chapter' : 'chapters'} covering key concepts and equations.`,
+    openGraph: {
+      title: subjectName,
+      description: `Physics notes on ${subjectName}. ${notes.length} ${notes.length === 1 ? 'chapter' : 'chapters'} covering key concepts and equations.`,
+      images: ['/og/default.svg'],
+    },
   }
 }
 
@@ -39,10 +69,10 @@ export default function SubjectPage({ params }: PageProps) {
           >
             ← Back to all subjects
           </Link>
-          <h1 className="font-display text-5xl font-bold mb-4">
+          <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">
             {formatSubjectName(params.subject)}
           </h1>
-          <p className="text-text-muted text-lg">
+          <p className="text-text-muted text-base sm:text-lg">
             {notes.length} {notes.length === 1 ? 'chapter' : 'chapters'}
           </p>
         </div>
@@ -59,7 +89,7 @@ export default function SubjectPage({ params }: PageProps) {
                   <span className="text-text-muted text-sm font-medium">
                     Chapter {note.chapter}
                   </span>
-                  <h2 className="font-display text-2xl font-semibold text-text group-hover:text-accent transition-colors">
+                  <h2 className="font-display text-xl sm:text-2xl font-semibold text-text group-hover:text-accent transition-colors">
                     {note.title}
                   </h2>
                 </div>

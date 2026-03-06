@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkMath from 'remark-math'
@@ -9,6 +10,36 @@ interface PageProps {
   params: {
     subject: string
     chapter: string
+  }
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const note = getNoteBySlug(params.subject, params.chapter)
+
+  if (!note) {
+    return {
+      title: 'Note Not Found',
+    }
+  }
+
+  const formatSubjectName = (subject: string) => {
+    return subject
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ')
+  }
+
+  const subjectName = formatSubjectName(params.subject)
+
+  return {
+    title: `${note.title} - ${subjectName}`,
+    description: `Chapter ${note.chapter}: ${note.title}. Physics notes on ${subjectName}.`,
+    openGraph: {
+      title: `${note.title} - ${subjectName}`,
+      description: `Chapter ${note.chapter}: ${note.title}. Physics notes on ${subjectName}.`,
+      type: 'article',
+      images: ['/og/default.svg'],
+    },
   }
 }
 
@@ -47,11 +78,11 @@ export default function ChapterPage({ params }: PageProps) {
   return (
     <NotesLayout notesTree={notesTree} currentSubject={params.subject}>
       <article className="max-w-3xl">
-        <header className="mb-12">
+        <header className="mb-8 sm:mb-12">
           <div className="text-text-muted text-sm mb-2">
             Chapter {note.chapter}
           </div>
-          <h1 className="font-display text-5xl font-bold text-text">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-text">
             {note.title}
           </h1>
         </header>

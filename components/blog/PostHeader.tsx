@@ -15,12 +15,12 @@ export default function PostHeader({ title, date, tags, readingTime }: PostHeade
   })
 
   return (
-    <header className="mb-12">
-      <h1 className="font-display text-5xl font-bold text-text mb-6">
+    <header className="mb-8 sm:mb-12">
+      <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-text mb-4 sm:mb-6">
         {title}
       </h1>
       
-      <div className="flex items-center gap-3 text-sm text-text-muted mb-6">
+      <div className="flex items-center gap-3 text-sm text-text-muted mb-4 sm:mb-6">
         <time dateTime={date}>{formattedDate}</time>
         <span>•</span>
         <span>{readingTime}</span>

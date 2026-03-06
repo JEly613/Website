@@ -1,33 +1,45 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'Physics student, photographer, and writer sharing notes, photos, and thoughts.',
+  openGraph: {
+    title: 'About',
+    description: 'Physics student, photographer, and writer sharing notes, photos, and thoughts.',
+    images: ['/og/default.svg'],
+  },
+}
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen flex items-center">
-      <div className="max-w-3xl mx-auto px-6 py-16">
-        <div className="flex flex-col items-center text-center space-y-8">
+    <main className="min-h-screen flex items-center py-12 sm:py-16">
+      <div className="max-w-3xl mx-auto px-6 w-full">
+        <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8">
           {/* Profile Photo */}
-          <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-border">
+          <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-2 border-border">
             <Image
               src="/profile.svg"
               alt="Profile photo"
               fill
+              sizes="(max-width: 640px) 128px, 160px"
               className="object-cover"
               priority
             />
           </div>
 
           {/* Name */}
-          <h1 className="font-display text-6xl font-bold text-text">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-text">
             Your Name
           </h1>
 
           {/* Bio */}
-          <p className="text-lg leading-relaxed text-text max-w-2xl">
+          <p className="text-base sm:text-lg leading-relaxed text-text max-w-2xl">
             Bio
           </p>
 
           {/* Social Links */}
-          <div className="flex gap-6 pt-4">
+          <div className="flex gap-6 pt-2 sm:pt-4">
             <a
               href="https://github.com/JEly613"
               target="_blank"

@@ -1,4 +1,15 @@
+import type { Metadata } from 'next'
 import Lightbox from '@/components/photography/Lightbox'
+
+export const metadata: Metadata = {
+  title: 'Photography',
+  description: 'Personal photography portfolio showcasing moments captured through my lens.',
+  openGraph: {
+    title: 'Photography',
+    description: 'Personal photography portfolio showcasing moments captured through my lens.',
+    images: ['/og/default.svg'],
+  },
+}
 
 export default function PhotographyPage() {
   const photos = [
@@ -43,7 +54,9 @@ export default function PhotographyPage() {
   return (
     <main className="min-h-screen">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <h1 className="font-display text-5xl font-bold mb-12">Photography</h1>
+        <div className="mb-12 sm:mb-16">
+          <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">Photography</h1>
+        </div>
         <Lightbox photos={photos} />
       </div>
     </main>

@@ -17,7 +17,7 @@ export default function PostCard({ post }: PostCardProps) {
     <article className="group">
       <Link href={`/blog/${post.slug}`} className="block">
         <div className="space-y-3">
-          <h2 className="font-display text-3xl font-semibold text-text group-hover:text-accent transition-colors">
+          <h2 className="font-display text-2xl sm:text-3xl font-semibold text-text group-hover:text-accent transition-colors">
             {post.title}
           </h2>
           

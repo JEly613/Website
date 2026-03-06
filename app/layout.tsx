@@ -18,8 +18,31 @@ const sourceSans = Source_Sans_3({
 })
 
 export const metadata: Metadata = {
-  title: 'Personal Website',
+  title: {
+    default: 'Personal Website',
+    template: '%s | Personal Website',
+  },
   description: 'Physics notes, photography, and writing',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://yoursite.com',
+    siteName: 'Personal Website',
+    images: [
+      {
+        url: '/og/default.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Personal Website',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Personal Website',
+    description: 'Physics notes, photography, and writing',
+    images: ['/og/default.svg'],
+  },
 }
 
 export default function RootLayout({

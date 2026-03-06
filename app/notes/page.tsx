@@ -1,5 +1,16 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getNotesTree } from '@/lib/notes'
+
+export const metadata: Metadata = {
+  title: 'Notes',
+  description: 'Physics notes organized by subject and chapter, covering classical mechanics, electromagnetism, and more.',
+  openGraph: {
+    title: 'Notes',
+    description: 'Physics notes organized by subject and chapter, covering classical mechanics, electromagnetism, and more.',
+    images: ['/og/default.svg'],
+  },
+}
 
 export default function NotesPage() {
   const notesTree = getNotesTree()
@@ -14,9 +25,9 @@ export default function NotesPage() {
   return (
     <main className="min-h-screen">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="mb-16">
-          <h1 className="font-display text-5xl font-bold mb-4">Notes</h1>
-          <p className="text-text-muted text-lg">
+        <div className="mb-12 sm:mb-16">
+          <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">Notes</h1>
+          <p className="text-text-muted text-base sm:text-lg">
             Physics notes organized by subject and chapter.
           </p>
         </div>
