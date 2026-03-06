@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'katex/dist/katex.min.css';
+
 :root {
   --bg: #F3F8F2;
   --surface: #EBE9E9;
