@@ -16,4 +16,28 @@
   body {
     @apply bg-bg text-text antialiased;
   }
+  
+  .prose {
+    @apply text-text leading-relaxed;
+  }
+  
+  .prose p {
+    @apply text-lg;
+  }
+  
+  .prose h2 {
+    @apply text-text mt-12 mb-4;
+  }
+  
+  .prose h3 {
+    @apply text-text mt-8 mb-3;
+  }
+  
+  .prose ul, .prose ol {
+    @apply text-lg;
+  }
+  
+  .prose li {
+    @apply text-text;
+  }
 }
