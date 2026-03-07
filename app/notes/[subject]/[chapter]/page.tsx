@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
@@ -78,6 +79,26 @@ export default function ChapterPage({ params }: PageProps) {
   return (
     <NotesLayout notesTree={notesTree} currentSubject={params.subject}>
       <article className="max-w-3xl">
+        <Link
+          href="/notes"
+          className="inline-flex items-center text-text-muted hover:text-accent transition-colors mb-6 text-sm"
+        >
+          <svg
+            className="w-4 h-4 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+          Back to Notes
+        </Link>
+
         <header className="mb-8 sm:mb-12">
           <div className="text-text-muted text-sm mb-2">
             Chapter {note.chapter}
