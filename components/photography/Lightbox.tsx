@@ -3,8 +3,10 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Masonry from 'react-masonry-css'
+import { motion } from 'framer-motion'
 import LightboxComponent from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
+import { spring } from '@/lib/animation'
 
 interface Photo {
   src: string
@@ -43,12 +45,14 @@ export default function Lightbox({ photos }: LightboxProps) {
       >
         {photos.map((photo, index) => (
           <div key={index} className="mb-6">
-            <button
+            <motion.button
               onClick={() => {
                 setPhotoIndex(index)
                 setIsOpen(true)
               }}
-              className="relative overflow-hidden rounded-lg w-full cursor-pointer group"
+              whileHover={{ scale: 1.02 }}
+              transition={spring.default}
+              className="relative overflow-hidden rounded-lg w-full cursor-pointer"
             >
               <Image
                 src={photo.src}
@@ -57,9 +61,9 @@ export default function Lightbox({ photos }: LightboxProps) {
                 height={photo.height}
                 loading="lazy"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-auto"
               />
-            </button>
+            </motion.button>
           </div>
         ))}
       </Masonry>

@@ -3,7 +3,9 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { motion, AnimatePresence } from 'framer-motion'
 import { SubjectNotes } from '@/lib/notes'
+import { spring } from '@/lib/animation'
 
 interface NotesSidebarProps {
   notesTree: SubjectNotes[]
@@ -14,7 +16,6 @@ export default function NotesSidebar({ notesTree, currentSubject }: NotesSidebar
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [expandedSubjects, setExpandedSubjects] = useState<Record<string, boolean>>(() => {
-    // Initialize with current subject expanded
     const initial: Record<string, boolean> = {}
     if (currentSubject) {
       initial[currentSubject] = true
@@ -44,6 +45,11 @@ export default function NotesSidebar({ notesTree, currentSubject }: NotesSidebar
     return expandedSubjects[subject] ?? false
   }
 
+  const chapterListVariants = {
+    collapsed: { height: 0, opacity: 0 },
+    expanded: { height: 'auto', opacity: 1 },
+  }
+
   return (
     <>
       {/* Mobile Dropdown */}
@@ -55,8 +61,10 @@ export default function NotesSidebar({ notesTree, currentSubject }: NotesSidebar
           <span className="font-medium">
             {currentSubject ? formatSubjectName(currentSubject) : 'All Subjects'}
           </span>
-          <svg
-            className={`w-5 h-5 transition-transform duration-200 ${mobileOpen ? 'rotate-180' : ''}`}
+          <motion.svg
+            animate={{ rotate: mobileOpen ? 180 : 0 }}
+            transition={spring.default}
+            className="w-5 h-5"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -65,66 +73,85 @@ export default function NotesSidebar({ notesTree, currentSubject }: NotesSidebar
             stroke="currentColor"
           >
             <path d="M19 9l-7 7-7-7" />
-          </svg>
+          </motion.svg>
         </button>
 
-        {mobileOpen && (
-          <div className="mt-2 p-4 bg-surface border border-border rounded-lg">
-            <nav className="space-y-4">
-              {notesTree.map((subject) => (
-                <div key={subject.subject}>
-                  <button
-                    onClick={() => toggleSubject(subject.subject)}
-                    className="w-full flex items-center justify-between font-display font-semibold text-text py-2"
-                  >
-                    <span>{formatSubjectName(subject.subject)}</span>
-                    <svg
-                      className={`w-4 h-4 transition-transform duration-200 ${
-                        isExpanded(subject.subject) ? 'rotate-180' : ''
-                      }`}
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      isExpanded(subject.subject) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-                  >
-                    <ul className="relative pl-4 mt-2 space-y-2">
-                      <div
-                        className={`absolute left-0 top-0 bottom-0 w-0.5 bg-accent transition-all duration-300 ${
-                          isExpanded(subject.subject) ? 'opacity-100' : 'opacity-0'
-                        }`}
-                      />
-                      {subject.notes.map((note) => (
-                        <li key={note.slug}>
-                          <Link
-                            href={`/notes/${subject.subject}/${note.slug}`}
-                            onClick={() => setMobileOpen(false)}
-                            className={`block text-sm transition-colors ${
-                              isActive(subject.subject, note.slug)
-                                ? 'text-accent font-medium'
-                                : 'text-text-muted hover:text-accent'
-                            }`}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={spring.default}
+              className="mt-2 overflow-hidden"
+            >
+              <div className="p-4 bg-surface border border-border rounded-lg">
+                <nav className="space-y-4">
+                  {notesTree.map((subject) => (
+                    <div key={subject.subject}>
+                      <button
+                        onClick={() => toggleSubject(subject.subject)}
+                        className="w-full flex items-center justify-between font-display font-semibold text-text py-2"
+                      >
+                        <span>{formatSubjectName(subject.subject)}</span>
+                        <motion.svg
+                          animate={{ rotate: isExpanded(subject.subject) ? 180 : 0 }}
+                          transition={spring.default}
+                          className="w-4 h-4"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path d="M19 9l-7 7-7-7" />
+                        </motion.svg>
+                      </button>
+                      <AnimatePresence>
+                        {isExpanded(subject.subject) && (
+                          <motion.div
+                            initial="collapsed"
+                            animate="expanded"
+                            exit="collapsed"
+                            variants={chapterListVariants}
+                            transition={spring.default}
+                            className="overflow-hidden"
                           >
-                            {note.chapter}. {note.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </nav>
-          </div>
-        )}
+                            <ul className="relative pl-4 mt-2 space-y-2">
+                              <motion.div
+                                initial={{ scaleY: 0 }}
+                                animate={{ scaleY: 1 }}
+                                exit={{ scaleY: 0 }}
+                                transition={spring.default}
+                                className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent origin-top"
+                              />
+                              {subject.notes.map((note) => (
+                                <li key={note.slug}>
+                                  <Link
+                                    href={`/notes/${subject.subject}/${note.slug}`}
+                                    onClick={() => setMobileOpen(false)}
+                                    className={`block text-sm transition-colors ${
+                                      isActive(subject.subject, note.slug)
+                                        ? 'text-accent font-medium'
+                                        : 'text-text-muted hover:text-accent'
+                                    }`}
+                                  >
+                                    {note.chapter}. {note.title}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ))}
+                </nav>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Desktop Sidebar */}
@@ -138,10 +165,10 @@ export default function NotesSidebar({ notesTree, currentSubject }: NotesSidebar
                   className="w-full flex items-center justify-between font-display font-semibold text-text text-lg py-2 hover:text-accent transition-colors"
                 >
                   <span>{formatSubjectName(subject.subject)}</span>
-                  <svg
-                    className={`w-4 h-4 transition-transform duration-200 ${
-                      isExpanded(subject.subject) ? 'rotate-180' : ''
-                    }`}
+                  <motion.svg
+                    animate={{ rotate: isExpanded(subject.subject) ? 0 : 90 }}
+                    transition={spring.default}
+                    className="w-4 h-4"
                     fill="none"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -150,35 +177,44 @@ export default function NotesSidebar({ notesTree, currentSubject }: NotesSidebar
                     stroke="currentColor"
                   >
                     <path d="M19 9l-7 7-7-7" />
-                  </svg>
+                  </motion.svg>
                 </button>
-                <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isExpanded(subject.subject) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <ul className="relative pl-4 mt-2 space-y-2">
-                    <div
-                      className={`absolute left-0 top-0 bottom-0 w-0.5 bg-accent transition-all duration-300 ${
-                        isExpanded(subject.subject) ? 'opacity-100' : 'opacity-0'
-                      }`}
-                    />
-                    {subject.notes.map((note) => (
-                      <li key={note.slug}>
-                        <Link
-                          href={`/notes/${subject.subject}/${note.slug}`}
-                          className={`block text-sm transition-colors ${
-                            isActive(subject.subject, note.slug)
-                              ? 'text-accent-2 font-medium'
-                              : 'text-text-muted hover:text-accent'
-                          }`}
-                        >
-                          {note.chapter}. {note.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <AnimatePresence>
+                  {isExpanded(subject.subject) && (
+                    <motion.div
+                      initial="collapsed"
+                      animate="expanded"
+                      exit="collapsed"
+                      variants={chapterListVariants}
+                      transition={spring.default}
+                      className="overflow-hidden"
+                    >
+                      <ul className="relative pl-4 mt-2 space-y-2">
+                        <motion.div
+                          initial={{ scaleY: 0 }}
+                          animate={{ scaleY: 1 }}
+                          exit={{ scaleY: 0 }}
+                          transition={spring.default}
+                          className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent origin-top"
+                        />
+                        {subject.notes.map((note) => (
+                          <li key={note.slug}>
+                            <Link
+                              href={`/notes/${subject.subject}/${note.slug}`}
+                              className={`block text-sm transition-colors ${
+                                isActive(subject.subject, note.slug)
+                                  ? 'text-accent-2 font-medium'
+                                  : 'text-text-muted hover:text-accent'
+                              }`}
+                            >
+                              {note.chapter}. {note.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </nav>

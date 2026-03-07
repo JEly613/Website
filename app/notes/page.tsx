@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { getNotesTree } from '@/lib/notes'
+import SubjectRow from '@/components/notes/SubjectRow'
 
 export const metadata: Metadata = {
   title: 'Notes',
@@ -14,13 +14,6 @@ export const metadata: Metadata = {
 
 export default function NotesPage() {
   const notesTree = getNotesTree()
-
-  const formatSubjectName = (subject: string) => {
-    return subject
-      .split('-')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ')
-  }
 
   return (
     <main className="min-h-screen">
@@ -36,27 +29,14 @@ export default function NotesPage() {
           <p className="text-text-muted">No notes yet. Check back soon!</p>
         ) : (
           <div className="space-y-1">
-            {notesTree.map((subject) => {
-              // Get the first chapter (already sorted by order)
-              const firstChapter = subject.notes[0]
-              
-              return (
-                <Link
-                  key={subject.subject}
-                  href={`/notes/${subject.subject}/${firstChapter.slug}`}
-                  className="group block py-4 border-b border-border hover:border-accent transition-colors"
-                >
-                  <div className="flex items-center justify-between">
-                    <h2 className="font-display text-xl sm:text-2xl text-text group-hover:text-accent transition-colors">
-                      {formatSubjectName(subject.subject)}
-                    </h2>
-                    <span className="text-text-muted text-sm">
-                      {subject.notes.length} {subject.notes.length === 1 ? 'chapter' : 'chapters'}
-                    </span>
-                  </div>
-                </Link>
-              )
-            })}
+            {notesTree.map((subject) => (
+              <SubjectRow
+                key={subject.subject}
+                subject={subject.subject}
+                chapterCount={subject.notes.length}
+                href={`/notes/${subject.subject}`}
+              />
+            ))}
           </div>
         )}
       </div>

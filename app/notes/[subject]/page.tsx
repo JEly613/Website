@@ -1,7 +1,11 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getAllSubjects, getNotesBySubject } from '@/lib/notes'
+import Link from 'next/link'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import { getAllSubjects, getAllNotesForSubject, getNotesTree } from '@/lib/notes'
+import ContinuousNotesLayout from '@/components/notes/ContinuousNotesLayout'
 
 interface PageProps {
   params: {
@@ -9,8 +13,15 @@ interface PageProps {
   }
 }
 
+const formatSubjectName = (subject: string) => {
+  return subject
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const notes = getNotesBySubject(params.subject)
+  const notes = getAllNotesForSubject(params.subject)
 
   if (notes.length === 0) {
     return {
@@ -18,21 +29,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
-  const formatSubjectName = (subject: string) => {
-    return subject
-      .split('-')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ')
-  }
-
   const subjectName = formatSubjectName(params.subject)
 
   return {
     title: subjectName,
-    description: `Physics notes on ${subjectName}. ${notes.length} ${notes.length === 1 ? 'chapter' : 'chapters'} covering key concepts and equations.`,
+    description: `Physics notes on ${subjectName}. ${notes.length} chapters covering key concepts and equations.`,
     openGraph: {
       title: subjectName,
-      description: `Physics notes on ${subjectName}. ${notes.length} ${notes.length === 1 ? 'chapter' : 'chapters'} covering key concepts and equations.`,
+      description: `Physics notes on ${subjectName}. ${notes.length} chapters covering key concepts and equations.`,
+      type: 'article',
       images: ['/og/default.svg'],
     },
   }
@@ -40,64 +45,82 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export async function generateStaticParams() {
   const subjects = getAllSubjects()
-  return subjects.map((subject) => ({
-    subject,
-  }))
+  return subjects.map((subject) => ({ subject }))
 }
 
 export default function SubjectPage({ params }: PageProps) {
-  const notes = getNotesBySubject(params.subject)
+  const notes = getAllNotesForSubject(params.subject)
+  const notesTree = getNotesTree()
 
   if (notes.length === 0) {
     notFound()
   }
 
-  const formatSubjectName = (subject: string) => {
-    return subject
-      .split('-')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ')
+  const mdxOptions = {
+    mdxOptions: {
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
+    },
   }
 
-  return (
-    <main className="min-h-screen">
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        <div className="mb-12">
-          <Link
-            href="/notes"
-            className="text-text-muted hover:text-accent transition-colors text-sm mb-4 inline-block"
-          >
-            ← Back to all subjects
-          </Link>
-          <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">
-            {formatSubjectName(params.subject)}
-          </h1>
-          <p className="text-text-muted text-base sm:text-lg">
-            {notes.length} {notes.length === 1 ? 'chapter' : 'chapters'}
-          </p>
-        </div>
+  const chapters = notes.map((note) => ({
+    slug: note.slug,
+    title: note.title,
+    chapter: note.chapter,
+  }))
 
-        <div className="space-y-4">
-          {notes.map((note) => (
-            <Link
-              key={note.slug}
-              href={`/notes/${params.subject}/${note.slug}`}
-              className="block group"
-            >
-              <div className="p-6 bg-surface border border-border rounded-lg hover:border-accent transition-colors">
-                <div className="flex items-baseline gap-3">
-                  <span className="text-text-muted text-sm font-medium">
-                    Chapter {note.chapter}
-                  </span>
-                  <h2 className="font-display text-xl sm:text-2xl font-semibold text-text group-hover:text-accent transition-colors">
-                    {note.title}
-                  </h2>
-                </div>
+  return (
+    <ContinuousNotesLayout
+      notesTree={notesTree}
+      currentSubject={params.subject}
+      chapters={chapters}
+    >
+      <Link
+        href="/notes"
+        className="inline-flex items-center text-text-muted hover:text-accent transition-colors mb-8 text-sm"
+      >
+        <svg
+          className="w-4 h-4 mr-2"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+        Back to Notes
+      </Link>
+
+      <h1 className="font-display text-4xl sm:text-5xl font-bold text-text mb-12">
+        {formatSubjectName(params.subject)}
+      </h1>
+
+      <div className="space-y-24">
+        {notes.map((note) => (
+          <article
+            key={note.slug}
+            id={note.slug}
+            className="scroll-mt-24"
+          >
+            <header className="mb-8">
+              <div className="text-text-muted text-sm mb-2">
+                Chapter {note.chapter}
               </div>
-            </Link>
-          ))}
-        </div>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-text">
+                {note.title}
+              </h2>
+            </header>
+
+            <div className="prose prose-lg prose-headings:font-display prose-headings:font-semibold prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-strong:text-text prose-code:text-text prose-code:bg-surface prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none max-w-none">
+              <MDXRemote source={note.content} options={mdxOptions} />
+            </div>
+          </article>
+        ))}
       </div>
-    </main>
+    </ContinuousNotesLayout>
   )
 }
