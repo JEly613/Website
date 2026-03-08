@@ -1,35 +1,28 @@
+'use client'
+
 import { ReactNode } from 'react'
 import ScrollTrackingSidebar from './ScrollTrackingSidebar'
-import { SubjectNotes } from '@/lib/notes'
-
-interface Chapter {
-  slug: string
-  title: string
-  chapter: number
-}
+import type { Subject } from '@/lib/notes'
 
 interface ContinuousNotesLayoutProps {
   children: ReactNode
-  notesTree: SubjectNotes[]
+  notes: Subject[]
   currentSubject: string
-  chapters: Chapter[]
 }
 
 export default function ContinuousNotesLayout({
   children,
-  notesTree,
+  notes,
   currentSubject,
-  chapters,
 }: ContinuousNotesLayoutProps) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
         <ScrollTrackingSidebar
-          notesTree={notesTree}
+          notes={notes}
           currentSubject={currentSubject}
-          chapters={chapters}
         />
-        <main className="flex-1 min-w-0 max-w-3xl">
+        <main className="flex-1 min-w-0">
           {children}
         </main>
       </div>

@@ -1,0 +1,124 @@
+---
+title: "Gravitation"
+subject: "Classical Mechanics"
+chapter: 1
+order: 5
+---
+
+## Gravitational Potential Energy
+
+The gravitational potential energy of a two-body system is:
+
+$$\boxed{U = -\frac{Gm_1 m_2}{r}}$$
+
+**Derivation:** Since gravity is a conservative force, it can be written as:
+
+$$F = -\frac{dU}{dr}$$
+
+Substituting Newton's Law of Gravitation $F = -\frac{Gm_1 m_2}{r^2}$:
+
+$$dU = \frac{Gm_1 m_2}{r^2}\,dr$$
+
+Setting zero potential at infinity and integrating from $\infty$ to $R$:
+
+$$U(R) = \int_\infty^R \frac{Gm_1 m_2}{r^2}\,dr = -\frac{Gm_1 m_2}{R}$$
+
+**Near-surface approximation:** For a mass $m$ raised a height $h \ll R_E$ above a planet of mass $M$ and radius $R_E$:
+
+$$\Delta U = \frac{GMm}{R_E^2}h = mgh$$
+
+recovering the familiar linear approximation. ⋆
+
+---
+
+## Energy and Angular Momentum in Elliptical Orbits
+
+For a satellite of mass $m$ orbiting a star of mass $M$, let $r_p$ (perihelion) and $r_a$ (aphelion) be the closest and farthest distances, with speeds $v_p$ and $v_a$ respectively.
+
+**Conservation of angular momentum** gives:
+
+$$mv_a r_a = mv_p r_p \implies v_p = \frac{r_a}{r_p}v_a$$
+
+**Conservation of energy** at perihelion and aphelion, combined with the above, yields:
+
+$$v_a^2 = \frac{r_p}{r_a}\cdot\frac{GM}{a}$$
+
+where $a = \frac{r_a + r_p}{2}$ is the semi-major axis. The total angular momentum is:
+
+$$L = mb\sqrt{\frac{GM}{a}}$$
+
+where $b = \sqrt{r_a r_p}$ is the semi-minor axis. The total energy of the orbit is:
+
+$$\boxed{E = -\frac{GMm}{2a}}$$
+
+This remarkably simple result shows that orbital energy depends only on the semi-major axis, not the shape of the orbit. ⋆
+
+---
+
+## Kepler's Second Law
+
+**Kepler's Second Law** states that a satellite sweeps out equal areas in equal times.
+
+In a small time $\Delta t$, the satellite sweeps a triangular area:
+
+$$\Delta A = \frac{1}{2}vr\,\Delta t$$
+
+Rearranging and using $L = mrv$:
+
+$$\frac{\Delta A}{\Delta t} = \frac{L}{2m}$$
+
+Since $L$ is conserved (gravity is a central force), the rate of area sweeping is constant. ⋆
+
+---
+
+## Kepler's Third Law
+
+**Kepler's Third Law** relates orbital period $T$ to semi-major axis $a$.
+
+From Kepler's Second Law, the rate of area sweeping equals $L/2m$. Over one full orbit:
+
+$$\frac{L}{2m} = \frac{\pi ab}{T}$$
+
+Substituting $L = mb\sqrt{GM/a}$:
+
+$$T = \frac{2m\pi ab}{mb\sqrt{GM/a}} = \frac{2\pi a^{3/2}}{\sqrt{GM}}$$
+
+$$\boxed{T^2 = \frac{4\pi^2}{GM}a^3}$$
+
+⋆
+
+---
+
+## Shell Theorem
+
+**Newton's Shell Theorem** allows us to compute the gravitational field of a spherical shell or solid sphere.
+
+### Outside the shell
+
+Consider a point $P$ at distance $D$ from the center of a spherical shell of mass $M$ and radius $R$ ($D > R$). Slice the shell into rings at angle $\theta$ from the vertical, each at distance $r$ from $P$.
+
+Using the law of cosines and substituting, the gravitational field contribution reduces to:
+
+$$dg = \frac{GM}{4RD^2}\left(1 + \frac{D^2 - R^2}{r^2}\right)dr$$
+
+Integrating from $r = D - R$ to $r = D + R$:
+
+$$g = \frac{GM}{4RD^2}\left[r - \frac{D^2 - R^2}{r}\right]_{D-R}^{D+R} = \boxed{\frac{GM}{D^2}}$$
+
+The shell acts exactly like a **point mass at the center**. ⋆
+
+### Inside the shell
+
+For $P$ inside the shell ($D < R$), the bounds of integration become $R - D$ to $R + D$:
+
+$$g = \frac{GM}{4RD^2}\left[r + \frac{R^2 - D^2}{r}\right]_{R-D}^{R+D} = \boxed{0}$$
+
+There is **no gravitational field inside a spherical shell**. Intuitively, although more mass lies to one side, it is proportionally farther away, and the effects cancel exactly.
+
+### Solid sphere
+
+Using the shell result, the field inside a uniform solid sphere of radius $R$ at distance $D < R$ includes only the mass interior to $D$:
+
+$$g = \frac{GM}{D^2} \cdot \frac{D^3}{R^3} = \frac{GMD}{R^3}$$
+
+Outside ($D > R$), the entire sphere acts as a point mass: $g = GM/D^2$. ⋆

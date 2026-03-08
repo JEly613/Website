@@ -1,0 +1,98 @@
+---
+title: "Kinematics"
+subject: "Classical Mechanics"
+chapter: 1
+order: 1
+---
+
+## The Kinematics Equations
+
+These five equations, known collectively as the "Big Five," describe all kinematic motion with constant acceleration. An algebraic derivation is provided here since calculus is not required for AP Physics 1.
+
+We start with the following definitions:
+
+$$\Delta\phi = \phi_f - \phi_i \quad \text{for any quantity } \phi$$
+
+$$\phi_{\text{avg}} = \frac{\phi_i + \phi_f}{2} \quad \text{for any quantity } \phi$$
+
+$$v_{\text{avg}} = \frac{\Delta x}{\Delta t}, \qquad a_{\text{avg}} = \frac{\Delta v}{\Delta t}$$
+
+Using the first and last definitions, and the fact that acceleration is constant:
+
+$$v_f = v_i + a\Delta t \tag{1}$$
+
+Using the average definitions:
+
+$$\Delta x = \left(\frac{v_i + v_f}{2}\right)\Delta t \tag{2}$$
+
+Rearranging eq. (2) and substituting into eq. (1):
+
+$$v_f^2 - v_i^2 = 2a\Delta x \tag{3}$$
+
+Plugging eq. (1) into eq. (2):
+
+$$\Delta x = v_i \Delta t + \frac{1}{2}a(\Delta t)^2 \tag{4}$$
+
+Substituting $v_i$ from eq. (1) into eq. (4):
+
+$$\Delta x = v_f \Delta t - \frac{1}{2}a(\Delta t)^2 \tag{5}$$
+
+Thus, the **Big Five** equations describing all motion with constant acceleration are:
+
+$$\boxed{v_f = v_i + a\Delta t}$$
+
+$$\boxed{\Delta x = \left(\frac{v_i + v_f}{2}\right)\Delta t}$$
+
+$$\boxed{v_f^2 - v_i^2 = 2a\Delta x}$$
+
+$$\boxed{\Delta x = v_i\Delta t + \frac{1}{2}a(\Delta t)^2}$$
+
+$$\boxed{\Delta x = v_f\Delta t - \frac{1}{2}a(\Delta t)^2}$$
+
+---
+
+## The Range Equation
+
+The range equation gives the horizontal distance traveled by a projectile launched at angle $\theta$ and speed $v_0$ on a flat surface.
+
+We first find the total time of flight by considering vertical motion. At the apex, the vertical velocity is zero:
+
+$$0 = v_0 \sin\theta - g t_{\text{up}} \implies t_{\text{up}} = \frac{v_0 \sin\theta}{g}$$
+
+By the symmetry of projectile motion, the total time is twice this:
+
+$$t_{\text{total}} = \frac{2v_0 \sin\theta}{g}$$
+
+The range is the total time multiplied by the horizontal speed $v_0\cos\theta$:
+
+$$R = \frac{2v_0\sin\theta}{g} \cdot v_0\cos\theta$$
+
+$$\boxed{R = \frac{v_0^2 \sin 2\theta}{g}}$$
+
+---
+
+## The Projectile Trajectory Equation
+
+All trajectories of projectiles are parabolas. The trajectory equation is useful for finding the maximum range or the envelope of safety for a projectile.
+
+Consider a projectile launched with speed $v_0$ at angle $\theta$ above the horizontal at the origin. At time $t$:
+
+$$x = v_0\cos\theta \cdot t, \qquad y = v_0\sin\theta \cdot t - \frac{1}{2}gt^2$$
+
+Eliminating $t$ by substituting $t = x/(v_0\cos\theta)$:
+
+$$y = \tan\theta \cdot x - \frac{g\sec^2\theta}{2v_0^2} \cdot x^2$$
+
+Using the identity $\sec^2\theta = 1 + \tan^2\theta$:
+
+$$-\frac{gx^2}{2v_0^2}(1 + \tan^2\theta) + x\tan\theta - y = 0$$
+
+This is a **quadratic in $\tan\theta$**. To find the maximum range $R_{\max}$ from a launch height $H$, we substitute $y = -H$ and set the discriminant to zero (optimizing over all launch angles):
+
+$$\boxed{R_{\max}^2 = \frac{v_0^2}{g}\left(\frac{v_0^2}{g} + 2H\right)}$$
+
+The optimal launch angle satisfies:
+
+$$\tan\theta_{\max} = \frac{v_0^2}{gR_{\max}}$$
+
+For a flat surface ($H = 0$), this recovers $R_{\max} = v_0^2/g$ and $\theta_{\max} = 45°$, consistent with the range equation. ⋆

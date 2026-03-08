@@ -1,0 +1,119 @@
+---
+title: "Macroscopic Thermodynamics"
+subject: "Thermodynamics"
+chapter: 2
+order: 2
+---
+
+## Work Done on an Ideal Gas
+
+Consider a cylinder of gas topped with a movable piston of area $A$. Applying force $F$ and depressing by distance $\Delta x$:
+
+$$W = F\Delta x = \frac{F}{A} \cdot A\Delta x = -P\Delta V$$
+
+$$\boxed{W = -P\Delta V}$$
+
+The negative sign arises because compression ($\Delta V < 0$) does positive work on the gas. Physically, compressing a gas increases particle momenta at each wall collision — work goes directly into the internal kinetic energy of the gas. ⋆
+
+---
+
+## Heat Capacity of Gases and Meyer's Relation
+
+The **specific heat capacity** $C$ relates heat transfer to temperature change:
+
+$$Q = nC\Delta T$$
+
+Gases have two useful heat capacities depending on the constraint applied.
+
+**At constant volume** ($C_V$): No work is done, so all heat goes into internal energy. For a monatomic gas:
+
+$$\Delta U = Q \implies \frac{3}{2}nR\Delta T = nC_V\Delta T$$
+
+$$\boxed{C_V = \frac{3}{2}R}$$
+
+**At constant pressure** ($C_P$): The First Law gives:
+
+$$\Delta U = W + Q \implies \frac{3}{2}nR\Delta T = -P\Delta V + nC_P\Delta T$$
+
+Since pressure is constant, the Ideal Gas Law gives $P\Delta V = nR\Delta T$. Substituting:
+
+$$\frac{3}{2}nR\Delta T = -nR\Delta T + nC_P\Delta T \implies C_P = \frac{5}{2}R$$
+
+**Meyer's Relation** holds for any ideal gas:
+
+$$\boxed{C_P = C_V + R}$$
+
+For **diatomic gases**, the additional rotational degrees of freedom give $C_V = \frac{5}{2}R$ and $C_P = \frac{7}{2}R$. ⋆
+
+---
+
+## The Adiabatic Curve
+
+In an **adiabatic process**, no heat is exchanged, so all energy changes come from work:
+
+$$dU = \frac{3}{2}nR\,dT = \delta W = -P\,dV$$
+
+Using the Ideal Gas Law to eliminate $P = nRT/V$:
+
+$$nC_V\,dT = -\frac{nRT}{V}\,dV$$
+
+$$\frac{C_V}{R}\frac{dT}{T} = -\frac{dV}{V}$$
+
+$$\frac{C_V}{R}\ln T = -\ln V + \text{const}$$
+
+Rewriting $R = C_P - C_V$ and defining $\gamma = C_P/C_V$:
+
+$$TV^{\gamma-1} = \text{const}$$
+
+Substituting $T = PV/nR$ from the Ideal Gas Law:
+
+$$\boxed{PV^\gamma = \text{const}}$$
+
+Since $\gamma > 1$, the adiabatic curve on a $P$-$V$ diagram is steeper than an isothermal ($PV = \text{const}$) curve. ⋆
+
+---
+
+## Carnot's Theorem
+
+**Carnot's Theorem:** No heat engine operating between two reservoirs can be more efficient than a perfectly reversible engine.
+
+**Proof by contradiction:** Suppose engine $E$ has efficiency $\eta_E > \eta_R$ (the reversible engine's efficiency). Both engines produce the same work $W$, but $E$ draws less heat from the hot reservoir: $Q_h' < Q_h$.
+
+Now run $R$ in reverse using $E$'s work output. $R$ extracts $Q_c$ from the cold reservoir and deposits $Q_h$ into the hot reservoir. The combined system:
+
+- Extracts $Q_c - Q_c' > 0$ from the cold reservoir
+- Deposits $Q_h - Q_h' > 0$ into the hot reservoir
+- Does this with no net external work
+
+This transfers heat spontaneously from cold to hot — a direct violation of the **Second Law of Thermodynamics**. Therefore $\eta_E > \eta_R$ is impossible.
+
+**Corollary:** All reversible engines operating between the same two reservoirs have the same efficiency — the maximum possible efficiency for those temperatures. ⋆
+
+---
+
+## Efficiency of a Carnot Engine
+
+The **Carnot Engine** runs on a four-step cycle between temperatures $T_H$ and $T_C$:
+
+1. Isothermal expansion at $T_H$ — heat $Q_H$ is absorbed
+2. Adiabatic expansion — no heat exchanged
+3. Isothermal compression at $T_C$ — heat $Q_C$ is released
+4. Adiabatic compression — no heat exchanged
+
+The net work output is $Q_H - Q_C$, so the efficiency is:
+
+$$\epsilon_{\text{Carnot}} = \frac{Q_H - Q_C}{Q_H}$$
+
+**Finding $Q_H$ and $Q_C$:** For the isothermal processes, $\Delta U = 0$, so heat equals work:
+
+$$Q_H = nRT_H\ln\left(\frac{V_B}{V_A}\right), \qquad Q_C = nRT_C\ln\left(\frac{V_C}{V_D}\right)$$
+
+For the adiabatic processes, using $TV^{\gamma-1} = \text{const}$:
+
+$$\frac{V_C}{V_D} = \frac{V_B}{V_A}$$
+
+Therefore the logarithms cancel, giving:
+
+$$\boxed{\epsilon_{\text{Carnot}} = 1 - \frac{T_C}{T_H}}$$
+
+This is the **maximum possible efficiency** of any heat engine operating between temperatures $T_C$ and $T_H$. Most real engines fall well short of this bound due to irreversibilities. ⋆

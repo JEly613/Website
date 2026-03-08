@@ -1,0 +1,122 @@
+---
+title: "Dynamics"
+subject: "Classical Mechanics"
+chapter: 1
+order: 2
+---
+
+## Extension of F = ma
+
+The full, most rigorous form of Newton's Second Law is:
+
+$$\boxed{F_{\text{net, external}} = Ma_{\text{cm}}}$$
+
+where $M$ is the total mass of the system and $a_{\text{cm}}$ is the acceleration of the center of mass.
+
+To derive this, consider a system of particles. For a single particle of mass $m_i$:
+
+$$F_{i,\text{ext}} + F_{i,\text{int}} = m_i a_i$$
+
+Summing over all particles:
+
+$$\sum_i F_{i,\text{ext}} + \sum_i F_{i,\text{int}} = \sum_i m_i a_i$$
+
+The internal forces cancel by Newton's Third Law, and the right-hand side is $Ma_{\text{cm}}$ by definition of the center of mass. This equation states that the net external force on any system equals the total mass times the acceleration of the center of mass — regardless of whether the system is rigid or not. ⋆
+
+---
+
+## F = dp/dt
+
+**For a closed system** (constant mass), Newton's Second Law gives:
+
+$$F_{\text{net}} = ma$$
+
+Since linear momentum is $p = mv$:
+
+$$\frac{\Delta p}{\Delta t} = m\frac{\Delta v}{\Delta t} = ma = F$$
+
+**For an open system** (mass can enter or exit), the product rule gives a correction term:
+
+$$F = \frac{dp}{dt} = \frac{d}{dt}(mv) = \frac{dm}{dt}v + \frac{dv}{dt}m$$
+
+This shows that $F = ma$ is not always valid — the correction term matters for systems like rockets.
+
+**From special relativity**, the force on an object is:
+
+$$F = \gamma^3 ma$$
+
+where $\gamma$ is the Lorentz factor. This reduces to $F = ma$ at low velocities, revealing that $F = ma$ is an approximation, not a fundamental law. ⋆
+
+---
+
+## Centripetal Acceleration
+
+When an object moves in a circle at constant speed, its velocity direction changes continuously, producing an inward acceleration called the **centripetal acceleration**.
+
+Consider a particle moving from point $A$ to point $B$ on a circle of radius $R$, subtending a small angle $\theta$. The velocity vectors at $A$ and $B$ have the same magnitude $v$ but different directions. Connecting their tails forms a triangle similar to the one formed by the radii:
+
+$$\frac{v}{\Delta v} = \frac{R}{S}$$
+
+where $S = v\Delta t$ is the arc length traveled. Substituting:
+
+$$\frac{\Delta v}{\Delta t} = \frac{v^2}{R}$$
+
+$$\boxed{a_c = \frac{v^2}{R}}$$
+
+This is the magnitude of the centripetal acceleration, directed toward the center of the circle. ⋆
+
+---
+
+## Accelerated Reference Frames
+
+An **inertial reference frame** is one in which Newton's laws hold. To describe motion in a non-inertial frame (e.g., an accelerating car), we introduce a correction.
+
+Consider particle $B$ inside a box accelerating at $a$ to the right, while particle $A$ is stationary in an inertial frame. In $A$'s frame, $B$ is not accelerating. But in the box's frame, $B$ (and $A$) appear to accelerate to the left at magnitude $a$.
+
+By Newton's Second Law applied in the non-inertial frame, $B$ must experience a "force" opposite to the direction of the frame's acceleration. This is called a **fictitious force** — it doesn't exist in any inertial frame, but is very real within the non-inertial frame.
+
+A famous example: astronauts on the ISS are well within Earth's gravitational field, yet experience weightlessness because the fictitious centrifugal force from their orbit exactly balances gravity. ⋆
+
+---
+
+## Reduced Mass Approach
+
+The reduced mass approach converts a **two-body problem** into an equivalent **one-body problem**.
+
+Consider two bodies of masses $m_1$ and $m_2$ interacting via a force $F$. Their accelerations are:
+
+$$a_1 = \frac{F}{m_1}, \qquad a_2 = -\frac{F}{m_2}$$
+
+Transforming into the reference frame of $m_1$, the relative acceleration of $m_2$ is:
+
+$$a_{\text{rel}} = \frac{F}{m_1} + \frac{F}{m_2}$$
+
+Rearranging:
+
+$$F = \left(\frac{1}{m_1} + \frac{1}{m_2}\right)^{-1} a_{\text{rel}} = \mu\, a_{\text{rel}}$$
+
+where the **reduced mass** is:
+
+$$\boxed{\mu = \left(\frac{1}{m_1} + \frac{1}{m_2}\right)^{-1} = \frac{m_1 m_2}{m_1 + m_2}}$$
+
+In other words, in the reference frame of one body, the other body behaves as if it had mass $\mu$, following Newton's Second Law exactly. ⋆
+
+---
+
+## Rubber Bands
+
+Physics olympiads occasionally feature problems involving rubber bands. The key relation is between the tension $T$ in a stretched rubber band and the radially outward force $F_c$ holding it in a circular stretched position.
+
+Consider a small arc subtending angle $d\theta$. The inward component of the tension forces on this arc is:
+
+$$2T\sin\left(\frac{d\theta}{2}\right) \approx 2T \cdot \frac{d\theta}{2} = T\,d\theta$$
+
+Since the arc is in equilibrium with the outward force $dF_c$:
+
+$$dF_c = T\,d\theta$$
+
+Integrating over the full circle ($\theta$ from $0$ to $2\pi$):
+
+$$\boxed{F_c = 2\pi T}$$
+
+This is the total radially outward force required to hold a rubber band of tension $T$ in a circular stretched configuration. ⋆

@@ -1,0 +1,112 @@
+---
+title: "Rotation"
+subject: "Classical Mechanics"
+chapter: 1
+order: 4
+---
+
+## Angular Quantities Are the Same About Any Pivot
+
+Consider a rigid body rotating with angular velocity $\omega$ about an arbitrary point 1. A second point 2, at distance $r$ from point 1, has speed $v = r\omega$.
+
+Transforming into the reference frame of point 2, the angular velocity about point 2 is:
+
+$$\omega_2 = \frac{v}{r} = \frac{r\omega}{r} = \omega$$
+
+The angular velocity about any point on a rigid body is the same. This extends to angular acceleration as well — a useful fact since the torque equation $\tau = I\alpha$ can be applied about any convenient fixed point. ⋆
+
+---
+
+## Kinetic Energy of Rigid Bodies (Rotational KE)
+
+The rotational kinetic energy of a rigid body is:
+
+$$\boxed{K_{\text{rot}} = \frac{1}{2}I\omega^2}$$
+
+**Derivation:** Using the result from the previous chapter, the total kinetic energy of any system is:
+
+$$K_{\text{total}} = \frac{1}{2}Mv_{\text{cm}}^2 + \sum_i \frac{1}{2}m_i v_{i,\text{cm}}^2$$
+
+For a rigid body rotating in the center-of-mass frame, each particle moves purely tangentially. Using polar coordinates centered at the center of mass:
+
+$$\mathbf{u} = \frac{d\mathbf{r}_{i,\text{cm}}}{dt} + r_{i,\text{cm}}\frac{d\theta}{dt}$$
+
+Since the body is rigid, $\frac{d r_{i,\text{cm}}}{dt} = 0$, so each particle's speed relative to the center of mass is $r_{i,\text{cm}}\omega$. Substituting:
+
+$$K_{\text{total}} = \frac{1}{2}Mv_{\text{cm}}^2 + \sum_i \frac{1}{2}m_i r_{i,\text{cm}}^2\omega^2$$
+
+Defining the **moment of inertia** about the center of mass $I_{\text{cm}} \equiv \sum_i m_i r_{i,\text{cm}}^2$:
+
+$$\boxed{K_{\text{total}} = \frac{1}{2}Mv_{\text{cm}}^2 + \frac{1}{2}I_{\text{cm}}\omega^2}$$
+
+For a rigid body rotating about a **fixed pivot** $i$, using the Parallel Axis Theorem ($I_i = I_{\text{cm}} + Mr_{i,\text{cm}}^2$) and noting that $v_{\text{cm}} = r_{i,\text{cm}}\omega$:
+
+$$K_{\text{total}} = \frac{1}{2}Mv_{\text{cm}}^2 + \frac{1}{2}(I_i - Mr_{i,\text{cm}}^2)\omega^2 = \boxed{\frac{1}{2}I_i\omega^2}$$
+
+⋆
+
+---
+
+## Parallel Axis Theorem
+
+The **Parallel Axis Theorem** relates the moment of inertia about an arbitrary axis to the moment of inertia about a parallel axis through the center of mass.
+
+Consider a rigid body with $I_{\text{cm}}$ about its center of mass, and an axis through point $O$ a distance $r_{\text{cm}}$ away. Writing $\mathbf{r}_i = \mathbf{r}_{i,\text{cm}} + \mathbf{r}_{\text{cm}}$:
+
+$$I_O = \sum_i m_i r_i^2 = \sum_i m_i r_{i,\text{cm}}^2 + \sum_i m_i r_{\text{cm}}^2 + 2\mathbf{r}_{\text{cm}} \cdot \sum_i m_i \mathbf{r}_{i,\text{cm}}$$
+
+The first term is $I_{\text{cm}}$, the second is $Mr_{\text{cm}}^2$, and the third is zero by definition of the center of mass. Thus:
+
+$$\boxed{I_O = I_{\text{cm}} + Mr_{\text{cm}}^2}$$
+
+⋆
+
+---
+
+## Common Moments of Inertia
+
+All moments of inertia below are about an axis through the center of mass, using the integral definition $I = \int r^2\, dm$.
+
+### Ring (mass $M$, radius $R$)
+
+A small element of the ring has mass $dm = \frac{M}{2\pi}d\theta$, all at distance $R$:
+
+$$I = \int_0^{2\pi} R^2 \cdot \frac{M}{2\pi}\,d\theta = \boxed{MR^2}$$
+
+### Disk (mass $M$, radius $R$)
+
+A small ring of width $dr$ has mass $dm = \frac{2M}{R^2}r\,dr$:
+
+$$I = \int_0^R r^2 \cdot \frac{2M}{R^2}r\,dr = \frac{2M}{R^2}\cdot\frac{R^4}{4} = \boxed{\frac{1}{2}MR^2}$$
+
+### Rod (mass $M$, length $L$, centered at origin)
+
+$$I = \int_{-L/2}^{L/2} \frac{M}{L}x^2\,dx = \boxed{\frac{1}{12}ML^2}$$
+
+### Spherical Shell (mass $M$, radius $R$)
+
+Slicing the shell into rings at angle $\theta$ from the vertical, each ring has $dm = \frac{1}{2}M\sin\theta\,d\theta$ and radius $R\sin\theta$:
+
+$$I = \int_0^{\pi} \frac{1}{2}MR^2\sin^3\theta\,d\theta = \frac{1}{2}MR^2\int_0^\pi \sin\theta(1-\cos^2\theta)\,d\theta = \boxed{\frac{2}{3}MR^2}$$
+
+### Solid Sphere (mass $M$, radius $R$)
+
+Integrating over spherical shells of radius $r$ and width $dr$, with $dm = \frac{3M}{R^3}r^2\,dr$:
+
+$$I = \int_0^R \frac{2}{3}r^2\cdot\frac{3M}{R^3}r^2\,dr = \frac{2M}{R^3}\int_0^R r^4\,dr = \boxed{\frac{2}{5}MR^2}$$
+
+⋆
+
+---
+
+## Perpendicular Axis Theorem
+
+For a flat (2D) object lying in the $xy$-plane, the moment of inertia about the $z$-axis is:
+
+$$I_z = \int (x^2 + y^2)\,dm = \int y^2\,dm + \int x^2\,dm$$
+
+Since $\int y^2\,dm = I_x$ (distance from the $x$-axis) and $\int x^2\,dm = I_y$:
+
+$$\boxed{I_z = I_x + I_y}$$
+
+This is the **Perpendicular Axis Theorem**: for a planar object, the moment of inertia about an axis perpendicular to the plane equals the sum of the moments of inertia about two perpendicular axes in the plane. ⋆

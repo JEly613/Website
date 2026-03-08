@@ -1,0 +1,127 @@
+\chapter{Appendix}
+\section{Useful Math References}
+\subsection{Trigonometric Identities}
+\begin{align*}
+    \sin^2 x + \cos^2 x &= 1\\
+    1 + \tan^2 x &= \sec^2 x\\
+    1 + \cot^2 x &= \csc^2 x
+\end{align*}
+\begin{align*}
+    \sin(2x) &= 2 \sin x \cos x\\
+    \cos(2x) &= \cos^2 x - \sin^2 x\\
+    \tan(2x) &= \frac{2 \tan x}{1 - \tan^2 x}
+\end{align*}
+\begin{align*}
+    \sin \frac{x}{2}  &= \pm \sqrt{ \frac{1 - \cos x }{2} }\\
+    \cos \frac{x}{2}  &= \pm \sqrt{ \frac{1 + \cos x }{2} }\\
+    \tan \frac{x}{2}  &= \frac{1 - \cos x }{\sin x}\\
+                      &= \frac{ \sin x }{ 1 + \cos x }
+\end{align*}
+\begin{align*}
+    \sin(x + y) &= \sin x \cos y + \cos x \sin y\\
+    \cos(x + y) &= \cos x \cos y - \sin x \sin y\\
+    \sin x + \sin y &= 2 \sin \left( \frac{x + y}{2} \right) \cos \left( \frac{x - y}{2} \right)\\
+    \cos x + \cos y &= 2 \cos \left( \frac{x + y}{2} \right) \cos \left( \frac{x - y}{2} \right)
+\end{align*}
+
+\subsection{Taylor Series}
+\begin{align*}
+    \sin x &= x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots \\
+    \cos x &= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots \\
+    e^x &= 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \dots \\
+    \frac{1}{1+x} &= 1 + x + x^2 + x^3 + \dots \{-1 < x < 1 \}
+\end{align*}
+
+
+\section{Helpful Proofs}
+\subsection{Arc length and a Straight Line} \label{A.2.1}
+Consider an arc subtended by a very small angle $d\theta$ in a circle of radius $R.$
+\begin{figure}[h]
+    \centering
+    \begin{asy}
+        size(8cm);
+        
+        draw((0,0) -- -10*dir(10) -- -10*dir(-10) -- cycle);
+        draw(-10*dir(10) .. -10.3*dir(0) .. -10dir(-10));
+
+        label(Label("$R$", position=MidPoint), (0,0) -- -10*dir(10), S);
+        label(Label("$R$", position=MidPoint), (0,0) -- -10*dir(-10), N);
+        label(Label("$S$", position=MidPoint), -10*dir(10) .. -10.3*dir(0) .. -10dir(-10), W);
+        label(Label("$L$", position=MidPoint), -10*dir(10) -- -10*dir(-10), E);
+
+        markangle("$d\theta$", -10*dir(-10), (0,0), -10*dir(10));
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent The distance $S$ equals $R\theta$ while the distance $L$ equals $2R\sin(d\theta/2)$. Taking the difference of these two lengths gives
+\begin{align}
+    S-L &= R\theta-2R\sin\left(\frac{d\theta}{2}\right) \7
+    &= Rd\theta - 2R\left( \frac{d\theta}{2} - \frac{d\theta^3}{48} + \frac{d\theta^5}{3840} -\ldots \right) \7
+    &\approx \frac{d\theta^3}{24}
+\end{align}
+which is third-order small and thus will always be smaller than $d\theta$, which is already essentially zero. Since the two segments only differ to the third order in $d\theta$, we consider them to be equal for small angles $\bigstar$
+\newpage
+
+\subsection{Properties of Ellipses} \label{A.2.2}
+There is some important ellipse notation that should be understood before approaching elliptical orbits. Let us start with a diagram of an ellipse (note that it's not to scale):
+
+\begin{figure} [h]
+    \centering
+    \begin{asy}
+        size(8cm);
+        real a = 17;
+        real c = 15;
+        real b = 8;
+
+        // Ellipse
+        draw(ellipse((0,0), a, b));
+
+        // Plus and Foci
+        draw((0,b) -- (0,-b));
+        draw((-a, 0) -- (a,0));
+        dot((-11,0)); dot((11,0));
+
+        // Labels
+        Label A = Label("$a$", position=MidPoint, align=2S);
+        Label B = Label("$b$", position=MidPoint, align=2E);
+        Label C = Label("$c$", position=MidPoint, align=2S);
+        Label ra = Label("$r_a$", position=MidPoint, align=2S);
+        Label rp = Label("$r_p$", position=MidPoint, align=2S);
+
+        // Segments
+        draw((0.3,-1.5) -- (17,-1.5), L=A, bar=Bars);
+        draw((-0.3,-1.5) -- (-11,-1.5), L=C, bar=Bars);
+        draw((1.5,0.3) -- (1.5,8), L=B, bar=Bars);
+        draw((-a, -10) -- (-11-0.3,-10), L=rp, bar=Bars);
+        draw((-11+0.3, -10) -- (a,-10), L=ra, bar=Bars);
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent The distance $a$ is the semi-major axis of the ellipse while the distance $b$ is the semi-minor axis. The distance $c$ is a representation of the eccentricity of the ellipse, i.e $c=\epsilon a$. If we place the star at the leftmost focus, $r_p$ represents the perihelion distance while $r_a$ represents the aphelion distance. From just these definitions, we can write
+\begin{align}
+    2a &= r_a + r_p \\
+    2c &= r_a - r_p
+\end{align}
+\noindent Next, by the definition of an ellipse, the distance from the top of the ellipse to each foci must be $a$. So, we can write
+\begin{equation}
+    b^2 + c^2 = a^2
+\end{equation}
+\noindent Multiplying eq. A.4 through by $4$ and substituting using A.2 and A.3 gives
+\begin{align}
+    4b^2 + r_a^2 - 2r_ar_p + r_p^2 &= r_a^2 + 2r_ar_p +r_p^2 \7
+    b &= \sqrt{r_ar_p}
+\end{align}
+$\bigstar$
+
+\subsection{Small Angle Approximations} \label{A.2.3}
+For small angles, we often make a few approximations for trigonometric functions. $\sin(\theta)$ is approximated to $\theta$, since writing out a taylor expansion yields
+\begin{equation*}
+    \theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} -\ldots
+\end{equation*}
+\noindent Ignoring higher-order terms just yields $\sin \theta \approx \theta$. Doing the same for cosine yields
+\begin{equation*}
+    1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} -\ldots
+\end{equation*}
+Ignoring high-order terms gives $\cos \theta \approx 1-\frac{\theta^2}{2}$ $\bigstar$

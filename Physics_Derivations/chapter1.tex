@@ -1,0 +1,1914 @@
+%% * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+%
+%   Derivations in High School Physics Chapter One: Mechanics
+%
+%   Derivation of concepts in mechanics relavent to physics competitions
+%   Author: Justin Ely
+%   Email: justinyely@gmail.com
+%   
+%% * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+\chapter{Mechanics}\label{cap2}
+
+%% * * * * * * * * * * * * * * * * 
+%
+%   1.1: Kinematics
+%
+%   Includes: 
+%
+%   Kinematics Equations
+%   Range Formula
+%   Trajectory Equation
+%
+%% * * * * * * * * * * * * * * * * 
+
+\section{Kinematics}\label{1.1}
+
+%% * * * * * * * *
+%
+%   1.1.1: Kinematics Equations
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} The Kinematics Equations}\label{1.1.1}
+These five equations, known collectively as the "big five," describe all kinematic motion with constant acceleration. Calculus is often employed to derive the equations, but an algebraic derivation is provided here since these equations are required for AP Physics 1. 
+
+\noindent To derive the equations, we start with the following definitions:
+\begin{gather*}
+\Delta \phi = \phi_f - \phi_i \text{ for any quantity } \phi \\
+\phi_{avg} = \dfrac{\phi_i + \phi_f}{2} \text{ for any quantity }\phi \\
+v_{avg} = \frac{\Delta x}{\Delta t} \\
+a_{avg} = \frac{\Delta v}{\Delta t} 
+\end{gather*}
+\noindent Consider a particle moving kinematically (with constant acceleration). It's position is represented by $x$, its velocity $v$, and its acceleration $a$. Using the first and last of the four definitions as well as the fact that acceleration is constant\footnote{i.e. $a_{avg} = a$}, we have:
+\begin{equation}
+\boxed{v_f = v_i + a\Delta t}.
+\end{equation}
+\noindent Using our second definition on our third definition yields:
+\begin{equation}
+\boxed{\Delta x = \left( \dfrac{v_i + v_f}{2}\right) \Delta t}.
+\end{equation}
+\noindent Rearranging eq. 1.2 and plugging it back into 1.1 gives us:
+\begin{gather}
+\Delta t = \Delta x \left(\dfrac{2}{v_f + v_i}\right) \7
+v_f - v_i = \dfrac{2a\Delta x}{v_f + v_i} \7
+\boxed{v_f^2 - v_i^2 = 2a\Delta x}
+\end{gather}
+\clearpage
+\noindent Plugging 1.1 into 1.2 gives:
+\begin{gather}
+\Delta x = \frac12 \Delta t \left( 2v_i + a\Delta t\right) \7
+\boxed{\Delta x = v_i\Delta t + \tfrac12 a (\Delta t)^2}
+\end{gather}
+
+\noindent Lastly, we can substitute $v_i$ from eq. 1.1 into eq. 1.4 to obtain:
+\begin{gather}
+\Delta x = (v_f-a\Delta t)\Delta t + \tfrac12 a(\Delta t)^2  \7
+\boxed{\Delta x = v_f\Delta t - \tfrac12 a(\Delta t)^2}
+\end{gather}
+
+\noindent Thus, we have the "Big Five" equations, describing all motion with constant acceleration:
+\begin{gather}
+v_f = v_i + a\Delta t \label{kin1}\\
+\Delta x = \left( \dfrac{v_i + v_f}{2}\right) \Delta t \label{kin2} \\
+v_f^2 - v_i^2 = 2a\Delta x \label{kin3} \\
+\Delta x = v_i\Delta t + \tfrac12 a (\Delta t)^2 \label{kin4} \\
+\Delta x = v_f\Delta t - \tfrac12 a(\Delta t)^2 \label{kin5}
+\end{gather}
+$\bigstar$
+
+
+%% * * * * * * * *
+%
+%   1.1.2: Range Equation
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} The Range Equation}\label{1.1.2}
+
+\noindent The range equation provides us with a way to quickly calculate the range of a projectile when launched at a certain angle $\theta$ and a certain speed $v_0$ on a flat surface.
+
+\noindent To derive this equation, we start by finding the total time of flight of the projectile. We can use the first of the "Big Five" (\ref{kin1}) to do this by considering vertical motion.
+\begin{gather}
+0 = v_0 \sin \theta - gt_{up} \\
+t_{total} = 2t_{up} = 2\cdot \frac{v_0 \sin{\theta}}{g}
+\end{gather}
+\noindent where we have used the fact that the total time is twice the time the projectile takes to reach its apex due to the symmetry of the motion. We can find the range by simply multiplying the total time by the horizontal speed $v_0 \cos \theta$ since there is no horizontal acceleration. Thus,
+\begin{align}
+    R =&\quad \frac{2v_0 \sin{\theta}}{g} \cdot v_0 \cos \theta \7
+    =&\quad \boxed{\frac{v_0^2 \sin{2\theta}}{g}} \text{ .}
+\end{align}
+$\bigstar$
+
+
+%% * * * * * * * *
+%
+%   1.1.3: Trajectory Equation
+%
+%% * * * * * * * *
+\subsection{\color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} The Projectile Trajectory Equation}\label{1.1.3}
+\noindent All trajectories of objects in projectile motion are parabolas. Sometimes, it is useful to know the equation of these trajectories, as they can give us valuable insight into the maximum range of a projectile or the envelope of safety for a projectile (we will go over the former of these examples since the uses of this equation are not as immediately apparent as other equations derived here)\footnote{Although not obvious, the use of this technique has been featured multiple times on physics competitions and thus is important :)}.
+
+\noindent We start by considering a projectile launched with a speed of $v_0$ at an angle of $\theta$ above the horizontal at the origin and at $t=0$. At a certain time $t$, the $x$ coordinate of this projectile is
+\begin{equation}
+    x = v_0\cos \theta \cdot t
+\end{equation}
+\noindent since $x = v_xt$, and the $y$ coordinate is
+\begin{equation}
+    y = v_0 \sin \theta \cdot t - \tfrac12 g t^2
+\end{equation}
+\noindent using eq. $1.4$. Substituting $t$ from eq. 1.14 into eq. 1.15, we have
+\begin{equation}
+    \boxed{y = \tan \theta \cdot x - \frac{g\sec^2{\theta}}{2v_0^2} \cdot x^2}.
+\end{equation}
+\noindent The trick to use this equation is rewriting the $\sec^2\theta$ as $1+\tan^2\theta$ using a Pythagorean identity. Making this substitution yields the following quadratic in $\tan \theta$:
+\begin{gather}
+    -\frac{gx^2}{2v_0^2}(1+\tan^2\theta) + x\tan\theta - y = 0 \7
+    1 + \tan^2\theta - \frac{2v_0^2}{gx}\tan\theta + \frac{2v_0^2y}{gx^2} \7
+    \tan^2\theta -\frac{2v_0^2}{gx}\tan\theta + \frac{2v_0^2 y}{gx^2} + 1 = 0
+\end{gather}
+\noindent Where the expression has been divided through to remove any coefficient in front of the $\tan^2\theta$ term.
+
+\noindent Since this is a quadratic equation, it can be maximized by setting the discriminant of the quadratic formula to zero. Using this optimization, we can find the maximum range $R_{max}$ of a projectile launched at \textit{any} height $H$. 
+
+\noindent Let's say that a projectile is launched from a height $H$ at an optimal angle $\theta_{max}$ such that it travels a horizontal distance $R_{max}$. If we plug all of these values into eq. 1.17, we get \footnote{Note that the projectile travels a distance $-H$ in the vertical direction, so $y=-H$}.
+\begin{gather}
+    \tan^2\theta -\frac{2v_0^2}{gR_{max}}\tan\theta - \frac{2v_0^2 H}{gR_{max}^2} + 1 = 0.
+\end{gather}
+\noindent Since the values are all optimized, the discriminant ($\sqrt{b^2 - 4ac}$) must equal zero. Writing this condition, we have
+\begin{gather}
+    \frac{4v_0^4}{g^2R_{max}^2} - 4\left(1 - \frac{2v_0^2 H}{gR_{max}^2}\right) \7
+    \frac{v_0^4}{g^2} = R^2_{max} - \frac{2v_0^2H}{g}\7
+    R_{max}^2 = \frac{v_0^2}{g}\left( \frac{v_0^2}{g} + 2H \right).
+\end{gather}
+\noindent We can find $\theta_{max}$ using the quadratic formula, and since the discriminant is zero, the quadratic formula reduces down to $\tan\theta_{max} = -b/2a$. So, 
+\begin{equation}
+    \tan\theta_{max} = \frac{v_0^2}{gR_{max}}.
+\end{equation}
+\noindent If we set $H=0$ in eq. 1.18 and 1.19 (just a projectile launched on a flat surface), we get $R_{max} = v_0^2/g$ and $\theta_{max} = 45^{\circ}$ as predicted in eq. 1.13 $\bigstar$
+
+\clearpage
+
+%% * * * * * * * * * * * * * * * * 
+%
+%   1.2: Dynamics
+%
+%   Includes: 
+%
+%   F=ma For Systems
+%   F = dp/dt
+%   Centripetal Acceleration
+%   Accelerated Reference Frames
+%   Reduced Mass Approach
+%   Rubber Bands
+%
+%% * * * * * * * * * * * * * * * * 
+
+\section{Dynamics}\label{1.2}
+
+%% * * * * * * * *
+%
+%   1.2.1: F=ma For Systems
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Extension of $F=ma$}\label{1.2.1}
+This rather short section concerns the full extended Newton's second law. It adds another layer of nuance that is important to note while considering Newtonian Mechanics.
+
+\noindent The full, most rigorous representation of Newton's second law is the following:
+\begin{equation}
+    \boxed{\mathbf{F}_{Net, External} = M\mathbf{a}_{cm}}.
+\end{equation}
+\noindent Where $M$ is the total mass of the system and $\textbf{a}_{cm}$ is the acceleration of the center of mass of the system. To derive this equation, we first start with a system of particles. If we look at a single particle with mass $m_i$ in this system, writing out Newton's second law gives
+\begin{equation}
+    \mathbf{F}_{i,ext} + \mathbf{F}_{i,int} = m_i\mathbf{a}_i
+\end{equation}
+\noindent where $\mathbf{F}_{i,ext}$ and $\mathbf{F}_{i,int}$ are the forces acting on the particle external and internal to the system respectively. Summing over all particles gives
+\begin{gather}
+    \sum_i \mathbf{F}_{i,ext} + \sum_i \mathbf{F}_{i,int} = \sum_i m_i\mathbf{a}_i \7
+    \mathbf{F}_{Net,Ext} = M\mathbf{a}_{cm}.
+\end{gather}
+\noindent The first term summed over the system becomes the net external force. The second term is equal to zero because of Newton's third law. The right hand side of the equation becomes $M\mathbf{a}_{cm}$ due to the definition of the center of mass i.e. $M\mathbf{a}_{cm} = \sum_i m_i\mathbf{a}_i$.
+
+\noindent This equation states that the net force external to any system (rigid or non-rigid) equals the total mass of the system multiplied by the acceleration of the center of mass of the system. A lot of the time, it will be simply written as $F=ma$, but it is important to remember the full form of the equation $\bigstar$
+
+%% * * * * * * * *
+%
+%   1.2.2: F=dp/dt
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} $F=dp/dt$}\label{1.2.2}
+\noindent This section concerns the definition of force as the rate of change of momentum. The concept is described in three ways, and each section is marked with the appropriate color to denote its nuance.
+
+\noindent \color{OrangeRed} $\blacktriangleright$ \color{black} First, let us consider the most famous representation of Newtons Second Law for a closed system. Namely, that 
+\begin{equation}
+    \mathbf{F}_{net}=m\mathbf{a}.
+\end{equation}
+\noindent Next, we consider the classical definition of linear momentum
+\begin{equation}
+    \mathbf{p} = m\mathbf{v}.
+\end{equation}
+\noindent Next, let us consider the rate of change of the linear momentum $\mathbf{p}$.
+\begin{equation}
+    \frac{\Delta \mathbf{p}}{\Delta t} = m \frac{\Delta \mathbf{v}}{\Delta t} = m\mathbf{a} = \mathbf{F}
+\end{equation}
+\noindent Thus,  the force on an object equals the rate of change of its momentum.
+
+\noindent \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{black} Now, let us use calculus to expand on the previous derivation. Again, we take the rate of change of the linear momentum of a particle.
+\begin{equation}
+    \mathbf{F} = \frac{dp}{dt} = \frac{d}{dt}(m\mathbf{v}) = \frac{dm}{dt}\mathbf{v} + \frac{d\mathbf{v}}{dt}m
+\end{equation}
+\noindent Where the product rule has been used, because we are no longer assuming that the system is closed (i.e. mass can enter and exit). We see that this adds a correction term to $\mathbf{F}=m\mathbf{a}$. Hence, we see that $F$ must not always equal $ma$, which is in fact the case in some systems.
+
+\noindent \color{Orchid} $\blacktriangleright$ \color{black} Now, let us add yet another layer of nuance. We know from special relativity that the force applied on an object is equal to 
+\begin{equation}
+    \mathbf{F} = \gamma^3m\mathbf{a}.
+\end{equation}
+\noindent We get this equation by using $F=dp/dt$ on the equation for relativistic momentum. The significance of this equation is the fact that $F=ma$ is an approximation for small velocities and is not a fundamental "law"  $\bigstar$
+
+% \noindent Classically, we define a Newton (\textbf{N}) as the force required to accelerate a 1 \textbf{kg} mass at an acceleration of 1 $\textbf{m/s}^2$. However, we see that at velocities close to the speed of light, forces much greater than 1 \textbf{N} are required to accelerate a 1 \textbf{kg} mass at 1 $\textbf{m/s}^2$. Thus, we instead must define a Newton as the force required to change the momentum of a particle by 1 $\textbf{kg}\cdot \textbf{m/s}$ in 1 second\footnote{Of course, this just shifts the definition of a Newton to the units of momentum, but we cover that in ---}
+
+%% * * * * * * * *
+%
+%   1.2.3: Centripetal Acceleration
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Centripetal Acceleration}\label{1.2.3}
+When an object moves in a circle at a constant velocity, it experiences an inward acceleration due the direction of the velocity vector changing with time. In this section, we derive this acceleration known as the centripetal acceleration.
+
+\noindent First, consider a particle moving in a circle from a point $A$ to a point $B$.
+%Pizza slice figure (1.1)
+\begin{figure}[h]
+\centering
+\begin{center}
+\begin{asy}
+size(4cm);
+pair a = (0,13);
+pair b = 13*dir(68);
+pair o = (0,0);
+
+draw((0,0) -- a, arrow=Arrow(3mm));
+draw((0,0) -- b, arrow=Arrow(3mm));
+
+label("$R$", (0,7.5), W);
+label("$R$", (3,8.24), SE);
+
+path p = arc(o, 13, 90, 68);
+draw(p);
+
+draw(shift(a) * ((0,0) -- 2*dir(0)), red, arrow=Arrow(2mm));
+draw(shift(b) * ((0,0) -- 2*dir(-22)), red, arrow=Arrow(2mm));
+
+markangle("$\theta$", b, o, a);
+
+label("A", a, NW);
+label("B", b, N + E/2);
+label("O", o, S);
+\end{asy}
+\end{center}
+\caption{}
+\end{figure}
+
+\noindent Where the red vectors are the velocity vectors of the particle at points A and B. Connecting the tails of these two vectors together, we can find the change in velocity and thus the acceleration of this particle.
+\clearpage
+%Set of v vectors and Rs
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.4\textwidth}
+    \centering
+    \begin{asy}[width=0.75\textwidth]
+    size(2.5cm);
+    draw((0,0) -- 5*dir(0), arrow=Arrow(3mm), red);
+    draw((0,0) -- 5*dir(-22), arrow=Arrow(3mm), red);
+    draw(5*dir(0) -- 5*dir(-22), arrow=Arrow(3mm));
+    
+    label(Label("$v$", position=MidPoint), (0,0) -- 5*dir(-22), SW);
+    label(Label("$v$", position=MidPoint), (0,0) -- 5*dir(0), N);
+    label(Label("$\Delta v$", position=MidPoint), 5*dir(0) -- 5*dir(-22), E);
+    
+    markangle("$\theta$", 5*dir(-22), (0,0), 5*dir(0));
+    \end{asy}
+    \caption{Figure a}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.4\textwidth}
+    \centering
+    \begin{asy}[width=0.75\textwidth]
+    size(2.5cm);
+    draw((0,0) -- 6*dir(0), arrow=Arrow(3mm));
+    draw((0,0) -- 6*dir(-22), arrow=Arrow(3mm));
+    label(Label("$R$", position=MidPoint), (0,0) -- 6*dir(-22), SW);
+    label(Label("$R$", position=MidPoint), (0,0) -- 6*dir(0), N);
+    
+    path p = arc((0,0), 6, 0, -22);
+    draw(p);
+    label(Label("$S$", position=MidPoint), p, E);
+
+    markangle("$\theta$", 5*dir(-22), (0,0), 5*dir(0));
+    \end{asy}
+    \caption{Figure b}
+\end{subfigure}
+\caption{}
+\end{figure}
+
+\noindent For small angles $\theta$, Fig.1.2b simply becomes a triangle\footnote{See A.2.1 for a more rigorous proof}, giving us a pair of similar triangles. Thus, we have
+\begin{gather}
+    \frac{v}{\Delta v} = \frac{R}{S}.
+\end{gather}
+\noindent Using $S = v\Delta t$, we have
+\begin{gather}
+    \frac{v}{\Delta v} = \frac{R}{v\Delta t} \7
+    \frac{\Delta v}{\Delta t} = \frac{v^2}{R} \7
+    \boxed{a_c = \frac{v^2}{R}}.
+\end{gather}
+\noindent Which is the magnitude of the centripetal acceleration of an object moving in a circle $\bigstar$
+
+%% * * * * * * * *
+%
+%   1.2.4: Accelerated Reference Frames
+%
+%% * * * * * * * *
+\subsection{\color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Accelerated Reference Frames}\label{1.2.4}
+An inertial reference frame is defined as one in which Newton's laws hold. Thus, we can use Newton's laws to describe motion in all inertial reference frames. However, we sometimes want to describe motion in non-inertial reference frames, such as an accelerating car or a spinning merry-go-round. To describe motion in such frames, we need to make a small modification to Newton's description of motion using forces.
+
+\noindent First, consider two particles A and B. A is in an inertial reference frame and B does not move with respect to A. B is inside a box moving with acceleration $a$ to the right.
+
+\begin{figure}[h]
+    \centering
+    \begin{asy}
+        size(5cm);
+        pair a = (-2,0);
+        pair b = (0,0);
+
+        draw((-1,0.5) -- (1,0.5) -- (1,-0.5) -- (-1,-0.5) -- cycle);
+
+        dot(a);
+        dot(b);
+
+        label("A", a, NE);
+        label("B", b, NE);
+
+        draw((1.2,0) -- (1.6,0), arrow=Arrow(2mm));
+        label("$a$", (1.6,0), NE);
+    \end{asy}
+    \caption{}
+\end{figure}
+\noindent Taking the reference frame of particle A, B is not accelerating and only the box accelerates at $a.$ However, if we take the reference frame of the box instead of particle A, both B and A accelerate to the left with acceleration $a.$
+\clearpage
+
+\begin{figure}[h]
+    \centering
+    \begin{asy}
+        size(5cm);
+        pair a = (-2,0);
+        pair b = (0,0);
+        
+        draw((-1,0.5) -- (1,0.5) -- (1,-0.5) -- (-1,-0.5) -- cycle);
+        
+        dot(a);
+        dot(b);
+        
+        label("A", a, NE);
+        label("B", b, NE);
+        
+        draw((0,0) -- (-0.4,0), arrow=Arrow(2mm));
+        label("$a$", (-0.4,0), NW); 
+        draw(a -- (-2.4,0), arrow=Arrow(2mm));
+        label("$a$", (-2.4,0), NW); 
+    \end{asy}
+    \caption{}
+\end{figure}
+\noindent Thus, we see that in the reference frame of the box, B has a leftward acceleration of magnitude $a$. By Newton's second law, it must have a force applied on it with magnitude $a$ times its mass. The direction should be in the same direction as its acceleration, i.e. to the left. Hence, in the non-inertial reference frame of the box, particle B experiences a "force" opposite to the direction of the acceleration of the reference frame. This sort of force which exists in non-inertial reference frames is called a $fictitious$ force because it doesn't exist in some inertial frames. However, it is very much a real force in non-inertial frames. For example, astronauts on the ISS are still well within the Earth's gravitational pull, but experience no net force (weightlessness) due to the fictitious centrifugal force from their orbit balancing gravity out perfectly $\bigstar$
+
+%% * * * * * * * *
+%
+%   1.2.5: Reduced Mass Approach
+%
+%% * * * * * * * *
+\subsection{\color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Reduced Mass Approach}\label{1.2.5}
+In this section, we consider a method to approach a two-body system by reducing it to a singly body problem. Start by considering two bodies of masses $m_1$ and $m_2$ which interact via some interaction force $F$. The accelerations of each body are
+\begin{align*}
+    a_1 &= \frac{F}{m_1} \\
+    a_2 &= -\frac{F}{m_2} 
+\end{align*}
+\noindent Where the signs are opposite because of Newton's third law. If we transform into the reference frame of $m_1$, $m_2$ experiences a force of magnitude $F$ and accelerates at the relative velocity of the two bodies $a_{rel}$. Where
+\begin{gather*}
+    a_{rel} = \frac{F}{m_1} + \frac{F}{m_2}.
+\end{gather*}
+\noindent Rearranging gives 
+\begin{align}
+    F &= \left( \frac{1}{m_1} + \frac{1}{m_2} \right)^{-1} a_{rel} \7
+    &= \mu a_{rel}
+\end{align}
+\noindent where $\mu = \left( \frac{1}{m_1} + \frac{1}{m_2} \right)^{-1} = \frac{m_1m_2}{m_1 + m_2}$ and is known as the reduced mass. In other words, if we transform into the reference frame of one of the bodies in a two-body system, the mass of the other body effectively becomes the reduced mass, and its motion is defined by Newton's second law $\bigstar$
+
+%% * * * * * * * *
+%
+%   1.2.6: Rubber Bands
+%
+%% * * * * * * * *
+\subsection{\color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Rubber bands}\label{1.2.6}
+\noindent Sometimes, physics Olympiads feature problems with rubber bands, so it's important to know how to approach such problems. This section addresses a relation between the different forces in a rubber band, as well as the general method to approach rubber band problems. First, consider a stretched rubber band with tension $T$ being held in a stretched position by a radially outward force $F_c$. To approach any rubber band problem, consider a small angle $d\theta$ that subtends a small arc and analyze the forces on it. In this case, cutting a small arc and drawing forces on it (as well as a few guidelines) yields the following diagram
+\begin{figure} [h]
+    \centering
+    \begin{asy}
+        size(8cm);
+        real deg = 8;
+        
+        draw((0,0) -- -10*dir(deg), linetype(new real[] {8,8}));
+        draw((0,0) -- -10*dir(-deg), linetype(new real[] {8,8}));
+        draw(-10*dir(deg) -- -10*dir(-deg) -- -10.6*dir(0) -- cycle, linetype(new real[] {8,8}));
+        draw((0,0) -- -10.6*dir(0), linetype(new real[] {8,8}));
+        draw(-10*dir(deg) .. -10.3*dir(0) .. -10dir(-deg), linewidth(2));
+
+        draw(-10*dir(-deg) -- shift(-10*dir(-deg))*(1.2*dir(60)), arrow=Arrow);
+        draw(-10*dir(deg) -- shift(-10*dir(deg))*(1.2*dir(-60)), arrow=Arrow);
+        draw(-10.3*dir(0) -- -11.7*dir(0), arrow=Arrow);
+
+        Label T1 = Label("$T$", position = shift(-10*dir(-deg))*(1.2*dir(60)), align = NE);
+        Label T2 = Label("$T$", position = shift(-10*dir(deg))*(1.2*dir(-60)), align = SE);
+        Label Fc = Label("$dF_c$", position = -11.7*dir(0), align = W);
+
+        label(T1);
+        label(T2);
+        label(Fc);
+        
+        markangle("$d\theta$", -10*dir(-deg), (0,0), -10*dir(deg));
+    \end{asy}
+\end{figure}
+
+\noindent Using similar triangles, the piece of rubber band experiences a force
+\begin{equation*}
+    2T \sin\left(\frac{d\theta}{2}\right) \approx 2T\frac{d\theta}{2} = Td\theta,
+\end{equation*}
+\noindent to the right. To the left, the band simply experiences a force $dF_c$. Thus, since the band is in equilibrium, we have 
+\begin{equation*}
+    dF_c = Td\theta
+\end{equation*}
+\noindent or simply
+\begin{equation}
+    \boxed{F_c = 2\pi T}
+\end{equation}
+$\bigstar$
+
+\clearpage
+
+%% * * * * * * * * * * * * * * * * 
+%
+%   1.3: Energy & Momentum
+%
+%   Includes: 
+%
+%   Conservative Forces 
+%   Energy Balance 
+%   Conservation of Momentum
+%   Relative Velocity Approach
+%   Kinetic Energy of Multi-Body System
+%   Kinetic Energy of a Two Body System
+%   Equations of Motion From Energy
+%
+%% * * * * * * * * * * * * * * * * 
+
+\section{Energy and Momentum}\label{1.3}
+
+%% * * * * * * * *
+%
+%   1.3.1: Conservative Forces
+%
+%% * * * * * * * *
+\subsection{\color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Conservative Forces} \label{1.3.1}
+This short section shows that defining a conservative force as a derivative of a scalar potential and a force which has a circulation of zero are equivalent. 
+
+\noindent The total work done on a particle going along a path $p$ is 
+\begin{equation}
+    W = \int_p \mathbf{F}\cdot d\mathbf{r}
+\end{equation}
+\noindent One definition of a conservative force is that it is able to be written as a derivative\footnote{More rigorously, gradient} of a scalar potential, i.e.
+\begin{equation}
+    \mathbf{F} = -\frac{dU}{d\mathbf{r}}
+\end{equation}
+\noindent Taking the dot product in the integral for work yields
+\begin{equation}
+    W = \int_p \mathbf{F}\cdot d\mathbf{x} = \int_p F_xdx
+\end{equation}
+Lastly, substituting our definition of a conservative force, we have 
+\begin{equation}
+    W = \int_p - \frac{dU}{dx}dx = \int_p -dU
+\end{equation}
+\noindent Taking this integral over a closed path gives zero, since the starting and ending points are the same.
+\begin{equation}
+    W=\oint_p -dU = 0.
+\end{equation}
+Eq. 1.35 the other definition of a conervative force, and thus the two definitions are equivalent $\bigstar$
+
+
+%% * * * * * * * *
+%
+%   1.3.2: Energy Balance
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{RoyalBlue} $\blacktriangleright$ \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Energy Balance \& Conservation of energy}\label{1.3.2}
+To derive the Work-Energy theorem, we start with the definition of work
+\begin{equation}
+    W = F\Delta x.
+\end{equation}
+We can substitute $\Delta x$ from the kinematics equation $v_f^2-v_i^2=2a\Delta x$ into this definition, as well as $F=ma$ from Newton's second law.
+\begin{align}
+    W &= ma \left(\frac{v_f^2-v_i^2}{2a}\right) \7
+    &= \frac12 m(v_f^2-v_i^2)
+\end{align}
+Defining our kinetic energy, or energy due to motion, as $K \equiv \tfrac12mv^2$, we have
+\begin{equation}
+    \boxed{W=\Delta K}.
+\end{equation}
+This equation says that the total work done on a system is equal to the change in kinetic energy of the system. However, we can further split each side of this equation into more components. The total work done on a system is a sum of external work $W_{ext}$, internal non-conservative work $W_{nc}$, and internal conservative work $W_c$.
+\begin{equation}
+    W_{ext} + W_c + W_{nc} = \Delta K
+\end{equation}
+Using the definition of potential energy (i.e. $W_c = -\Delta U_c$), we have
+\begin{equation}
+    W_{ext} + W_{nc} = \Delta K + \Delta U_c
+\end{equation}
+Where $U_c$ is any sort of potential energy due to a conservative force (gravity, spring, etc.). When $W_{ext} = W_{nc} = 0$, $\Delta K + \Delta U_c = 0$, which means that energy is conserved. Next, internal non-conservative work in the system can be regarded as changes in the structure of the system, which can be accounted for by changes in chemical or thermal energy. For example, if we consider the system of a block sliding on the floor, the non-conservative work done by friction is dissipated as heat. Thus, we have
+\begin{equation}
+    \boxed{W_{ext} = \Delta K + \Delta U_c + \Delta U_{th} + \Delta U_{chem}}
+\end{equation}
+\noindent\color{RoyalBlue} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} From thermodynamics, we know that heat is another way to transfer energy, similar to work. Thus, our energy balance equation is
+\begin{equation}
+    \boxed{Q_{ext} + W_{ext} = \Delta K + \Delta U_c + \Delta U_{th} + \Delta U_{chem}}.
+\end{equation}
+Where any internal heat has been accounted for as changes in the thermal energy of the system $\bigstar$
+
+
+%% * * * * * * * *
+%
+%   1.3.3: Conservation of Momentum
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Conservation of Momentum}\label{1.3.3}
+Momentum for a system of particles is conserved when there are no external net forces acting on the system. To derive this fact, we start by considering a system of two particles that interact via some interaction force for a time $\Delta t$.
+%figure with 2 particles
+\begin{figure} [h]
+    \centering
+    \begin{asy}
+        size(4cm);
+
+        //axes
+        draw((-0.5,0) -- (5,0), arrow=Arrow(TeXHead));
+        draw((0,-0.5) -- (0,5), arrow=Arrow(TeXHead));
+
+        //points and labels
+        pair a = 4*dir(75);
+        pair b = 4*dir(15);
+        dot(a);
+        dot(b);
+        label(a, "1", NW);
+        label(b, "2", E);
+
+        //Forces
+        draw(a -- shift(dir(-45))*a, arrow=Arrow(1mm));
+        draw(b -- shift(dir(135))*b, arrow=Arrow(1mm));
+        label(shift(dir(-45))*a, scale(0.7)*"$\overrightarrow{F_{21}}$", E);
+        label(shift(dir(135))*b, scale(0.7)*"$\overrightarrow{F_{12}}$", W + E/3);
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent In this diagram, $\mathbf{F_{12}}$ is the interaction force that 1 exerts on 2 while $\mathbf{F_{21}}$ is the force that 2 exerts on 1. Thus, we can calculate the impulse experienced by each particle.
+\begin{gather*}
+    \Delta\mathbf{p}_1 = \mathbf{F}_{21} \Delta t \\
+    \Delta\mathbf{p}_2 = \mathbf{F}_{12} \Delta t
+\end{gather*}
+\noindent Since $\mathbf{F}_{12}$ and $\mathbf{F}_{21}$ are a Newton's 3rd law pair, we have
+\begin{gather}
+    \mathbf{F}_{21} = -\mathbf{F}_{12} \\
+    \scriptsize \textbf{ OR} \normalsize \7
+    \Delta \mathbf{p}_1 = -\Delta \mathbf{p}_2.
+\end{gather}
+\noindent Thus, the total change in momentum of the system is 
+\begin{equation}
+    \sum \Delta \mathbf{p} = \Delta \mathbf{p}_1 + \Delta \mathbf{p}_2 = 0.
+\end{equation}
+\noindent Note that we assumed that there were no external net forces to the system. If there were, the total change in momentum of each particle would not be equal in magnitude and thus momentum would not be conserved $\bigstar$.
+
+
+%% * * * * * * * *
+%
+%   1.3.4: Relative Velocity Approach
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Relative Velocity for Elastic Collisions}\label{1.3.4}
+When solving for the velocities in an elastic collision, we use two conservation laws: conservation of momentum, and since its an elastic collision, conservation of kinetic energy. These two conservation laws look like the following
+\begin{gather}
+    m_1\mathbf{v}_{1i} + m_2\mathbf{v}_{2i} = m_1\mathbf{v}_{1f} + m_2\mathbf{v}_{2f} \\
+    \frac12 m_1 v_{1i}^2 + \frac12 m_2 v_{2i}^2 = \frac12 m_1 v_{1f}^2 + \frac12 m_2 v_{2f}^2
+\end{gather}
+Because of the kinetic energy conservation equation, this system often gives a quadratic, which can often be cumbersome to solve. If we can find another equation that is linear, it would make the process of solving for the velocities of the particles much easier. Luckily, there is another equation that we can derive to use to make solving for the velocity easier. To derive this equation, we first rearrange both of the above equations to factor out the masses of the objects.
+\begin{gather*}
+    m_1(\mathbf{v}_{1i} - \mathbf{v}_{1f}) = m_2(\mathbf{v}_{2f} - \mathbf{v}_{2i}) \\
+    m_1(v_{1i}^2 - v_{1f}^2) = m_2(v_{2f}^2 - v_{2i}^2)
+\end{gather*}
+\noindent Dividing the equations yields:
+\begin{equation}
+   \boxed{\mathbf{v}_{1i} + \mathbf{v}_{1f} = \mathbf{v}_{2i} + \mathbf{v}_{2f}} 
+\end{equation}
+\noindent We can use this equation along with the conservation of momentum equation (1.47) to quickly solve for velocities in an elastic collision $\bigstar$
+
+
+%% * * * * * * * *
+%
+%   1.3.5: Total Kinetic Energy of Multi-Body System
+%
+%% * * * * * * * *
+\subsection{\color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Total Kinetic Energy of Any System} \label{1.3.5}
+This section a derivation for a frequently used form of the total kinetic energy of a system by separating the kinetic energy of the system into energy due to the center of mass and energy due to relative motion. Note that the section title indicates that Physics C students should review this concept, which I deem true because the topics here involve concepts used in rotational kinetic energy and the parallel-axis theorem. However, one could very well pass Physics C without the extra nuance provided by this proof\footnote{F=ma and USAPhO students, though, should stay!}.
+
+\noindent First, consider an arbitrary system (rigid or non-rigid) with total mass $M$ in a coordinate system with center of mass at $\mathbf{r}_{cm}$. Further, consider the $i^{\text{th}}$ at the position $\mathbf{r}_i$ and at a position $\mathbf{r}_{icm}$ relative to the center of mass.
+
+\begin{figure}[h]
+    \centering
+    \begin{asy}
+        size(5cm);
+        
+        // axes
+        draw((-.5,0) -- (13,0), arrow=Arrow(TeXHead));
+        draw((0,-.5) -- (0,13), arrow = Arrow(TeXHead));
+        
+        // blob
+        draw((2.5,5.5){up} .. (5.5,10) .. (7.5,8) .. (10.75,7.5) .. (10,2.5) .. (5,3) .. (2.5,5.5){up});
+        
+        //dots
+        pair cm = (7.5,5.5);
+        pair i = (5, 8);
+        dot(cm); dot(i);
+        label("cm", cm, NE + E/2);
+        label("i", i, NE + N/2);
+        
+        pen p = linewidth(0.3mm);
+        draw((0,0) -- cm, p, arrow = Arrow(3mm));
+        draw((0,0) -- i, p, arrow = Arrow(3mm));
+        draw(cm -- i, p, arrow = Arrow(3mm));
+        
+        label("$\mathbf{r}_{icm}$", (6.0,6.7), NE);
+        label("$\mathbf{r}_{cm}$", (5.7,4.1), SE);
+        label("$\mathbf{r}_{i}$", (3.9,5.6), NW);
+    \end{asy}
+    \caption{}
+\end{figure}
+\noindent Notice that $\mathbf{r}_i=\mathbf{r}_{cm} + \mathbf{r}_{icm}$ and thus $\mathbf{v}_i = \mathbf{v}_{cm} + \mathbf{v}_{icm}$. The kinetic energy of this particle is thus
+\begin{align}
+    K_i &= \frac12 m_i \mathbf{v}_i^2 \7
+    &= \frac12 m_i (\mathbf{v}_{cm} + \mathbf{v}_{icm})^2 \7
+    &= \frac12 m_i (v_{cm}^2 + 2\mathbf{v}_{cm} \cdot \mathbf{v}_{icm} + v_{icm}^2)
+\end{align}
+\noindent Summing over all particles yields the following sum:
+\begin{align}
+    K_{total} = &\sum_{i} K_i = \7
+    &\sum_i \frac12 m_i  v_{cm}^2 \7
+    + &\sum_i m_i (\mathbf{v}_{cm} \cdot \mathbf{v}_{icm}) \7
+    + &\sum_i \frac12 m_i v_{icm}^2 \nonumber
+\end{align}
+\noindent The first term is simply equal to $\frac12 M v_{cm}^2$ because $v_{cm}$ is independent of the $i^{th}$ particle. The second term is a bit more difficult to understand, though. Thus, prepare yourself! The next part gets quite dense. Rearranging the second term in a very specific way yields:
+\begin{equation}
+    \mathbf{v}_{cm} \cdot \frac{d}{dt}\left(\sum_i m_i \mathbf{r}_{icm}\right)
+\end{equation}
+\noindent To understand this new sum recall the definition of center of mass, namely that
+\begin{equation*}
+    M\mathbf{r}_{cm} = \sum_i m_i\mathbf{r}_i
+\end{equation*}
+\noindent This equation says that the product of the object's total mass $M$ times the distance from the origin to the center of mass of a system $\mathbf{r}_{cm}$ is equal to the sum of the products of the mass of each constituent particle $m_i$ and its distance to the origin $\mathbf{r}_{i}$. In eq. 1.51, however, notice that the distance in the sum $\mathbf{r}_{icm}$ is the distance of each particle from the center of mass, implying that the origin is centered on the center of mass. That means that the sum in eq. 1.51 is just equal to the total mass of the object $M$ times the distance from the center of mass to the center of mass, which is zero!
+
+\noindent Hence, we have
+\begin{equation*}
+    K_{total} = \frac12 M v_{cm}^2 + \sum_i \frac12 m_i v_{icm}^2
+\end{equation*}
+\noindent Where $v_{icm}$ is the relative velocity of the $i^{th}$ particle to the center of mass $\bigstar$
+
+%% * * * * * * * *
+%
+%   1.3.6: Kinetic Energy of a Two-Body System
+%
+%% * * * * * * * *
+\subsection{\color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Total Kinetic Energy of a Two-Body System} \label{1.3.6}
+In this section, we use the result from \ref{1.3.5} to derive an expression for the total energy of a two-body system. We specifically consider this system since it is the one under consideration for all two-body collisions.
+
+\noindent Start by considering two masses $m_1$ and $m_2$ moving at velocities $\mathbf{v}_1$ and $\mathbf{v}_2$ respectively. Since we wish to find the sum $\sum\frac12 m_i v_{icm}^2$, we should find the velocity of each mass with respect to the velocity of their center of mass. By definition, the center of mass velocity is
+\begin{equation*}
+    \mathbf{v}_{cm} = \frac{m_1\mathbf{v}_1 + m_2\mathbf{v}_2}{m_1 + m_2}.
+\end{equation*}
+\noindent The velocity of $m_1$ with respect to the center of mass $\mathbf{v}_{1cm}$ is therefore
+\begin{align*}
+    \mathbf{v}_{1cm} &= \mathbf{v}_1 - \mathbf{v}_{cm} \\
+    &= \frac{m_1\mathbf{v}_1 + m_2\mathbf{v}_1 - m_1\mathbf{v}_1 - m_2\mathbf{v}_2}{m_1 + m_2} \\
+    &= \frac{m_2}{m_1 + m_2}\left(\mathbf{v}_1 - \mathbf{v}_2\right) \\
+    &= \frac{m_2}{m_1 + m_2}\mathbf{v}_{rel}
+\end{align*}
+\noindent Where $\mathbf{v}_{rel} \equiv \mathbf{v}_1 - \mathbf{v}_2$ is the relative velocity of the two bodies. By symmetry, $\mathbf{v}_{2cm}$ equals
+\begin{equation*}
+    -\frac{m_1}{m_1 + m_2}\mathbf{v}_{rel}
+\end{equation*}
+\noindent Now, we can write the sum using these values
+\begin{align*}
+    \sum\frac12 m_i v_{icm}^2 &= \frac12 m_1 v_{1cm}^2 + \frac12 m_2 v_{2cm}^2 \\
+    &= \frac12 \frac{m_1 m_2^2}{(m_1 + m_2)^2}v_{rel}^2 + \frac12 \frac{m_1^2 m_2}{(m_1 + m_2)^2}v_{rel}^2 \\
+    &= \frac12 \frac{m_1m_2}{m_1+m_2} v_{rel}^2 \left(\frac{m_1+m_2}{m_1+m_2}\right) \\
+    &= \frac12 \mu v_{rel}^2
+\end{align*}
+\noindent Where $\mu \equiv \frac{m_1m_2}{m_1+m_2}$ is the reduced mass of the system. Hence, the total kinetic energy of a two-body system is equal to 
+\begin{equation}
+    \boxed{K_{total} = \frac12 M v_{cm}^2 + \frac12 \mu v_{rel}^2}
+\end{equation}
+\noindent This expression also provides an easy way to find the energy lost in a perfectly-inelastic collision, since $v_{rel}$ after the collision is zero. Thus, the total energy lost in such a collision is $\frac12 \mu v_{rel}^2$ $\bigstar$
+
+%% * * * * * * * *
+%
+%   1.3.7: Obtaining Equations of Motion from Energy
+%
+%% * * * * * * * *
+\subsection{\color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Obtaining Equations of Motion Using Energy}\label{1.3.7}
+$F=ma$ gives us an important relation between the force applied on an object and its acceleration. If we can write out $F=ma$ for every object in a system, we can solve for the total movement of the system, or its equations of motion. However, finding and writing forces for every object can often be extremely tedious, which is the exact reason why conserved quantities like energy and momentum are so important. In particular, we can sometimes use energy to find the equation of motion of certain systems if a forces approach is not straightforward. \\
+\\
+\noindent Consider an arbitrary system that depends on a certain coordinate $x$. the total energy of the system is
+\begin{equation}
+    E = \frac12 m\dot{x}^2 + U(x)
+\end{equation}
+\noindent where $m$ is the mass of the system and $U(x)$ is the potential energy of the system. Since energy is conserved, $dE/dt = 0$, or 
+\begin{equation*}
+    \frac{dE}{dt} = m\dot{x}\ddot{x} + \frac{dU}{dx}\dot{x} = 0.
+\end{equation*}
+\noindent Using the definition of potential energy, we have
+\begin{align*}
+    -\frac{dU}{dx}\dot{x} &= m\ddot{x} \\
+    F &= ma
+\end{align*}
+\noindent What the above expression implies is that if we have a non-trivial system that only depends on a single coordinate, we can write the total energy and take a time derivative to find the equation of motion of the system. This process can oftentimes be a lot easier that writing out forces, such as a system of water oscillating in a U-tube, or a complicated spring oscillator. \\
+\\
+\noindent In particular, if a system has a total energy of the form
+\begin{equation*}
+    E = \frac12Ax^2 + \frac12Bv^2 
+\end{equation*}
+\noindent where A and B are constants and x and v are the position and velocity respectively, the particle oscillates with angular frequency $\omeg = \sqrt{A/B}$ $\bigstar$
+
+\clearpage
+
+%% * * * * * * * * * * * * * * * * 
+%
+%   1.4: Rotation
+%
+%   Includes: 
+%
+%   Constant Rotational Quantities
+%   Rotational KE
+%   Parallel Axis Theorem
+%   Common Moment of Inertias
+%   Perpendicular Axis Theorem
+%
+%% * * * * * * * * * * * * * * * * 
+
+\section{Rotation}\label{1.4}
+
+
+%% * * * * * * * *
+%
+%   1.4.1: Constant Rotational Quantities
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Angular Quantities Are the Same About Any Pivot}\label{1.4.1}
+Consider a rigid body rotating freely with angular velocity $\omeg$ about an arbitrary point $1$ on the body. Then, consider another point $2$ a distance $r$ away from the point of rotation. By the definition of rigid body rotation, this point has a speed $v=r\omeg$ in the direction shown in the diagram.
+\begin{figure}[!h]
+    \centering
+    \begin{asy}
+        size(5cm);
+        
+        // blob
+        draw((2.5,5.5){up} .. (5.5,10) .. (8,9) .. (10.75,7.5) .. (10,2.5) .. (5,3) .. (2.5,5.5){up});
+
+        // rotation
+        draw((3,10.7) .. (5.5,11.7) .. (7,10.7), arrow = Arrow(2mm));
+        label("$\omeg$", (7,10.7), NE);
+        
+        // dots
+        pen p = linewidth(0.3mm);
+        pair cm = (9.5,3.5);
+        pair i = shift(5.5*dir(145))*cm;
+        pair end = shift(2*dir(55))*i;
+
+        //Labels
+        Label r = Label("$r$", position=MidPoint, align=NE);
+        Label one = Label("$1$", position = cm, align = NE);
+        Label two = Label("$2$", position = i, align = W);
+        Label three = Label("$v$", position = end, align = E);
+
+        //Drawn Dots
+        dot(cm); dot(i);
+        label(one); label(two); label(three);
+
+        //Lines + Arrows
+        draw(cm -- i, p + linetype("5 5"), L=r);
+        draw(i -- end, p, arrow = Arrow(2mm));
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent Transforming into the reference frame of $2$, we can find the angular velocity of the object about this point. Since it's a rigid body, the angular velocity of the body at $2$ is equal the speed of $1$ in $2$'s reference frame divided by $r$. Since $1$ and $2$ move relative to each other, this velocity is simply $v$. Hence,
+\begin{align}
+    \omeg_2 &= v/r \7
+    &= \frac{r\omeg}{r} \7
+    &= \omeg \nonumber
+\end{align}
+\noindent Thus, the angular velocity about any point on a rigid body is the same. It also follows that other angular quantities are the same, such as angular acceleration. This result is important, since the angular acceleration of a rigid body can be found by taking the torque about any fixed point, an important fact if some axes are easier to take torque around $\bigstar$
+
+
+%% * * * * * * * *
+%
+%   1.4.2: Rotational KE
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Kinetic Energy of Rigid Bodies (Rotational KE)}\label{1.4.2}
+\color{OrangeRed} $\blacktriangleright$ \color{black} The following equation for rotational kinetic energy is required for AP Physics 1, but the derivation is not required. However, nuance from the derivation could be useful.
+\begin{equation}
+    K_{rot} = \frac12 I \omega^2
+\end{equation}
+\color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black}
+\noindent To derive this formula, first consider an arbitrary rotating body (rigid or non-rigid) rotating with speed $\omeg$ and translating with speed $v_{cm}$.
+\begin{figure}[!h]
+    \centering
+    \begin{asy}
+        size(5cm);
+        
+        // axes
+/*        draw((-.5,0) -- (13,0), arrow=Arrow(TeXHead));
+        draw((0,-.5) -- (0,13), arrow = Arrow(TeXHead)); */
+        
+        // blob
+        draw((2.5,5.5){up} .. (5.5,10) .. (8,9) .. (10.75,7.5) .. (10,2.5) .. (5,3) .. (2.5,5.5){up});
+
+        // rotation
+        draw((3,10.7) .. (5.5,11.7) .. (7,10.7), arrow = Arrow(2mm));
+        label("$\omeg$", (7,10.7), NE);
+        
+        // dots
+        pen p = linewidth(0.3mm);
+        pair cm = (7.5,5.5);
+        pair i = (5, 8);
+        dot(cm); // dot(i);
+        label("cm", cm, NW + W/2);
+/*      label("$i$", i, NW + N/2);
+        
+        pen p = linewidth(0.3mm);
+        draw((0,0) -- cm, p, arrow = Arrow(3mm));
+        draw((0,0) -- i, p, arrow = Arrow(3mm));
+        draw(cm -- i, p, arrow = Arrow(3mm));
+        label("$\mathbf{r}_{icm}$", (6.0,6.7), NE);
+        label("$\mathbf{r}_{cm}$", (5.7,4.1), SE);
+        label("$\mathbf{r}_{i}$", (3.9,5.6), NW); */
+
+        draw((7.7,5.5) -- (10.5,5.5), p, arrow = Arrow(2mm));
+        label("$\mathbf{v}_{cm}$", (10.5,5.5), N);
+        
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent To take the total kinetic energy of this body, we can use the formula derived in \ref{1.3.5}:
+\begin{equation}
+    K_{total} = \frac12 M v_{cm}^2 + \sum \frac12 m_i v_{icm}^2
+\end{equation}
+\noindent Remember that this equation is always valid, but it can be difficult to calculate the sum in the second term for every system. So, the objective here is to simplify the sum for certain systems, making it easier to calculate the total energy for these systems. In \ref{1.3.6}, we derived the simplified expression for a system of two bodies, and here we derive a simplified expression for rigid bodies. \\ 
+\\
+\noindent To begin, we first transform into the reference frame of the center of mass, since we need to find the velocity of the particles relative to the center of mass. Then, we can consider an arbitrary mass element on the body moving at a velocity $\mathbf{u}$ relative to the center of mass at a position $\mathbf{r}_{icm}$ relative to the center of mass. We can split this $\mathbf{u}$ vector into two components: one parallel to $\mathbf{r}_{icm}$ and one perpendicular to $\mathbf{r}_{icm}$. Thus, we have 
+\newpage
+\begin{figure} [h!] 
+    \centering
+    \begin{asy}
+        size(7cm);
+        
+        // blob
+        draw((2.5,5.5){up} .. (5.5,10) .. (8,9) .. (10.75,7.5) .. (10,2.5) .. (5,3) .. (2.5,5.5){up});
+
+        // points
+        pair cm = (7.5,5.5);
+        pair i = shift(3*dir(135))*cm;
+        pair iend = shift(2*dir(45))*i;
+        dot(cm); dot(i);
+
+        // vectors
+        pen p = linewidth(0.3mm);
+        pen d = linetype("5 5");
+        draw(cm -- i, p, arrow = Arrow(2mm));
+        draw(i -- iend, blue+d, arrow = Arrow(2mm));
+        draw(iend -- shift(dir(135))*iend, green+d, arrow = Arrow(2mm));
+        draw(i -- shift(dir(135))*iend, red+p, arrow = Arrow(2mm));
+
+        // labels
+        label("cm", cm, S);
+        label("i", i, W);
+        label("$\mathbf{r}_{icm}$", shift(1.5*dir(135))*cm, NE);
+
+        // legend
+        draw((5.5,1.5) -- (7.5,1.5), red+p);
+        label("$\mathbf{u}$", (8.5,1.5));
+        draw((5.5,1) -- (7.5,1), green+d);
+        label("$\mathbf{u}_{\parallel}$", (8.5,1));
+        draw((5.5,0.5) -- (7.5,0.5), blue+d);
+        label("$\mathbf{u}_{\perp}$", (8.5,0.5));
+        
+    \end{asy}
+    \caption{}
+    \label{fig 1.8}
+\end{figure}
+
+\noindent where $\mathbf{u} = \mathbf{u}_\parallel + \mathbf{u}_\perp$. Since we are using polar coordinates centered at the center of mass, we can represent these vectors as
+\begin{equation*}
+    \mathbf{u} = \frac{d\mathbf{r}_{icm}}{dt} + r_{icm}\frac{d\boldsymbol{\theta}}{dt}.
+\end{equation*}
+\noindent Since we are considering a rigd body, $\frac{d\mathbf{r}_{icm}}{dt} = 0$ by definition. Thus, writing our total kinetic energy yields
+\begin{gather*}
+    K_{total} = \frac12 M v_{cm}^2 + \sum \frac12 m_i r_{icm}^2 \omega^2.
+\end{gather*}
+\noindent If we define the moment of inertia about the center of mass $I_{cm}$ to be $\sum  m_i r_{icm}^2$, we have
+\begin{gather}
+    \boxed{K_{total} = \frac12 M v_{cm}^2 + \frac12 I_{cm} \omega^2}.
+\end{gather}
+\noindent This equation states that we can write the total kinetic energy of a rigid body as the kinetic energy due to motion of the center of mass plus the kinetic energy due to rotation about the center of mass.
+
+\noindent What if, however, we want to consider the kinetic energy of a rigid body rotating about a fixed pivot? In that case, consider the same rigid body in Fig. 1.8, but this time fixed about point $i$. Thus, we will also accordingly set our coordinate system to be centered at $i$.
+\begin{figure} [H]
+    \centering
+    \begin{asy}
+        size(7cm);
+        
+        // blob
+        draw((2.5,5.5){up} .. (5.5,10) .. (8,9) .. (10.75,7.5) .. (10,2.5) .. (5,3) .. (2.5,5.5){up});
+        draw((12,7.5) .. (13,5.5) .. (12.5,3.5), arrow = Arrow(2mm));
+        label("$\omeg$", (12.5,3.5), 3E/2);
+
+        // points
+        pair cm = (7.5,5.5);
+        pair i = shift(3*dir(135))*cm;
+        pair iend = shift(2*dir(45))*i;
+        dot(cm); dot(i);
+
+        // vectors
+        pen p = linewidth(0.3mm);
+        pen d = linetype("5 5");
+        draw(i -- cm, p, arrow = Arrow(2mm));
+        draw(cm -- shift(2*dir(225))*cm, red+p, arrow = Arrow(2mm));
+
+        // labels
+        label("cm", cm, E);
+        label("i", i, W);
+        label("$\mathbf{r}_{icm}$", shift(1.5*dir(135))*cm, NE);
+        label("$\mathbf{v}_{cm}$", shift(2*dir(225))*cm, SE);
+
+        // legend
+        draw((4.7,1.5) -- (6.7,1.5), red+p);
+        label("$\mathbf{v}_{cm} = r_{icm} \omeg$", (8.5,1.5));
+        
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent In this case, the center of mass has some velocity $\mathbf{v}_{cm}$ relative to point $i$. Using the definition of a rigid body and the definition of angular velocity, we have $\mathbf{v}_{cm} = r_{icm} \omeg$. Next, since we are solving for rotation about a point separate from the center of mass, it is appropriate to use the Parallel-Axis theorem. Namely, that
+\begin{equation}
+    I_i = I_{cm} + Mr_{icm}^2
+\end{equation}
+\noindent Plugging $I_{cm}$ into eq. 1.56 gives
+\begin{align}
+    K_{total} &= \frac12 M v_{cm}^2 + \frac12 \omega^2 (I_i - Mr_{icm}^2) \7
+    &= \frac12 M v_{cm}^2 - \frac12 M (r_{icm} \omeg)^2 + \frac12 I_i \omeg^2 \7
+    &= \boxed{\frac12 I_i \omeg^2}
+\end{align}
+\noindent This expression gives the total kinetic energy of a rigid body rotating about a fixed pivot. Notice that if we transform into the center of mass reference frame here, we essentially have the same scenario as depicted in fig. \ref{fig 1.8}.
+
+\noindent To summarize, the total kinetic energy of a freely moving rigid body is comprised of two parts: the kinetic energy due to translation of the center of mass $\frac12 M v_{cm}^2$ and the kinetic energy due rotation about the center of mass $\frac12 I_{cm} \omega^2$. For a rigid body rotating about a fixed pivot, the total kinetic energy is simply $\frac12 I_i \omeg^2$ where $I_i$ is the moment of inertia about the fixed pivot $\bigstar$
+
+%% * * * * * * * *
+%
+%   1.4.3: Parallel Axis Theorem
+%
+%% * * * * * * * *
+\subsection{\color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Parallel Axis Theorem}\label{1.4.3}
+The Parallel Axis Theorem provides a way to find the moment of inertia of a rigid body about an axis parallel to an axis that passes through the center of mass. First, consider the following rigid body with moment of inertia $I_{cm}$ about the center of mass. Further consider that we wish to find the moment of inertia about the axis perpendicular to the page and passing through point $O$.
+
+\begin{figure}[h]
+    \centering
+    \begin{asy}
+        size(6cm);
+        
+        // blob
+        draw((2.5,5.5){up} .. (5.5,10) .. (7.5,8.5) .. (10.75,7.5) .. (10,2.5) .. (5,3) .. (2.5,5.5){up});
+        
+        //dots
+        pair cm = (10,5.5);
+        pair i = (5, 8);
+        pair O = (7,4);
+        dot(cm); dot(i); dot(O);
+        label("$cm$", cm, NE + E/2);
+        label("$i$", i, NW);
+        label("$O$", O, SW);
+        
+        pen p = linewidth(0.3mm);
+        draw(O -- cm, p, arrow = Arrow(3mm));
+        draw(O -- i, p, arrow = Arrow(3mm));
+        draw(cm -- i, p, arrow = Arrow(3mm));
+        
+        label("$\mathbf{r}_{icm}$", (7.0,7.0), NE);
+        label("$\mathbf{r}_{cm}$", (7.9,4.5), SE);
+        label("$\mathbf{r}_{i}$", (5.9,5.6), NW);        
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent By the definition of moment of inertia, the moment of inertia of the body around $O$ is $I_O = \sum m_i r_i^2$. Writing $r_i$ as a sum of vectors, we have $r_i = r_{icm} + r_{cm}$. Plugging into our definition yields
+\begin{equation}
+    I_O = \sum m_i r_{icm}^2 + \sum m_i r_{cm}^2 + 2r_{cm} \cdot \sum  m_i r_{icm}.
+\end{equation}
+\noindent The first term is simply equal to $I_{cm}$ by definition. The second term is equal to $Mr_{cm}^2$ since $r_{cm}$ is a constant. The third term equals zero due to the definition of center of mass\footnote{See sec. 1.3.5 for a more thorough explanation}. Thus, we have the parallel axis theorem, which states that the moment of inertia of a rigid body along an axis parallel to an axis through the center of mass equals the moment of inertia of the center of mass times $Mr_{cm}^2$ where $r_{cm}$ is the distance between the axes. That is,
+\begin{equation}
+    I_O = I_{cm} + Mr_{cm}^2
+\end{equation}
+$\bigstar$
+
+%% * * * * * * * *
+%
+%   1.4.4: Common Moment of Inertias
+%
+%% * * * * * * * *
+\subsection{\color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Common Moment of Inertias} \label{1.4.4}
+There are some common moment of inertias that should be memorized to increase speed while solving problems. However, it is also important to have the mathematical flexibility to be able to derive these expressions, especially for Physics C and above. All of these moment of inertias will be taken about an axis which passes through the center of mass\footnote{Which is also the geometrical center since we will only consider uniform mass here.}, although one can find the moment of inertia about other axes with clever use of geometry paired with parallel and perpendicular axis theorem. To derive all of these, we will use the integral definition of moment of inertia, that is
+\begin{equation}
+    I = \int r^2 dm.
+\end{equation}
+\noindent Where the mass element $dm$ is a distance $r$ from the axis. To find $dm$, we consider a small portion of the object, then use the condition of uniform mass to get $dm$ in terms of an integration variable. For more complicated shapes, we first find the moment of inertia of a small slice and integrate over the entire object.
+
+\noindent $\blacktriangleright$ Starting with the simplest object, a ring of mass $M$ and radius $R$. Start by considering a small section of the ring of length $Rd\theta$ with mass $dm$ a distance $R$ from the center. Using the condition of uniform mass density gives
+\begin{align*}
+    \frac{dm}{Rd\theta} &= \frac{M}{2\pi R} \\
+    dm &= \frac{M}{2\pi}d\theta.
+\end{align*}
+\noindent Plugging into the definition of moment of inertia and integrating yields
+\begin{align}
+    I &= \int_0^{2\pi} R^2 \frac{M}{2\pi}d\theta \7
+    &= \frac{MR^2}{2\pi}\cdot 2\pi \7
+    &= \boxed{MR^2}
+\end{align}
+\noindent Note that this formula has no dependency on the height of the ring.
+
+\noindent $\blacktriangleright$ Next is a disk of mass $M$ and radius $R$. Consider a small ring of width $dr$ and mass $dm$ a distance $r$ from the center of the disk. Using the condition of uniform mass density gives
+\begin{align*}
+    \frac{dm}{2\pi rdr} &= \frac{M}{\pi R^2} \\
+    dm &= \frac{2M}{R^2} rdr.
+\end{align*}
+\noindent Using eq. 1.62, the moment of inertia of this small ring is
+\begin{equation*}
+    dI = dm r^2 = \frac{2M}{R^2} r^3 dr.
+\end{equation*}
+\noindent Integrating over the entire object gives
+\begin{align}
+    I &= \int_0^R \frac{2M}{R^2} r^3 dr \7
+    &= \frac{2M}{R^2} \cdot \frac{R^4}{4} \7
+    &= \boxed{\frac12 MR^2}
+\end{align}
+\noindent Notice that this formula has no dependency on the height of the disk.
+
+\noindent $\blacktriangleright$ Next is a rod of mass $M$ and length $L$ centered at the origin. Consider a small section of length $dx$ and mass $dm$. Using the condition of uniform mass density gives
+\begin{align*}
+    \frac{dm}{dx} &= \frac{M}{L} \\
+    dm &= \frac{M}{L}dx
+\end{align*}
+\noindent Using the definition of moment of inertia gives
+\begin{align}
+    I &= \int_{-\frac{L}{2}}^{\frac{L}{2}} \frac{M}{L} x^2 dx \7
+    &= \frac{M}{L} \cdot \frac13 \left(\frac{L^3}{8} + \frac{L^3}{8}\right) \7
+    &= \boxed{\frac{1}{12}ML^2}
+\end{align}
+\noindent $\blacktriangleright$ Next is a spherical shell of mass $M$ and radius $R$. To find the moment of inertia of this sphere, we can slice it into small rings at an angle of $\theta$ from the vertical and with width $Rd\theta$. These rings have mass $dm$ and radius $R\sin\theta$.
+\begin{figure} [!h]
+    \centering
+    \begin{asy}
+        size(6cm);
+        
+        // Variables
+        real h = 2.5;
+        real a = 3.1224989992;
+        real b = 0.1875;
+        pen p = linewidth(0.3mm);
+        pen d = linetype("5 5");
+    
+        // Circle
+        draw(circle((0,0),4), p);
+
+        // Oval
+        draw(shift((0,h))*scale(a,b)*unitcircle, p);
+
+        // Lines
+        draw((0,0) -- (a,h), p);
+        draw((0,0) -- (0,h), d);
+
+        // Labels
+        label("$R$", (1.86,1.11));
+        markangle("$\theta$", (a,h), (0,0), (0,h));     
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent Using the condition of uniform mass density gives
+\begin{align*}
+    \frac{dm}{2\pi R\sin\theta \cdot Rd\theta} &= \frac{M}{4\pi R^2} \\
+    dm &= \frac12 M \sin\theta d\theta
+\end{align*}
+\noindent Using our result from eq. 1.62, the moment of inertia for this small ring is 
+\begin{align*}
+    dI &= dm \cdot (R\sin\theta)^2 \\
+    &= \frac12 MR^2 \sin^3\theta
+\end{align*}
+\noindent Integrating yields
+\begin{align}
+    I &= \frac12 \cdot \int_0^\pi \sin^3 \theta d\theta \7
+    &= \frac12 \cdot \int_0^\pi \sin\theta(1-\cos^2\theta) d\theta \7
+    &= \frac12 \cdot \left[-\cos\theta +\frac13 \cos^3\theta\right]_0^\pi \7
+    &= \boxed{\frac23 MR^2}
+\end{align}
+\noindent $\blacktriangleright$ Lastly, let us consider a solid sphere of mass $M$ and radius $R$. Let us further consider small spherical shells of radius $r$ and width $dr$. Using the condition of uniform mass density gives
+\begin{align*}
+    \frac{dm}{4\pi r^2 dr} &= \frac{M}{\frac43 \pi R^3} \7
+    dm &= 3\frac{M}{R^3} r^2 dr
+\end{align*}
+\noindent Using the result from eq. 1.65, the moment of inertia of each spherical shell $dI$ is
+\begin{equation*}
+    dI = \frac23 dm r^2 = 2\frac{M}{R^3} r^4 dr.
+\end{equation*}
+\noindent Lastly, integrating yields
+\begin{align}
+    I &= 2\frac{M}{R^3} \int_0^R r^4 dr \7
+    &= \boxed{\frac25 MR^2}
+\end{align}
+$\bigstar$
+
+%% * * * * * * * *
+%
+%   1.4.5: Perpendicular Axis Theorem
+%
+%% * * * * * * * *
+\subsection{\color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Perpendicular Axis Theorem}\label{1.4.5}
+The perpendicular axis theorem provides an easy way to find moment of inertias perpendicular to two known axes, or for symmetrical shapes. Consider that we are trying to find the moment of inertia along the $z$ axis $I_z$ of an arbitrary object. This moment of inertia is
+\begin{equation*}
+    I_z = \int z^2 dm
+\end{equation*}
+\noindent where $z$ is the distance of $dm$ from the $z$ axis. Using the Pythagorean Theorem, we have
+\begin{align}
+    I_z &= \int y^2 + x^2 dm \7
+    &= \boxed{I_x + I_y}
+\end{align}
+\noindent Notice that $\int y^2 dm$ equals $I_x$ and $\int x^2 dm$ equals $I_y$ because $y$ is the distance of $dm$ from the $x$ axis and vice versa $\bigstar$
+
+\clearpage
+
+%% * * * * * * * * * * * * * * * * 
+%
+%   1.5: Gravitation
+%
+%   Includes: 
+%
+%   Gravitational Potential Energy
+%   Energy and Angular Momentum in Elliptical Orbits
+%   Kepler's Second Law
+%   Kepler's Third Law
+%   Newton's Shell Theorem
+%
+%% * * * * * * * * * * * * * * * * 
+
+\section{Gravitation}\label{1.5}
+
+%% * * * * * * * *
+%
+%   1.5.1: Gravitational Potential Energy
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Gravitational Potential Energy}\label{1.5.1}
+\color{OrangeRed} $\blacktriangleright$ \color{black} The following formula for the gravitational potential of a system of two bodies is required for AP Physics 1, but the derivation is not required.
+\begin{equation}
+    U = -\frac{Gm_1m_2}{r_{12}}
+\end{equation}
+\noindent \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} To derive the above formula, we start with the fact that the gravitational force is a conservative force i.e. it can be written as the derivative of some scalar potential\footnote{See \ref{1.3.1}}
+\begin{equation}
+    F = -\frac{dU}{dr}
+\end{equation}
+\noindent The negative sign might not make sense at first but it is actually added as convention to give the equation more intuitive sense. The negative sign makes it so that conservative forces act in an attempt to decrease potential energy, which is what we experience in everyday life (if you walk up a hill, gravity tries to pull you down). Plugging Newton's Law of Gravitation into eq. 1.69 gives
+\begin{align*}
+    -\frac{dU}{dr} &= -\frac{Gm_1m_2}{r^2} \\
+    dU &= \frac{Gm_1m_2}{r^2}dr
+\end{align*}
+\noindent Now, to integrate, we must first define a point to zero potential, since the above expression gives no real indication of where zero is (the reason for +C in indefinite integrals). By convention, we set a point at infinity to zero, since it is common to all systems and is so far removed from all points in the system such that it is (usually) unaffected. However, one could theoretically choose any point they wish. Thus, integrating from infinity to the distance between the two bodies $R$ gives
+\begin{align}
+    \int_0^{U(R)} dU &= \int_{\infty}^R \frac{Gm_1m_2}{r^2} \7
+    U(R) &= \left[-\frac{Gm_1m_2}{r}\right]_{\infty}^{R} \7
+    &= -\frac{Gm_1m_2}{R}
+\end{align}
+\noindent which is the general form for gravitational potential energy. Now consider a mass $m$ being raised a height $h$ off the surface of a planet with radius $R_E$ and mass $M$ such that $h << R_E$. Using the above equation, its change in gravitational potential energy is 
+\begin{align*}
+    \Delta U &= -\frac{GMm}{R_E} - \left(-\frac{GMm}{R_E+h}\right) \\
+    &= GMm\left(\frac{1}{R_E + h} - \frac{1}{R_E}\right) \\
+    &= GMm\left(\frac{R_E - (R_E + h)}{R_E(R_E + h)}\right) \\
+    &= GMm\left(\frac{h/R_E^2}{1+ h/R_E}\right).
+\end{align*}
+\noindent Since $h<<R_E$, the expression simply reduces to
+\begin{align}
+    \Delta U &= \frac{GMm}{R_E^2}h \7
+    &= mgh
+\end{align}
+\noindent which is the approximation used for small displacements near the surface of a planet $\bigstar$
+
+%% * * * * * * * *
+%
+%   1.5.2: Energy and Angular Momentum for Elliptical Orbits
+%
+%% * * * * * * * *
+\subsection{\color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Energy and Angular Momentum in Elliptical Orbits}\label{1.5.2}
+In orbits, there are two important quantities that are conserved: energy and angular momentum. Since both of these quantities depend on the position of the satellite, by writing the quantities in terms of properties of the orbit, we can use their conservation to solve for the shape of the orbit. Before we begin, it would be helpful to review the properties of ellipses in \ref{A.2.2}, because the following derivations will use them extensively.
+
+\noindent To start, consider a satellite of mass $m$ orbiting around a star of mass $M$ in an elliptical orbit. Let the distance of closest approach, known as the perihelion distance, be $r_p$ and let the distance of furthest approach, known as the aphelion distance, be $r_a$. At perihelion, the satellite has speed $v_p$ while at aphelion it has speed $v_a$. By conservation of angular momentum,
+\begin{align}
+    mr_av_a &= mr_pv_p \7
+    v_p &= \frac{r_a}{r_p}v_a
+\end{align}
+\noindent Next, we can write conservation of energy for this satellite at perihelion and aphelion.
+\begin{equation*}
+    \frac12 mv_a^2 -\frac{GMm}{r_a} = \frac12mv_p^2 - \frac{GMm}{r_p}
+\end{equation*}
+\noindent Rearranging, plugging $v_p$ from eq. 1.72, and reducing with difference of squares yields
+\begin{align}
+    v_p^2 - v_a^2 &= 2GM\left(\frac{1}{r_p} - \frac{1}{r_a}\right) \7
+    v_a^2\left(\frac{r_a^2 -r_p^2}{r_p^2}\right) &= 2GM\left(\frac{r_a-r_p}{r_ar_p}\right) \7
+    v_a^2\left(\frac{r_a +r_p}{r_p}\right) &= 2GM\left(\frac{1}{r_a}\right) \7
+    v_a^2 &= \frac{r_p}{r_a} \frac{GM}{a}
+\end{align}
+\noindent Now, we can find the angular momentum of the satellite, which is constant throughout the entire orbit. Plugging into the definition of angular momentum yields
+\begin{align}
+    L &= mr_av_a \7
+    &= m\sqrt{r_ar_p}\sqrt{\frac{GM}{a}} \7
+    &= \boxed{mb\sqrt{\frac{GM}{a}}}
+\end{align}
+\noindent Next, we can find the total energy of the system. At aphelion, the total energy is 
+\begin{equation*}
+    E = \frac12 mv_a^2 -\frac{GMm}{r_a}.
+\end{equation*}
+\noindent Substituting $v_a$ from eq. 1.73 gives
+\begin{align}
+    E &= \frac12 mv_a^2 -\frac{GMm}{r_a} \7
+    &= GMm\left(\frac{r_p}{2r_aa} - \frac{1}{r_a}\right) \7
+    &= GMm\left(\frac{r_p}{2r_a(r_a + r_p)} - \frac{r_a+r_p}{r_a(r_a+r_p)}\right) \7
+    &= GMm\left(\frac{-1}{r_a+r_p}\right) \7
+    &= \boxed{-\frac{GMm}{2a}}
+\end{align}
+\noindent Using these forms of energy and angular momentum can help greatly in solving for the shape of orbits $\bigstar$
+
+%% * * * * * * * *
+%
+%   1.5.3:Kepler's Second Law
+%
+%% * * * * * * * *
+\subsection{\color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Kepler's Second Law}\label{1.5.3}
+Kepler's second law states that the area swept out by a satellite for any duration of time in its orbit is constant. Before I provide a derivation for it, it is important to note that all of Kepler's laws were discovered empirically by Johannes Kepler about ninety years before Newton published his law of universal gravitation. Thus, the following is more of a way to mathematically show that Kepler was correct in his laws, as opposed to a derivation which Kepler himself followed. 
+
+\noindent To start, consider a small amount of time $\Delta t$ in which the satellite sweeps out an area $\Delta A$ (shown in grey) at a distance $r$ from the star. 
+\begin{figure} [h]
+    \centering
+    \begin{asy}
+        size(8cm);
+        real a = 17;
+        real c = 15;
+        real b = 8;
+
+        // Ellipse
+        draw(ellipse((0,0), a, b));
+
+        // Dots
+        dot((-11,0)); dot((11.7,5.8)); dot((9.75,6.56));
+
+        // Labels
+        Label r = Label("$r$", position=MidPoint, align=NW);
+        Label x = rotate(-15)*scale(0.8)*Label("$v\Delta t$", position=MidPoint, align=N+E/2);
+
+        // Segments
+        draw((-11,0) -- (11.7,5.8)); draw((-11,0) -- (9.75,6.56), L=r);
+        filldraw((-11,0) -- (11.7,5.8) -- (9.75,6.56) -- cycle, gray);
+        draw((9.95,7) -- (11.9,6.3), L=x, bar=Bars);
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent If $\Delta t$ is small enough, $\Delta A$ becomes a triangle\footnote{See \ref{A.2.1}} with base $v\Delta t$ and height $r$. Thus, its area is
+\begin{equation*}
+    \Delta A = \frac12 vr\Delta t 
+\end{equation*}
+\noindent Rearranging and using the fact that $L = mrv$ gives
+\begin{equation}
+    \frac{\Delta A}{\Delta t} = \frac{L}{2m}
+\end{equation}
+\noindent which is a constant rate since $L$ is a conserved quantity $\bigstar$
+
+%% * * * * * * * *
+%
+%   1.5.4: Kepler's Third Law
+%
+%% * * * * * * * *
+\subsection{\color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Kepler's Third Law}\label{1.5.4}
+Kepler's third law relates the period of a satellite's orbit to the semimajor axis of the orbit. To derive it, recall the statement of Kepler's second law, namely that the rate of change of area swept out in an orbit is constant with respect to time. Thus, 
+\begin{equation}
+    \frac{dA}{dt} = \frac{A}{T}
+\end{equation}
+\noindent where A is the total area of the orbit and T is the period of the orbit. Plugging in the result from eq. 1.79 as well as the area of an ellipse gives
+\begin{equation*}
+    \frac{L}{2m} = \frac{\pi ab}{T}.
+\end{equation*}
+\noindent Lastly, plugging in out result from eq. 1.74 for L gives
+\begin{align}
+    T &= \frac{2m\pi ab}{L} \7
+    &= \frac{2m\pi ab}{mb\sqrt{\frac{GM}{a}}} \7
+    &= \boxed{\frac{2\pi a^{3/2}}{\sqrt{GM}}}
+\end{align}
+$\bigstar$
+
+%% * * * * * * * *
+%
+%   1.5.5: Shell Theorem
+%
+%% * * * * * * * *
+\subsection{\color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Shell Theorem}\label{1.5.5}
+Newton's law of universal gravitation provides an easy way to calculate the gravitational force between two point-like particles, but not for continuous bodies. Newton's Shell Theorem provides a way to calculate the gravitational field emanating from a spherical shell or solid sphere by integrating over small point-like masses, solving the issue of not knowing the gravitational field instated by continuous bodies. \\
+\\
+\noindent To derive the Shell Theorem, consider a point at a distance $D$ from a spherical shell of mass $M$ and radius $R$. Furthermore, consider a slice of the shell as described by the following diagram 
+
+\newpage
+
+\begin{figure} [h]
+    \centering
+    \begin{asy}
+        size(12cm);
+        pair origin = (0,0);
+        pair particle = (13,0);
+        real dtheta = 3;
+
+        //Labels
+        Label R = Label("$R$", position = MidPoint, align = NW);
+        Label r = Label("$r$", position = MidPoint, align = NE);
+        Label D = Label("$D$", position = MidPoint, align = S);
+        Label O = Label("$O$", position = origin, align = W);
+        Label P = Label("$P$", position = particle, align = E);
+        Label A = Label("$A$", position = 5*dir(60), align = NE);
+
+        // Circles and Dots
+        draw(circle(origin,5));
+        dot(origin, black); dot(particle, black);
+        label(O); label(P); label(A);
+
+        // Labeled Triangle
+        draw(origin -- 5*dir(60), L=R);
+        draw(5*dir(60) -- particle, L=r);
+        draw(origin -- particle, linetype(new real[] {8,8}));
+        draw((0,-0.5) -- (13,-0.5), L=D, bar=Bars);
+
+        // Stripe
+        filldraw(5*dir(60) -- 5*dir(60-dtheta) -- 5*dir(dtheta-60) -- 5*dir(-60) -- cycle, grey);
+
+        // Angles
+        markangle("$\theta$", (3,0), origin, 3*dir(60));
+        markangle("$\phi$", 5*dir(60), particle, origin);
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent At point P, the gravitational field due to the slice $dg$ is given by 
+\begin{equation}
+    dg = G\frac{dm}{r^2} \cos\phi
+\end{equation}
+\noindent where $dm$ is the mass of the slice and only the horizontal component is taken since the vertical components from each point on the slice cancel out. The mass of the slice is given by 
+\begin{equation*}
+    dm = \sigma 2\pi R\sin\theta Rd\theta
+\end{equation*}
+\noindent where $\sigma = \frac{M}{4\pi R^2}$ is the surface mass density of the shell. Plugging values into eq. 1.76 and rearranging yields
+\begin{equation}
+    dg = \frac{GM}{2}\cdot\frac{\sin\theta d\theta}{r^2}\cos\phi.
+\end{equation}
+\noindent To simplify eq. 1.80, we can write two laws of cosines:
+\begin{align*}
+    r^2 &= R^2 + D^2 - 2RD\cos\theta \\
+    R^2 &= r^2 + D^2 - 2rD\cos\phi
+\end{align*}
+\noindent Differentiating the first one yields the relation
+\begin{equation*}
+    rdr = RD\sin\theta d\theta
+\end{equation*}
+\noindent Substituting all values into eq. 1.80 to write things in terms of $r$ results in the expression
+\begin{align}
+    dg &= \frac{GM}{4RD^2}\cdot\frac{r^2 + D^2 - R^2}{r^2} dr \7
+    &= \frac{GM}{4RD^2}\left(1 + \frac{D^2 - R^2}{r^2}\right)dr
+\end{align}
+\noindent Since $r$ changes from $D-R$ to $D+R$ as it moves across the sphere, we integrate over those bounds
+\begin{align}
+    g &= \frac{GM}{4RD^2}\int_{D-R}^{D+R} 1 + \frac{D^2 - R^2}{r^2}dr \7
+    &= \frac{GM}{4RD^2}\left[r - \frac{D^2 - R^2}{r}\right]_{D-R}^{D+R} \7
+    &= \frac{GM}{4RD^2}\left[D + R - (D - R) - (D - R - (D + R))\right] \7
+    &= \frac{GM}{4RD^2}\left[4R\right] = \boxed{\frac{GM}{4D^2}}.
+\end{align}
+\noindent This result states that we can simply treat the spherical shell as a point mass located at the center of the sphere for points outside of the sphere. What if we were inside the sphere, though? Consider the following diagram, which is identical to Fig. 1.13 except point $P$ is inside the shell.
+\begin{figure} [h]
+    \centering
+    \begin{asy}
+        size(8cm);
+        pair origin = (0,0);
+        pair particle = (4,0);
+        real dtheta = 3;
+        real theta = 70;
+
+        //Labels
+        Label R = Label("$R$", position = MidPoint, align = NW);
+        Label r = Label("$r$", position = MidPoint, align = NE);
+        Label D = Label("$D$", position = 0.65*EndPoint, align = S);
+        Label O = Label("$O$", position = origin, align = W);
+        Label P = Label("$P$", position = particle, align = E);
+        Label A = Label("$A$", position = 5*dir(theta), align = NE);
+
+        // Circles and Dots
+        draw(circle(origin,5));
+        dot(origin, black); dot(particle, black);
+        label(O); label(P); label(A);
+
+        // Labeled Triangle
+        draw(origin -- 5*dir(theta), L=R);
+        draw(5*dir(theta-dtheta) -- particle, L=r);
+        draw(origin -- particle, linetype(new real[] {8,8}));
+        draw((0,-0.5) -- (4,-0.5), L=D, bar=Bars);
+
+        // Stripe
+        filldraw(5*dir(theta) -- 5*dir(theta-dtheta) -- 5*dir(dtheta-theta) -- 5*dir(-theta) -- cycle, grey);
+
+        // Angles
+        markangle("$\theta$", (3,0), origin, 3*dir(theta));
+        markangle("$\phi$", 5*dir(theta), particle, origin);
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent In this case, the expression for the gravitational field at $P$ is the same as the previous case, except the bounds of integration now go from $R-D$ to $R+D$. Calculating the gravitational field at $P$ using these new bounds gives us
+\begin{align}
+    g &= \frac{GM}{4RD^2}\left[r + \frac{R^2 - D^2}{r}\right]_{R-D}^{R+D} \7
+    &= \frac{GM}{4RD^2}\left[R - D + R + D - (R + D + R - D)\right] \7
+    &= \frac{GM}{4RD^2}\left[0\right] = \boxed{0}.
+\end{align}
+\noindent This result that there is no gravitational field inside of a spherical shell can be surprising at first, but one can intuitively make sense of it by drawing a vertical line through $P$, and considering that although more mass lies to the left side of the line, it is on average farther away from $P$ and vice versa\footnote{Don't take this explanation too literally, it is just a way to make sense of the result!}.\\
+\\
+\noindent Similar to the technique used in \ref{1.4.3}, we can now extend the result from eq. 1.83 to a solid sphere. For a point at a distance $D$ from the center of a uniform solid sphere with radius $R$ and mass $M$, the gravitational field due to a thin shell of the sphere is
+\begin{equation*}
+    dg = \frac{G\rho}{D^2}4\pi r^2 dr = \frac{3GM}{D^2R^3}r^2 dr.
+\end{equation*}
+\noindent Where $\rho = \frac{3M}{4\pi R^3}$ is the volume mass density of the sphere. Integrating over the entire sphere yields
+\begin{equation}
+    g = \boxed{\frac{GM}{D^2}},
+\end{equation}
+\noindent which makes sense, since each shell of the sphere can be treated as a mass located at the center of the sphere. \\
+\\
+\noindent To summarize, the gravitational field inside a spherical shell is zero, the gravitational field outside of solid spheres and spherical shells can be calculated by treating the sphere as a mass located at the center of the sphere $\bigstar$
+
+\clearpage
+
+%% * * * * * * * * * * * * * * * * 
+%
+%   1.6: Oscillations
+%
+%   Includes: 
+%
+%   Simple Harmonic Motion
+%   Period of a Spring Oscillator
+%   Period of a Simple Pendulum
+%   Damped OScillations
+%   Q-Factor
+%   Driven OScillations
+%
+%% * * * * * * * * * * * * * * * * 
+
+\section{Oscillations}\label{1.6}
+
+%% * * * * * * * *
+%
+%   1.6.1: Simple Harmonic Motion
+%
+%% * * * * * * * *
+\subsection{\color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Simple Harmonic Motion} \label{1.6.1}
+Consider a particle moving along the x axis located at a position $x(t)$. By definition, simple harmonic motion is any motion in which the position of the particle is constrained by the following differential equation:
+\begin{equation}
+    \ddot{x} = -\omeg^2 x
+\end{equation}
+\noindent where $\omeg$ is an arbitrary constant. Typically, we write this equation as depicted above, but the constant could really be written anyway one wants. With this definition, we can solve the differential equation to find how the particle moves over time. Before we do that, though, let's classify this equation. We call this kind of differential equation a \textbf{homogeneous second order linear ordinary differential equation}. Here's what all of those words mean: \textbf{Homogeneous} meaning that all terms have $x(t)$ in them or a derivative of $x(t)$. \textbf{Second Order} meaning that the highest derivative is a second derivative. \textbf{Linear} meaning that the equation is linear in $x(t)$ and its derivatives. \textbf{Ordinary Differential Equation (ODE)} meaning that there are no partial derivatives. One of the most powerful techniques to solve homogeneous linear differential equations is to guess a solution then plug it into the equation and solve for constants. In this case, we start by guessing that the solution to the equation takes the form of 
+\begin{equation*}
+    x(t) = Ae^{\alpha t}
+\end{equation*}
+\noindent where $A$ and $\alpha$ are arbitrary constants. We choose to guess this exponential solution since the derivative of $e^x$ is also $e^x$, so terms often cancel. Plugging this guess into eq. 1.77 yields 
+\begin{align*}
+    \alpha^2Ae^{\alpha t} &= -\omeg^2 Ae^{\alpha t} \\
+    \alpha &= \pm i\omeg
+\end{align*}
+\noindent Notice that we have two values for $\alpha$, meaning that we will have two solutions to the differential equation. For linear differential equations, the most general solution to a differential equation is the sum of these solutions\footnote{I won't prove this property of linear differential equations here, so you can just take this as a fact.}. Thus, we have 
+\begin{equation}
+    x(t) = Ae^{i\omeg t}+Be^{-i\omeg t}
+\end{equation}
+\noindent with $A$ and $B$ both being constants. Using Euler's identity, we have 
+\begin{align}
+    x(t) &= A\cos \omeg t + iA\sin\omeg t + B\cos \omeg t - iB\sin\omeg t\7
+    &= \boxed{C\cos \omeg t + D\sin \omeg t} \\
+    &= \boxed{E\cos(\omeg t + \phi)}.
+\end{align}
+\noindent The two boxed solutions to the differential equation are most commonly used, since they represent sinusoidal motion. Let us analyze each of them. In the first one (eq. 1.77), setting time to $t=0$ gives $x(0) = C$, meaning that the constant $C$ represents the initial position of the particle. If we take a derivative of the equation, then set $t=0$, we have $\dot{x}(0) = \omeg D$, meaning that the constant $D$ is related to the initial velocity of the particle. Thus, if we know the initial position and velocity of the particle, we should use 1.79 to represent the motion of the particle. 
+
+\noindent Looking at eq. 1.80, we see that the maximum value of the function is $E$. We call this value the amplitude of the motion\footnote{As a side note, $E = \sqrt{C^2 + D^2}$, which you should try to verify using addition of sinusoids and energy}. Setting $t=0$ in eq. 1.80 gives $x(0) = E\cos \phi$, meaning that $\phi$ has some relation to the starting position of the particle. We call this value the phase of the motion. Thus, we should use this form when we want to solve for the general properties of an oscillation\footnote{Notice how we assigned physical meaning to the constants $C, D, E,$ and $\phi$, but not to $A$ and $B$. Why? Because $A$ and $B$ could be complex numbers and have no physical meaning} $\bigstar$ 
+
+%% * * * * * * * *
+%
+%   1.6.2: Period of a Spring Oscillator
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Period of a Spring Oscillator}\label{1.6.2}
+The simplest example of simple harmonic motion is a block attached on a spring left to oscillate. If we consider a mass $m$ attached to a spring of spring constant $k$, writing Hooke's Law with Newton's Second Law gives
+\begin{align}
+    ma &= -kx \7
+    a &= -\frac{k}{m}x
+\end{align}
+\noindent We know that if we have an equation in the form of eq. 1.89, the angular frequency of the oscillation is the square root of the coefficient in front of $x$ (see sec. 1.6.1). Thus,
+\begin{align}
+    \omeg &= \sqrt{\frac{k}{m}} \7
+    T &= \boxed{ 2\pi \sqrt{\frac{m}{k}}}
+\end{align}
+\noindent Note the process taken to reach the result. We found an equation of motion that resembled that of simple harmonic motion. Then, we used the result of the solution to the equation of motion to find the frequency of the oscillation. This technique is extremely important when solving for the frequency of any simple harmonic oscillator $\bigstar$
+
+%% * * * * * * * *
+%
+%   1.6.3: Period of a Simple Pendulum
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{PineGreen} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Period of a simple Pendulum}\label{1.6.3}
+A pendulum is a good example of simple harmonic motion, and the periodic motion of its swinging has been used to keep time for centuries. To find the period of its oscillation, first consider a pendulum of length $l$ with a mass $m$ on the end. Furthermore, consider the pendulum at a small angle $\theta$ with respect to the vertical.
+\begin{figure} [h]
+    \centering
+    \begin{asy}
+        size(4cm);
+        pair a = (0,-13);
+        pair b = 13*dir(-68);
+        pair o = (0,0);
+
+        dot(b, 5+black);
+        
+        draw((0,0) -- a,linetype(new real[] {8,8}));
+        draw((0,0) -- b);
+    
+        label("$l$", (3,-8.24), NE + E/2);
+        
+        draw(shift(b) * ((0,0) -- -5*dir(90)), arrow=Arrow(2mm));
+ 
+        markangle("$\theta$", a, o, b);
+        label("$m$", b, E);
+        label("$mg$", shift(5*down)*b, E);
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent Writing $\tau = I\alpha$ for this system about the pivot point gives
+\begin{align}
+    I\alpha &= mgl\sin\theta \7
+    \alpha &= \frac{mg}{ml^2}\sin\theta \7
+    \alpha &= \frac{g}{l}\sin\theta
+\end{align}
+\noindent For small angles, $\sin\theta \approx \theta$\footnote{See \ref{A.2.3}}. So, we can write 
+\begin{equation*}
+    \alpha = \frac{g}{l}\theta.
+\end{equation*}
+\noindent By the definition of SHM, we have
+\begin{align}
+    \omeg &= \sqrt{\frac{g}{l}} \7
+    T &= 2\pi\sqrt{\frac{l}{g}}
+\end{align}
+$\bigstar$
+
+%% * * * * * * * *
+%
+%   1.6.4: Damped Oscillators
+%
+%% * * * * * * * *
+\subsection{\color{Orchid} $\blacktriangleright$ \color{black} Damped Oscillations} \label{1.6.4}
+In section \ref{1.6.1}, we looked at an idealistic version of a simple harmonic oscillator. In real life, though, oscillators will have some kind of resistive force acting on them. Consider a spring oscillator with mass $m$, spring constant $k$, and in a medium that provides a velocity-dependent resistive force of magnitude $F_d = bv$. Writing Newton's Second law for this system gives
+\begin{gather*}
+    m\ddot{x} = -b\dot{x} -kx \\
+    m\ddot{x} + b\dot{x} + kx = 0
+\end{gather*}
+\noindent Just like with the simple harmonic oscillator, this is a \textbf{homogeneous second order linear ordinary differential equation}. Thus, we employ the same method to solve it. Guessing a solution in the form of $x(t) = Ae^{\alpha t}$ and plugging in gives
+\begin{equation}
+    m\alpha^2 + b\alpha + k = 0
+\end{equation}
+\noindent using the quadratic formula, we have
+\begin{align}
+    \alpha &= -\frac{b}{2m} \pm \frac{\sqrt{b^2-4mk}}{2m} \7
+    &= -\frac{b}{2m} \pm \sqrt{\frac{b^2}{4m^2} - \frac{k}{m}} \7
+    &= -\frac{1}{\tau} \pm \sqrt{\frac{1}{\tau^2} - \omeg_0^2}.
+\end{align}
+\noindent Where $\omeg_0 = \sqrt{\frac{k}{m}}$, and $\tau = \frac{2m}{b}$. Now, we can identify a few cases for the relative sizes of $\tau$ and $\omeg_0$. 
+
+\noindent \textbf{Case 1:} $\frac{1}{\tau^2} - \omeg_0^2 > 0$ \\
+\noindent In this case, the solution to the differential equation is 
+\begin{equation}
+    x(t) = Ae^{t/\tau}\left( e^{\sqrt{\frac{1}{\tau^2} - \omeg_0^2}\cdot t} + e^{-\sqrt{\frac{1}{\tau^2} - \omeg_0^2}\cdot t} \right)
+\end{equation}
+\noindent This case is known as overdamping, and it indicates that the oscillator goes back to the equilibrium position before completing one full oscillation. 
+
+\noindent \textbf{Case 2:} $\frac{1}{\tau^2} - \omeg_0^2 = 0$ \\
+\noindent In this case, the solution is simply
+\begin{equation}
+    x(t) = Ae^{-t/\tau}
+\end{equation}
+\noindent Again, the oscillator returns to the equilibrium position before completing a full oscillation, but this time it reaches equilibrium in the fastest time possible. Thus, this case is known as critical damping.
+
+\noindent \textbf{Case 3:} $\frac{1}{\tau^2} - \omeg_0^2 < 0$ \\
+\noindent In this case, we get an imaginary number in the exponent, so we can use Euler's identity to simplify, similar to the case for SHM. Thus, the solution to the differential equation is 
+\begin{equation}
+    x(t) = Ae^{-t/\tau}\cos(\omeg' t + \phi)
+\end{equation}
+\noindent where $\omeg' = \sqrt{\omeg_0^2 - \frac{1}{\tau^2}}$ and $\phi$ is a constant. This case is known as underdamping, and the oscillator completes full oscillations, with its amplitude decaying to zero at infinity. Note that the frequency of the oscillation in this case doesn't actually change, and only the amplitude does. This is because the resistive force decreases the total energy of the system, which is dependent on the amplitude of the motion, and not the frequency.
+
+%% * * * * * * * *
+%
+%   1.6.5: Q-Factor
+%
+%% * * * * * * * *
+\subsection{\color{Orchid} $\blacktriangleright$ \color{black} Quality Factor}\label{1.6.5}
+The quality factor or Q-Factor of a damped oscillator is a way of measuring how damped the oscillator is. A higher Q factor correlates with a higher quality oscillator (i.e. it isn't damped much) and vice versa. Mathematically, it is defined as follows:
+\begin{equation}
+    Q = 2\pi \times \frac{E(t)}{E(t+T)-E(t)}
+\end{equation}
+\noindent where $E(t)$ is the total energy of the system as a function of time and $T$ is the period of oscillation. Consider a certain time when the oscillator comes to a stop. Further consider that the oscillator is at a position $A$ at this time. The total energy of the system at this given moment is just the spring energy, or $\frac12 k A^2$. After one full oscillation takes place and the mass once again comes to rest, the position of the mass is $Ae^{-T/\tau}$ and the energy is $\frac12 k A^2 e^{-2T/\tau}$. The energy lost in this cycle is $\frac12 k A^2\left(1-e^{-2T/\tau}\right)$. Thus, the Q-Factor is 
+\begin{align*}
+    Q &= 2\pi\frac{\frac12 kA^2}{\frac12 k A^2\left(1-e^{-2T/\tau}\right)} \\
+    &= \frac{2\pi}{1-e^{-2T/\tau}}
+\end{align*}
+\noindent If we consider the case of minimal damping, $T \ll \tau$, we can use a first order Taylor approximation to simplify the exponential. Using $e^{-x} \approx 1-x$, we have
+\begin{align}
+    Q &\approx \frac{2\pi}{1-\left(1-\frac{2T}{\tau}\right)} \7
+    &= \frac{\pi\tau}{T} \7
+    &= \frac{\pi\tau}{\frac{2\pi}{\omega}} \7
+    &= \boxed{\frac{\tau\omega}{2}}
+\end{align}
+$\bigstar$
+
+%% * * * * * * * *
+%
+%   1.6.6: Driven Oscillatons
+%
+%% * * * * * * * *
+\subsection{\color{Orchid} $\blacktriangleright$ \color{black} Driven Oscillations}\label{1.6.6}
+In damped oscillators, the oscillation eventually dies out, meaning that an external force needs to be supplied to keep the system moving. This force should act with the movement of the object, so that it always is doing positive work on the object. For underdamped oscillators (the only case we will consider, since the other two damping cases don't oscillate), the frequency of this force should thus be the same as the frequency of the damped oscillator, and it should act in phase with the oscillator. Thus, the force must be in the form of 
+\begin{equation}
+    F_{driving} = F_0 cos(\omeg t)
+\end{equation}
+\noindent where $\omeg$ is the natural or \textbf{resonant} frequency of the damped oscillator\footnote{We labeled this quantity as $\omeg'$ in \ref{1.6.4}}, and $F_0$ is a constant. Adding this driving force to the equation of motion for a damped oscillator yields the following differential equation:
+\begin{equation}
+    m\ddot{x} + b\dot{x} + kx = F_0 cos(\omeg t)
+\end{equation}
+\noindent This equation is an \textbf{inhomogeneous second order linear ODE}. To solve an inhomogenous ODE, we first find a particular solution to the equation (a couple methods to find one for this particular equation are listed below). Then, we add that particular solution to the solution of the homogeneous ODE\footnote{i.e. setting the right hand side of eq. 1.91 to be zero.}. This makes sense, since plugging the solution of the homogeneous equation into the ODE already gives zero, so linearly adding it to another term won't affect anything.
+
+\noindent \textbf{Method 1} \\
+\noindent Let the particular solution be the function $P(t)$. Plugging this function into eq. 1.91 gives
+\begin{equation}
+    m\ddot{P}(t) + b\dot{P}(t) + kP(t) = F_0\cos{\omeg t} 
+\end{equation}
+\noindent We see that the addition of a combination of different order derivatives of $P(t)$ yields a cosine function. Logically, then, $P(t)$ should be a sine or a cosine function, since they're each other's derivatives, and any sin or cosine function can be represented as a sum of other sine and cosine functions. Thus, we can confidently guess that the particular solution is of the form
+\begin{equation*}
+    P(t) = A\cos(\omeg t + \phi)
+\end{equation*}
+\noindent Where $A$ and $\phi$ are constants we will solve for later.
+
+\noindent \textbf{Method 2} \\
+\noindent Let the particular solution be the function $P(t)$. Using the reasoning discussed above, the most general solution to the differential equation will look like
+\begin{equation*}
+    x(t) = A_0e^{-t/\tau}\cos(\omeg' t + \phi_0) + P(t).
+\end{equation*}
+\noindent As time passes, the first term will decay to zero, leaving just the second term:
+\begin{equation*}
+    x(t)|_{t\rightarrow\infty} = P(t)
+\end{equation*}
+\noindent Now, we examine the purpose of the driving force in the first place. We added this force for the sole purpose of keeping the oscillator oscillating after a long time. Thus, we should expect that with this driving force, the oscillator continues to oscillate as time goes to infinity. Hence, the particular solution must just be the equation of motion of a simple harmonic oscillator i.e.
+\begin{equation*}
+    P(t) = A\cos(\omeg t + \phi)
+\end{equation*}
+\noindent where $A$ and $\phi$ are constants we will solve for later.
+
+\noindent Now, we solve for $A$ and $\phi$. Plugging our particular solution into the differential yields
+\begin{gather*}
+    -m\omeg^2A\cos(\wt +\phi)-b\omeg A\sin(\wt+\phi)+kA\cos(\wt+\phi) = F_0\cos\wt.
+\end{gather*}
+\noindent Expanding using additive trig identities yields the following massive equation that doesn't fit in a single line
+\begin{gather*}
+        -m\omeg^2 A(\cos\wt\cos\phi-\sin\wt\sin\phi) - b\omeg A(\sin\wt\cos\phi+\cos\wt\sin\phi)\\+kA(\cos\wt\cos\phi-\sin\wt\sin\phi) = F_0\cos\wt.
+\end{gather*}
+\noindent Factoring out the $\sin\wt$ and $\cos\wt$ terms yields
+\begin{gather*}
+    ((kA-m\omeg^2A)\cos\phi - b\omeg A\sin\phi)\cos\wt \\+ ((-kA+m\omeg^2A)\sin\phi - b\omeg A\cos\phi)\sin\wt = F_0\cos\wt.
+\end{gather*}
+\noindent Since we know that the coefficients of the $\cos\wt$ terms add up to $F_0$ and the coefficients of the $\sin\wt$ terms add up to $0$, we have the following system of equations
+\begin{align}
+    (kA-m\omeg^2A)\cos\phi - b\omeg A\sin\phi = F_0 \\
+    (-kA+m\omeg^2A)\sin\phi - b\omeg A\cos\phi = 0
+\end{align}
+\noindent The full steps to solve this system will not be included here, since they are very messy. However, an overview will be given and the reader is encouraged to follow the general steps to solve the system. Solving for $\phi$ is easiest, and is simply done by rearranging the second equation to yield
+\begin{equation}
+    \tan\phi = \frac{b\omeg}{k-m\omeg^2}.
+\end{equation}
+\noindent Finding $A$ requires rearranging the first equation and cleverly using the pythagorean identity $\tan^2\theta + 1 =\sec^2\theta$ to write everything in terms of $\tan\phi$. Then, plugging in $\tan\phi$ and reducing yields the result
+\begin{equation}
+    A = \frac{F_0}{\sqrt{(k-m\omeg^2)^2-b^2\omeg^2}}
+\end{equation}
+$\bigstar$
+
+\newpage
+
+%% * * * * * * * * * * * * * * * * 
+%
+%   1.7: Gravitation
+%
+%   Includes: 
+%
+%   Hydrostatic Pressure
+%   Buoyant Force
+%   Continuity Equation
+%   Bernoulii's Equation
+%
+%% * * * * * * * * * * * * * * * * 
+
+\section{Fluids}\label{1.7}
+
+%% * * * * * * * *
+%
+%   1.7.1: Hydrostatic Pressure
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Hydrostatic Pressure} \label{1.7.1}
+For ideal fluids, there is a direct correlation between pressure and depth within the fluid. To see this relation, consider a container of fluid with density $\rho$ in hydrostatic equilibrium in an environment with ambient pressure $P_0$. Since no parts of the fluid are moving (at a macroscopic scale), all parts of the fluid must be in mechanical equilibrium. From this container, consider the cylinder of fluid with cross-sectional area $A$ and height $h$ outlined in the figure.
+\begin{figure}[h]
+    \centering
+    \begin{asy}
+        size(4cm);
+        fill((-4,2) -- (-4,-3) -- (4,-3) -- (4,2) -- cycle, lightgray);
+        draw((-4,3) -- (-4,-3) -- (4,-3) -- (4,3));
+        draw((-0.5,2) -- (0.5,2) -- (0.5,0) -- (-0.5,0) -- cycle,linetype(new real[] {8,8}));
+        label("$h$", (0.5,1), E);
+        
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent There are three forces acting on this cylinder: an upward force from the hydrostatic pressure at depth $h$, a downward force from the ambient pressure in the environment, a downward force due to the weight of the fluid. Since the net force on the cylinder is zero, we have the following relation:
+\begin{align*}
+    P(h)A &= P_0A + mg.
+\end{align*}
+\noindent Where $P(h)$ is the pressure of the fluid at depth $h$. Rewriting the mass of the cylinder using the density of the fluid yields
+\begin{gather}
+    P(h)A = P_0A +\rho Ah\cdot g \7
+    \boxed{P(h) = P_0 + \rho gh}
+\end{gather}
+\noindent Notice that this equation puts no constraint on the value or direction of $g$. So, if a fluid is placed in an accelerated reference frame where the $g$ vector is no longer parallel, the pressure gradient will be anti-parallel to the direction of the $g$ vector, and not necessarily vertical\footnote{An argument can be made here that "vertical" is defined as the direction opposite to the $g$ vector, but at the end of the day its quite semantical. Here we just consider a reference frame external to the fluid, where "vertical" isn't parallel to the effective gravity in the fluid.}. $\bigstar$
+
+%% * * * * * * * *
+%
+%   1.7.2: Buoyant Force
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Buoyant Force}\label{1.7.2}
+Pressure increases with depth. Thus, if an object is submerged in a fluid, the bottom of the object experiences a greater pressure than the top, resulting in the force known as the buoyant force. Consider an object with mass $m$, height $h$, and cross-sectional area $A$ submerged in a fluid of density $/rho$, and oriented such that the cross section is parallel to the surface of fluid. Further consider that the top of the object is a distance $d$ from the surface of the fluid. Writing the force acting on the top and bottom of the object gives
+\begin{align*}
+    F_{top} = AP_{top} = AP_0 + A\rho gd \\
+    F_{bottom} = AP_{bottom} = AP_0 + A\rho g(d+h)
+\end{align*}
+\noindent Taking the difference of these forces gives
+\begin{equation*}
+    F_{net,pressure} = AP_0 + A\rho g(d+h) - AP_0 + A\rho gd = \rho gAh
+\end{equation*}
+\noindent Note that $Ah$ is just the volume of the object, and thus
+\begin{equation}
+    \boxed{F_{buoyant} = \rho g V}
+\end{equation}
+\noindent Where $V$ is the volume of the object. Notice therefore, that the buoyant force is equal to the weight of the water that is displaced by an object. If we further define $\rho_w$ to be the density of the fluid and $\rho_b$ to be the density of the object, the net force on the object is
+\begin{equation*}
+    F_{net} = (\rho_w-\rho_b)gV.
+\end{equation*}
+\noindent If the density of the object is greater than the fluid, it sinks and vice versa. If the density of the object and the fluid are equal, the object is suspended and doesn't accelerate. This effect is the reason why astronauts train on earth in large pools, where they specifically tune the average density of themselves to be equal to the water in the pool. This way, they can simulate the zero-g environment of outer space on earth. 
+
+\noindent\color{Orchid}$\blacktriangleright$ \color{black} Notice that the above proof only accounts for objects that are an extrusion of a flat object (i.e. prisms), and a more general derivation requires more advanced calculus. To begin, first consider the following form of the net hydrostatic force exerted on an object submerged in a fluid
+\begin{equation}
+    \sum F = \oiint_{dV}P \cdot dA.
+\end{equation}
+\noindent This expression means sense, because it is essentially the sum of all hydrostatic force across the surface of the obect. Rewriting using the divergence theorem yields
+\begin{equation}
+    \sum F = \iiint_{V} \nabla \cdot PdV
+\end{equation}
+\noindent If we use the expression we found for pressure in 1.7.1, that is $\vec{P} = P_0 + \rho g z \hat{k}$, we can rewrite eq. 1.102 as
+\begin{align}
+    \sum F &= \iiint  \rho g dV \7
+    &= \boxed{\rho g V}.
+\end{align}
+\noindent $\bigstar$
+
+%% * * * * * * * *
+%
+%   1.7.3: Continuity Equation
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Continuity Equation}\label{1.7.3}
+The continuity equation represents the application of conservation of mass to fluids. Consider fluid flowing ideally through a section of a pipe with cross-section $A_1$ on the left side and $A_2$ on the right. The fluid flows at a speed $v_1$ on the side with area $A_1$ and vice versa. In a certain time $\Delta t$, a certain volume of fluid $V_1$ enters the tube on the left and a certain volume $V_2$ exits the tube on the right. The volume of water entering the tube is given by
+\begin{equation*}
+    V_1 = A_1v_1\Delta t
+\end{equation*}
+and the volume of water exiting the tube is given by
+\begin{equation*}
+    V_2 = A_2v_2\Delta t.
+\end{equation*}
+\noindent Since the fluid is incompressible and mass is conserved, the amount of fluid flowing in must be equal to the volume of water flowing out. Thus,
+\begin{gather}
+    A_1v_1\Delta t &= A_2v_2\Delta t \7
+    \boxed{A_1v_1 = A_2v_2}
+\end{gather}
+\noindent The above equation is known as the continuity equation, and is the manifestation of conservation of mass in the flow of ideal fluids. \\
+\\
+\color{Orchid} $\blacktriangleright$ \color{Black} For a more general equation of continuity that extends beyond fluid flow in a pipe, consider an arbitrary volume element with volume $V$ and boundary $dV$. The net flux of fluid into the volume element is given by
+\begin{equation*}
+    \Phi_{net} = \oiint_{dV} \mathbf{u} \cdot d\mathbf{A}
+\end{equation*}
+where $\Phi_{net}$ is the net volume flow rate of fluid, $\mathbf{u}$ is the velocity field of the fluid, and $d\mathbf{A}$ is an area element on the surface $dV$. Since the fluid is incompressible and mass isn't created or destroyed, the net flux through the volume must be zero.
+\begin{equation}
+    \oiint_{dV} \mathbf{u} \cdot d\mathbf{A} = 0
+\end{equation}
+\noindent Using the divergence theorem, we can alternatively write eq. 1.104 as
+\begin{equation}
+    \boxed{\nabla \cdot \mathbf{u} = 0}.
+\end{equation}
+$\bigstar$
+
+%% * * * * * * * *
+%
+%   1.7.4: Bernoulli's Equation
+%
+%% * * * * * * * *
+\subsection{\color{OrangeRed} $\blacktriangleright$ \color{Goldenrod} $\blacktriangleright$ \color{Orchid} $\blacktriangleright$ \color{black} Bernoulli's Equation}\label{1.7.4}
+Bernoulli's equation is essentially just conservation of energy applied to a moving fluid. It gives an easy way to calculate properties of an ideal fluid at certain positions. To derive it, first consider the following diagram of an ideal fluid of density $\rho$ in a tube.
+\begin{figure} [h!]
+    \centering
+    \begin{asy}
+        size(12cm);
+        fill((0,0) -- (0,4) -- (1,4) -- (1,0) -- cycle, RGB(255, 187, 185));
+        fill((1,4) -- (4,4) -- (8,10) -- (11,10) -- (11,8.5) -- (8.5,8.5) -- (4,0) -- (1,0) -- cycle, RGB(137, 177, 222));
+        fill((11,8.5) -- (11,10) -- (14,10) -- (14,8.5) -- cycle, RGB(159, 264, 203));   
+
+        draw((1,0) -- (1,4),linetype(new real[] {8,8}));
+        draw((11,8.5) -- (11,10),linetype(new real[] {8,8}));
+        draw((0,4) -- (4,4) -- (8,10) -- (14,10));
+        draw((0,0) -- (4,0) -- (8.5,8.5) -- (14,8.5));
+
+        Label P1 = Label("$P_1$", position = BeginPoint, align = N);
+        Label P2 = Label("$P_2$", position = BeginPoint, align = N);
+        Label y1 = Label("$y_1$", position = MidPoint, align = E);
+        Label y2 = Label("$y_2$", position = MidPoint, align = E);
+        Label dx1 = Label("$x_1$", position = MidPoint, align = 2N);
+        Label dx2 = Label("$x_2$", position = MidPoint, align = N);
+        
+
+        draw((-3,2) -- (-0.5,2), L=P1, arrow=Arrow(2mm));
+        draw((17,9.25) -- (14.5,9.25), L=P2, arrow=Arrow(2mm));
+        draw((0,5) -- (1,5), L=dx1, bar=Bars);
+        draw((11,11) -- (14,11), L=dx2, bar=Bars);
+        draw((3,-3) -- (3,2), L=y1, bar=Bars);
+        draw((9.5,-3) -- (9.5,9.25), L=y2, bar=Bars);
+    \end{asy}
+    \caption{}
+\end{figure}
+
+\noindent Consider that the tube has cross-sectional area $A_1$ on the left end and cross-sectional area $A_2$ on the right. Further consider that the fluid has speed $v_1$ on the left end and $v_2$ on the right end. Imagine that fluid fills only the red and blue sections to begin. After some time, the fluid is pushed by the pressure differential created by $P_1$ and $P_2$, and the fluid advances to the blue and green sections. If we write the total energy of the fluid in its initial state, we have
+\begin{equation*}
+    E_i = \frac12 mv_1^2 + mgy_1 + E_b
+\end{equation*}
+\noindent where $E_b$ is the total energy of the fluid in the blue section, and $m$ is the mass of the fluid in the red section. After the fluid flows to the blue and green sections, the total energy of the fluid is 
+\begin{equation*}
+    E_f = \frac12 mv_2^2 + mgy_2 + E_b.
+\end{equation*}
+\noindent Note that the mass of the fluid in the green section is equal to the mass of the fluid in the red section since the fluid is incompressible and mass is conserved. By the work-energy theorem, any changes in energy occur due to work done by net external forces. In this case, the work is done by the pressures $P_1$ and $P_2$. The total work done by these pressures is 
+\begin{equation*}
+    W_{net} = P_1A_1x_1 - P_2A_2x_2.
+\end{equation*}
+\noindent Since we know that the mass of the fluid in the red green sections are equal, and the fluid has a constant density, $A_1x_1 = A_2x_2 = \frac{m}{\rho}$, which means that
+\begin{equation*}
+    w_{net} = (P_1 - P_2)\frac{m}{\rho}.
+\end{equation*}
+\noindent From work energy theorem, we have
+\begin{align}
+    W_{net} &= E_f - E_i \7
+    (P_1 - P_2)\frac{m}{\rho} &= \frac12 mv_2^2 + mgy_2 -\frac12 mv_1^2 - mgy_1 \7
+    P_1 + \frac12 \rho v_1^2 + \rho gy_1 &= P_2 + \frac12 \rho v_2^2 + \rho g y_2
+\end{align}
+\noindent We can also write the above equation as
+\begin{equation}
+    \boxed{P + \frac12 \rho v_2 + \rho gy = const}
+\end{equation}
+\noindent which is Bernoulli's equation. Notice that if the height of the fluid doesn't change, pressure has an inverse relation to the kinetic energy. This inverse relation means that faster-moving fluid within a constant-energy stream has lower pressure than slower-moving fluid. This effect, known as the Bernoulli effect, is responsible for the lift force generated in sailboats and airplanes $\bigstar$

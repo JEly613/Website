@@ -1,0 +1,98 @@
+---
+title: "Statistical Thermodynamics"
+subject: "Thermodynamics"
+chapter: 2
+order: 1
+---
+
+## The Maxwell-Boltzmann Distribution
+
+The speeds of particles in an ideal gas are described by the **Maxwell-Boltzmann Distribution**:
+
+$$f(v) = \frac{4}{\sqrt{\pi}}\left(\frac{m}{2k_BT}\right)^{3/2} v^2 e^{-mv^2/2k_BT}$$
+
+This is a **Probability Distribution Function (PDF)**. For a PDF $\rho(x)$, the area under the curve represents probability — specifically, the probability of the system being in a state between $x$ and $x+dx$ is $\rho(x)\,dx$. Any PDF satisfies:
+
+$$\int_{-\infty}^{\infty} \rho(x)\,dx = 1$$
+
+For the Maxwell-Boltzmann distribution, since speeds cannot be negative, normalization is over $[0, \infty)$:
+
+$$\int_0^\infty f(v)\,dv = 1$$
+
+The fraction of particles with speed in $(v, v + dv)$ is $f(v)\,dv$.
+
+The **expected value** of any quantity $g(v)$ is:
+
+$$\langle g(v) \rangle = \int_0^\infty g(v) f(v)\,dv$$
+
+The distribution has two parts: the $v^2 e^{-mv^2/2k_BT}$ factor gives it its shape (peak at a finite speed, decaying at high speeds), while the prefactor is a normalization constant. ⋆
+
+---
+
+## Root Mean Square Velocity
+
+The **root mean square (RMS) velocity** is:
+
+$$v_{\text{rms}} = \sqrt{\langle v^2 \rangle}$$
+
+RMS quantities are preferred over simple averages in statistical physics because: (1) the average of an oscillating quantity may be zero even for large amplitudes, and (2) kinetic energy depends on $v^2$, making $v_{\text{rms}}$ the natural quantity for energy calculations.
+
+**Derivation:** Using $a = m/2k_BT$:
+
+$$\langle v^2 \rangle = \int_0^\infty v^2 f(v)\,dv = \frac{4}{\sqrt{\pi}}a^{3/2}\int_0^\infty v^4 e^{-av^2}\,dv$$
+
+Integrating by parts with $u = v^3$ and $dw = ve^{-av^2}dv$, then applying Feynman's differentiation trick to the Gaussian integral $\int_0^\infty e^{-av^2}dv = \frac{1}{2}\sqrt{\pi/a}$:
+
+$$\int_0^\infty v^2 e^{-av^2}\,dv = -\frac{d}{da}\int_0^\infty e^{-av^2}\,dv = \frac{\sqrt{\pi}}{4a^{3/2}}$$
+
+Substituting back:
+
+$$\langle v^2 \rangle = \frac{3}{2a} = \frac{3k_BT}{m}$$
+
+$$\boxed{v_{\text{rms}} = \sqrt{\frac{3k_BT}{m}}}$$
+
+⋆
+
+---
+
+## Internal Energy
+
+The **total internal energy** of an ideal gas (no internal potentials) is the total kinetic energy of all $N$ particles:
+
+$$U_{\text{int}} = N\langle K \rangle = N \cdot \frac{1}{2}m\langle v^2 \rangle = \frac{1}{2}mv_{\text{rms}}^2 \cdot N$$
+
+Substituting $v_{\text{rms}}^2 = 3k_BT/m$:
+
+$$\boxed{U_{\text{int}} = \frac{3}{2}Nk_BT = \frac{3}{2}nRT} \quad \text{(monatomic gas)}$$
+
+The factor of $3/2$ reflects **three translational degrees of freedom** (x, y, z). Each degree of freedom contributes $\frac{1}{2}k_BT$ per particle — this is the **equipartition theorem**.
+
+For a **diatomic gas**, there are two additional rotational degrees of freedom:
+
+$$U_{\text{int}} = \frac{5}{2}Nk_BT \quad \text{(diatomic gas)}$$
+
+⋆
+
+---
+
+## Ideal Gas Law
+
+The famous $PV = nRT$ can be derived from kinetic theory.
+
+Consider a cube of side length $L$ filled with an ideal gas. Particles bouncing off a wall in the $x$-direction: in time $\Delta t$, those within $\Delta l = v_x \Delta t$ of the wall can hit it. The number of such particles moving toward the wall is:
+
+$$\frac{N A v_x \Delta t}{2V}$$
+
+Each collision imparts a force $F = 2mv_x/\Delta t$. The total force on the wall:
+
+$$F = \frac{Nmv_x^2}{V} \cdot A$$
+
+The average pressure $\langle P \rangle = F/A = \frac{Nm\langle v_x^2\rangle}{V}$.
+
+Since motion is isotropic: $\langle v^2 \rangle = 3\langle v_x^2 \rangle$, so $\langle v_x^2 \rangle = k_BT/m$. Substituting:
+
+$$P = \frac{Nk_BT}{V}$$
+
+$$\boxed{PV = Nk_BT = nRT}$$
+
+⋆

@@ -1,0 +1,81 @@
+---
+title: "Fluids"
+subject: "Classical Mechanics"
+chapter: 1
+order: 7
+---
+
+## Hydrostatic Pressure
+
+For a fluid of density $\rho$ in hydrostatic equilibrium with ambient pressure $P_0$, consider a cylinder of fluid with cross-sectional area $A$ and depth $h$. Three forces act on it: upward pressure from below, downward ambient pressure, and its own weight. Setting net force to zero:
+
+$$P(h)A = P_0 A + mg = P_0 A + \rho A h g$$
+
+$$\boxed{P(h) = P_0 + \rho g h}$$
+
+Note that this equation places no constraint on the direction of $g$. In an accelerated reference frame, the pressure gradient is anti-parallel to the effective gravitational field, not necessarily vertical. ⋆
+
+---
+
+## Buoyant Force
+
+Because pressure increases with depth, a submerged object experiences greater pressure on its bottom than its top, producing a net upward force.
+
+For an object with height $h$, cross-sectional area $A$, and top surface at depth $d$:
+
+$$F_{\text{top}} = A(P_0 + \rho g d)$$
+$$F_{\text{bottom}} = A(P_0 + \rho g(d + h))$$
+
+The net upward pressure force is:
+
+$$F_{\text{buoyant}} = F_{\text{bottom}} - F_{\text{top}} = \rho g A h = \rho g V$$
+
+$$\boxed{F_{\text{buoyant}} = \rho_{\text{fluid}} g V}$$
+
+The buoyant force equals the weight of the displaced fluid — **Archimedes' Principle**.
+
+If $\rho_{\text{object}} > \rho_{\text{fluid}}$, the object sinks; if $\rho_{\text{object}} < \rho_{\text{fluid}}$, it floats.
+
+**General derivation using the divergence theorem:** For an arbitrary shape, the net hydrostatic force is:
+
+$$\sum F = \oint_{\partial V} P\,dA = \iiint_V \nabla \cdot P\,dV = \rho g V$$
+
+This confirms the result for any shape. ⋆
+
+---
+
+## Continuity Equation
+
+Conservation of mass applied to fluid flow: in a pipe with cross-sections $A_1$ and $A_2$ and speeds $v_1$ and $v_2$, the volume entering must equal the volume exiting in any time interval $\Delta t$:
+
+$$V_1 = A_1 v_1 \Delta t = A_2 v_2 \Delta t = V_2$$
+
+$$\boxed{A_1 v_1 = A_2 v_2}$$
+
+**General form:** For an incompressible fluid with velocity field $\mathbf{u}$, the net flux through any closed surface is zero:
+
+$$\oint \mathbf{u} \cdot d\mathbf{A} = 0 \implies \boxed{\nabla \cdot \mathbf{u} = 0}$$
+
+⋆
+
+---
+
+## Bernoulli's Equation
+
+Bernoulli's equation is conservation of energy applied to fluid flow. Consider an incompressible fluid moving through a pipe from position 1 to position 2.
+
+In a small displacement, the work done by the pressure differential $P_1 - P_2$ is:
+
+$$W_{\text{net}} = (P_1 - P_2)\frac{m}{\rho}$$
+
+By the work-energy theorem, this equals the change in mechanical energy:
+
+$$(P_1 - P_2)\frac{m}{\rho} = \frac{1}{2}mv_2^2 + mgy_2 - \frac{1}{2}mv_1^2 - mgy_1$$
+
+Rearranging:
+
+$$P_1 + \frac{1}{2}\rho v_1^2 + \rho g y_1 = P_2 + \frac{1}{2}\rho v_2^2 + \rho g y_2$$
+
+$$\boxed{P + \frac{1}{2}\rho v^2 + \rho g y = \text{const}}$$
+
+At constant height, pressure and kinetic energy are inversely related: **faster fluid has lower pressure**. This is the **Bernoulli effect**, responsible for lift in airplane wings and sails. ⋆

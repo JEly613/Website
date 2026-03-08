@@ -1,0 +1,152 @@
+---
+title: "Energy and Momentum"
+subject: "Classical Mechanics"
+chapter: 1
+order: 3
+---
+
+## Conservative Forces
+
+A **conservative force** is one that can be written as the derivative of a scalar potential:
+
+$$F = -\frac{dU}{dr}$$
+
+The total work done along a path $p$ is:
+
+$$W = \int_p F \cdot dr = \int_p F_x\, dx$$
+
+Substituting the conservative force definition:
+
+$$W = \int_p -\frac{dU}{dx}\,dx = \int_p -dU$$
+
+For a **closed path**, the starting and ending points are the same, so:
+
+$$\oint_p -dU = 0$$
+
+This is the equivalent definition of a conservative force — one with zero circulation. Both definitions (writable as a potential gradient, and zero circulation) are equivalent. ⋆
+
+---
+
+## Energy Balance and Conservation of Energy
+
+Starting from the definition of work $W = F\Delta x$ and substituting $\Delta x$ from the kinematics equation $v_f^2 - v_i^2 = 2a\Delta x$ along with $F = ma$:
+
+$$W = ma \cdot \frac{v_f^2 - v_i^2}{2a} = \frac{1}{2}m(v_f^2 - v_i^2)$$
+
+Defining kinetic energy as $K \equiv \frac{1}{2}mv^2$, we have the **Work-Energy Theorem**:
+
+$$\boxed{W = \Delta K}$$
+
+Splitting work into external, internal non-conservative, and internal conservative contributions:
+
+$$W_{\text{ext}} + W_c + W_{nc} = \Delta K$$
+
+Using the definition of potential energy ($W_c = -\Delta U_c$):
+
+$$W_{\text{ext}} + W_{nc} = \Delta K + \Delta U_c$$
+
+When $W_{\text{ext}} = W_{nc} = 0$, energy is conserved. Non-conservative internal work (e.g., friction) becomes thermal energy. The full energy balance equation is:
+
+$$\boxed{W_{\text{ext}} = \Delta K + \Delta U_c + \Delta U_{\text{th}} + \Delta U_{\text{chem}}}$$
+
+From thermodynamics, heat $Q$ is another energy transfer mechanism, giving the most general form:
+
+$$\boxed{Q_{\text{ext}} + W_{\text{ext}} = \Delta K + \Delta U_c + \Delta U_{\text{th}} + \Delta U_{\text{chem}}}$$
+
+⋆
+
+---
+
+## Conservation of Momentum
+
+Momentum is conserved in a system when there is no net external force. Consider two particles interacting via forces $\vec{F}_{12}$ and $\vec{F}_{21}$ over time $\Delta t$:
+
+$$\Delta p_1 = F_{21}\Delta t, \qquad \Delta p_2 = F_{12}\Delta t$$
+
+By Newton's Third Law, $\vec{F}_{21} = -\vec{F}_{12}$, so:
+
+$$\Delta p_1 = -\Delta p_2$$
+
+The total change in momentum is:
+
+$$\sum \Delta p = \Delta p_1 + \Delta p_2 = 0$$
+
+Momentum is conserved as long as there is no net external force on the system. ⋆
+
+---
+
+## Relative Velocity for Elastic Collisions
+
+For an elastic collision, both momentum and kinetic energy are conserved:
+
+$$m_1 v_{1i} + m_2 v_{2i} = m_1 v_{1f} + m_2 v_{2f}$$
+
+$$\frac{1}{2}m_1 v_{1i}^2 + \frac{1}{2}m_2 v_{2i}^2 = \frac{1}{2}m_1 v_{1f}^2 + \frac{1}{2}m_2 v_{2f}^2$$
+
+The kinetic energy equation often produces a cumbersome quadratic. However, rearranging and dividing the two equations yields a simpler **linear relation**:
+
+$$\boxed{v_{1i} + v_{1f} = v_{2i} + v_{2f}}$$
+
+This can be used together with conservation of momentum to solve for both final velocities algebraically without dealing with a quadratic. ⋆
+
+---
+
+## Total Kinetic Energy of Any System
+
+The total kinetic energy of any system can be decomposed into center-of-mass motion and internal motion.
+
+Consider a system with total mass $M$ and center of mass at $\mathbf{r}_{\text{cm}}$. For particle $i$ with position $\mathbf{r}_i = \mathbf{r}_{\text{cm}} + \mathbf{r}_{i,\text{cm}}$, we have $\mathbf{v}_i = \mathbf{v}_{\text{cm}} + \mathbf{v}_{i,\text{cm}}$. The kinetic energy is:
+
+$$K_i = \frac{1}{2}m_i v_i^2 = \frac{1}{2}m_i(v_{\text{cm}}^2 + 2\mathbf{v}_{\text{cm}}\cdot\mathbf{v}_{i,\text{cm}} + v_{i,\text{cm}}^2)$$
+
+Summing over all particles, the middle cross term vanishes because $\sum_i m_i \mathbf{r}_{i,\text{cm}} = 0$ by definition of the center of mass. Thus:
+
+$$\boxed{K_{\text{total}} = \frac{1}{2}Mv_{\text{cm}}^2 + \sum_i \frac{1}{2}m_i v_{i,\text{cm}}^2}$$
+
+The total kinetic energy splits neatly into **center-of-mass kinetic energy** and **internal kinetic energy** (motion relative to the center of mass). ⋆
+
+---
+
+## Total Kinetic Energy of a Two-Body System
+
+For two masses $m_1$ and $m_2$ with velocities $v_1$ and $v_2$, the center-of-mass velocity is:
+
+$$v_{\text{cm}} = \frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}$$
+
+The velocity of $m_1$ relative to the center of mass is:
+
+$$v_{1,\text{cm}} = \frac{m_2}{m_1 + m_2}v_{\text{rel}}, \qquad v_{2,\text{cm}} = -\frac{m_1}{m_1 + m_2}v_{\text{rel}}$$
+
+where $v_{\text{rel}} \equiv v_1 - v_2$. Substituting into the internal kinetic energy sum:
+
+$$\sum \frac{1}{2}m_i v_{i,\text{cm}}^2 = \frac{1}{2}\mu v_{\text{rel}}^2$$
+
+where $\mu = \frac{m_1 m_2}{m_1+m_2}$ is the reduced mass. The total kinetic energy of a two-body system is:
+
+$$\boxed{K_{\text{total}} = \frac{1}{2}Mv_{\text{cm}}^2 + \frac{1}{2}\mu v_{\text{rel}}^2}$$
+
+This also gives an easy way to compute energy lost in a perfectly inelastic collision: since $v_{\text{rel}} = 0$ after the collision, the energy lost is exactly $\frac{1}{2}\mu v_{\text{rel}}^2$. ⋆
+
+---
+
+## Obtaining Equations of Motion Using Energy
+
+For a conservative system depending on a single coordinate $x$, the total energy is:
+
+$$E = \frac{1}{2}m\dot{x}^2 + U(x)$$
+
+Since energy is conserved, $dE/dt = 0$:
+
+$$m\dot{x}\ddot{x} + \frac{dU}{dx}\dot{x} = 0 \implies m\ddot{x} = -\frac{dU}{dx} = F$$
+
+This recovers $F = ma$. The power of this method is that for complicated systems, writing energy is often far easier than resolving all forces.
+
+**Key result:** If a system has total energy of the form:
+
+$$E = \frac{1}{2}Ax^2 + \frac{1}{2}Bv^2$$
+
+then it undergoes simple harmonic oscillation with angular frequency:
+
+$$\boxed{\omega = \sqrt{\frac{A}{B}}}$$
+
+⋆

@@ -1,0 +1,130 @@
+---
+title: "Oscillations"
+subject: "Classical Mechanics"
+chapter: 1
+order: 6
+---
+
+## Simple Harmonic Motion
+
+**Simple harmonic motion (SHM)** is defined as any motion satisfying the differential equation:
+
+$$\ddot{x} = -\omega^2 x$$
+
+This is a homogeneous second-order linear ODE. We solve it by guessing $x(t) = Ae^{\alpha t}$:
+
+$$\alpha^2 Ae^{\alpha t} = -\omega^2 Ae^{\alpha t} \implies \alpha = \pm i\omega$$
+
+The two solutions combine (for linear ODEs, the general solution is a superposition):
+
+$$x(t) = Ae^{i\omega t} + Be^{-i\omega t}$$
+
+Applying Euler's identity $e^{i\theta} = \cos\theta + i\sin\theta$, this becomes:
+
+$$\boxed{x(t) = C\cos\omega t + D\sin\omega t}$$
+
+or equivalently:
+
+$$\boxed{x(t) = E\cos(\omega t + \phi)}$$
+
+In the first form, $C$ is the initial position and $D$ is related to the initial velocity — useful when initial conditions are known. In the second form, $E$ is the **amplitude** and $\phi$ is the **phase** — useful for analyzing general oscillation properties. ⋆
+
+---
+
+## Period of a Spring Oscillator
+
+For a mass $m$ on a spring with constant $k$, Hooke's Law with Newton's Second Law gives:
+
+$$ma = -kx \implies a = -\frac{k}{m}x$$
+
+Comparing with the SHM definition $\ddot{x} = -\omega^2 x$, we identify $\omega^2 = k/m$, so:
+
+$$\omega = \sqrt{\frac{k}{m}}, \qquad \boxed{T = 2\pi\sqrt{\frac{m}{k}}}$$
+
+The key technique: write the equation of motion, match it to the SHM form, read off $\omega^2$. ⋆
+
+---
+
+## Period of a Simple Pendulum
+
+For a pendulum of length $l$ and mass $m$ at small angle $\theta$, writing $\tau = I\alpha$ about the pivot:
+
+$$ml^2\alpha = -mgl\sin\theta \implies \alpha = -\frac{g}{l}\sin\theta$$
+
+For small angles, $\sin\theta \approx \theta$, giving:
+
+$$\alpha = -\frac{g}{l}\theta$$
+
+This matches the SHM form with $\omega^2 = g/l$:
+
+$$\omega = \sqrt{\frac{g}{l}}, \qquad \boxed{T = 2\pi\sqrt{\frac{l}{g}}}$$
+
+⋆
+
+---
+
+## Damped Oscillations
+
+A realistic oscillator has a velocity-dependent resistive force $F_d = bv$. Newton's Second Law gives:
+
+$$m\ddot{x} + b\dot{x} + kx = 0$$
+
+Guessing $x(t) = Ae^{\alpha t}$ and substituting:
+
+$$m\alpha^2 + b\alpha + k = 0 \implies \alpha = -\frac{1}{\tau} \pm \sqrt{\frac{1}{\tau^2} - \omega_0^2}$$
+
+where $\omega_0 = \sqrt{k/m}$ and $\tau = 2m/b$. Three cases arise:
+
+**Overdamping** ($\frac{1}{\tau^2} > \omega_0^2$): The oscillator returns to equilibrium without oscillating.
+
+$$x(t) = Ae^{-t/\tau}\left(e^{\sqrt{1/\tau^2 - \omega_0^2}\,t} + e^{-\sqrt{1/\tau^2 - \omega_0^2}\,t}\right)$$
+
+**Critical damping** ($\frac{1}{\tau^2} = \omega_0^2$): Returns to equilibrium in the fastest possible time.
+
+$$x(t) = Ae^{-t/\tau}$$
+
+**Underdamping** ($\frac{1}{\tau^2} < \omega_0^2$): The oscillator completes full oscillations with exponentially decaying amplitude.
+
+$$\boxed{x(t) = Ae^{-t/\tau}\cos(\omega' t + \phi)}$$
+
+where $\omega' = \sqrt{\omega_0^2 - 1/\tau^2}$. Note that the damping affects amplitude only — not frequency. This is because the resistive force dissipates energy (which governs amplitude) but does not alter the restoring force (which governs frequency).
+
+---
+
+## Quality Factor
+
+The **Q-factor** measures how underdamped an oscillator is. A higher Q means less damping (higher quality oscillator):
+
+$$Q = 2\pi \times \frac{E(t)}{E(t+T) - E(t)}$$
+
+At a moment when the oscillator is at rest at position $A$, the energy is $\frac{1}{2}kA^2$. After one full period, the amplitude has decayed to $Ae^{-T/\tau}$, giving energy $\frac{1}{2}kA^2 e^{-2T/\tau}$.
+
+For light damping ($T \ll \tau$), using the approximation $e^{-x} \approx 1 - x$:
+
+$$\boxed{Q \approx \frac{\tau\omega}{2}}$$
+
+⋆
+
+---
+
+## Driven Oscillations
+
+To maintain an underdamped oscillator against dissipation, an external periodic driving force is applied:
+
+$$F_{\text{driving}} = F_0\cos(\omega t)$$
+
+The equation of motion becomes:
+
+$$m\ddot{x} + b\dot{x} + kx = F_0\cos(\omega t)$$
+
+This is an **inhomogeneous ODE**. Its general solution is the sum of the homogeneous solution (which decays away) and a particular solution $P(t)$. Since the driving force is sinusoidal and we expect steady-state oscillation:
+
+$$P(t) = A\cos(\omega t + \phi)$$
+
+Substituting and matching coefficients of $\sin\omega t$ and $\cos\omega t$:
+
+$$\tan\phi = \frac{b\omega}{k - m\omega^2}$$
+
+$$\boxed{A = \frac{F_0}{\sqrt{(k - m\omega^2)^2 + b^2\omega^2}}}$$
+
+The amplitude $A$ is maximized when the denominator is minimized — this occurs near $\omega \approx \omega_0$, the natural frequency of the system. This phenomenon is called **resonance**. ⋆
