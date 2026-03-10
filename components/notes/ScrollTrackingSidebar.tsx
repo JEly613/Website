@@ -12,6 +12,55 @@ interface ScrollTrackingSidebarProps {
   currentSubject: string
 }
 
+function ChapterButton({
+  chapter,
+  isExpanded,
+  isActiveChapter,
+  onToggle,
+}: {
+  chapter: Chapter
+  isExpanded: boolean
+  isActiveChapter: boolean
+  onToggle: () => void
+}) {
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
+    <button
+      onClick={onToggle}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`w-full flex items-center justify-between py-2 text-left transition-colors relative ${
+        isActiveChapter ? 'text-accent' : 'text-text hover:text-accent'
+      }`}
+    >
+      <span className="text-sm font-medium">
+        {chapter.order}. {chapter.title}
+      </span>
+      <motion.svg
+        animate={{ rotate: isExpanded ? 0 : 90 }}
+        transition={spring.default}
+        className="w-4 h-4 flex-shrink-0 ml-2"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+      </motion.svg>
+      {/* Static border */}
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-border" />
+      {/* Animated accent line */}
+      <motion.div
+        className="absolute bottom-0 left-0 h-0.5 bg-accent origin-left"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: isHovered || isActiveChapter ? 1 : 0 }}
+        transition={spring.jentacular}
+        style={{ width: '100%' }}
+      />
+    </button>
+  )
+}
+
 export default function ScrollTrackingSidebar({
   notes,
   currentSubject,
@@ -167,26 +216,12 @@ export default function ScrollTrackingSidebar({
 
               return (
                 <div key={chapter.slug}>
-                  <button
-                    onClick={() => toggleChapter(chapter.slug)}
-                    className={`w-full flex items-center justify-between py-2 text-left transition-colors ${
-                      isActiveChapter ? 'text-accent' : 'text-text hover:text-accent'
-                    }`}
-                  >
-                    <span className="text-sm font-medium">
-                      {chapter.order}. {chapter.title}
-                    </span>
-                    <motion.svg
-                      animate={{ rotate: isExpanded ? 180 : 0 }}
-                      transition={spring.default}
-                      className="w-4 h-4 flex-shrink-0"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </motion.svg>
-                  </button>
+                  <ChapterButton
+                    chapter={chapter}
+                    isExpanded={isExpanded}
+                    isActiveChapter={isActiveChapter}
+                    onToggle={() => toggleChapter(chapter.slug)}
+                  />
 
                   <AnimatePresence>
                     {isExpanded && (
@@ -215,8 +250,8 @@ export default function ScrollTrackingSidebar({
                                   onClick={() => scrollToTopic(chapter.slug, topic.slug)}
                                   className={`block w-full text-left py-1 text-sm transition-colors ${
                                     isActive
-                                      ? 'text-accent font-medium'
-                                      : 'text-text-muted hover:text-text'
+                                      ? 'text-accent-2 font-medium'
+                                      : 'text-text-muted hover:text-accent'
                                   }`}
                                 >
                                   {topic.title}

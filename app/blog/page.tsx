@@ -21,7 +21,7 @@ export default function BlogPage() {
         <div className="mb-12 sm:mb-16">
           <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">Blog</h1>
           <p className="text-text-muted text-base sm:text-lg">
-            Thoughts on physics, photography, and learning in public.
+            Welcome to my personal blog! This is a space where I share my random thoughts (mostly related to math and science).
           </p>
         </div>
 
