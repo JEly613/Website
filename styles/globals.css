@@ -5,7 +5,7 @@
 @import 'katex/dist/katex.min.css';
 
 :root {
-  --bg: #F3F8F2;
+  --bg: #FEFDFF;
   --surface: #EBE9E9;
   --text: #1a1a1a;
   --text-muted: #6b7280;
