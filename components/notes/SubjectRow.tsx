@@ -24,15 +24,15 @@ export default function SubjectRow({ subject, chapterCount, href }: SubjectRowPr
   return (
     <Link
       href={href}
-      className="group block py-4 relative"
+      className="group block py-6 relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex items-center justify-between">
-        <h2 className="font-display text-xl sm:text-2xl text-text group-hover:text-accent-2 transition-colors font-semibold">
+        <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-text group-hover:text-accent-2 transition-colors font-semibold">
           {formatSubjectName(subject)}
         </h2>
-        <span className="text-text-muted text-sm">
+        <span className="text-text-muted text-base">
           {chapterCount} {chapterCount === 1 ? 'chapter' : 'chapters'}
         </span>
       </div>
