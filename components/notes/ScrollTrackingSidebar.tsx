@@ -1,11 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { spring } from '@/lib/animation'
-import type { Subject, Chapter, Topic } from '@/lib/notes'
+import type { Subject, Chapter } from '@/lib/notes'
 
 interface ScrollTrackingSidebarProps {
   notes: Subject[]
@@ -65,11 +64,11 @@ export default function ScrollTrackingSidebar({
   notes,
   currentSubject,
 }: ScrollTrackingSidebarProps) {
-  const router = useRouter()
   const [activeChapter, setActiveChapter] = useState<string>('')
   const [activeTopic, setActiveTopic] = useState<string>('')
   const [mobileOpen, setMobileOpen] = useState(false)
   const [expandedChapters, setExpandedChapters] = useState<Record<string, boolean>>({})
+  const isScrollingRef = useRef(false)
 
   const subject = notes.find((s) => s.subject === currentSubject)
   const chapters = subject?.chapters || []
@@ -86,19 +85,19 @@ export default function ScrollTrackingSidebar({
     }
   }, [chapters, activeChapter])
 
-  // Scroll tracking
+  // Scroll tracking — disabled during programmatic scrolls
   useEffect(() => {
     const handleScroll = () => {
+      if (isScrollingRef.current) return
+
       let foundChapter = ''
       let foundTopic = ''
 
-      // Find all topic elements and determine which is most visible
       for (const chapter of chapters) {
         for (const topic of chapter.topics) {
           const element = document.getElementById(`topic-${chapter.slug}-${topic.slug}`)
           if (element) {
             const rect = element.getBoundingClientRect()
-            // Check if the top of the element is above the middle of the viewport
             if (rect.top <= window.innerHeight / 3) {
               foundChapter = chapter.slug
               foundTopic = topic.slug
@@ -120,7 +119,7 @@ export default function ScrollTrackingSidebar({
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll() // Initial check
+    handleScroll()
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [chapters, activeChapter, activeTopic])
@@ -139,8 +138,38 @@ export default function ScrollTrackingSidebar({
   const scrollToTopic = (chapterSlug: string, topicSlug: string) => {
     const element = document.getElementById(`topic-${chapterSlug}-${topicSlug}`)
     if (element) {
+      // Disable scroll tracking during programmatic scroll
+      isScrollingRef.current = true
+
+      // Immediately update active state and expand the target chapter
+      setActiveChapter(chapterSlug)
+      setActiveTopic(topicSlug)
+      setExpandedChapters((prev) => ({
+        ...prev,
+        [chapterSlug]: true,
+      }))
+
       element.scrollIntoView({ behavior: 'smooth' })
       setMobileOpen(false)
+
+      // Re-enable scroll tracking after scroll completes
+      const checkScrollEnd = () => {
+        let scrollTimeout: ReturnType<typeof setTimeout>
+        const onScroll = () => {
+          clearTimeout(scrollTimeout)
+          scrollTimeout = setTimeout(() => {
+            isScrollingRef.current = false
+            window.removeEventListener('scroll', onScroll)
+          }, 100)
+        }
+        window.addEventListener('scroll', onScroll, { passive: true })
+        // Fallback: re-enable after 2 seconds max
+        setTimeout(() => {
+          isScrollingRef.current = false
+          window.removeEventListener('scroll', onScroll)
+        }, 2000)
+      }
+      checkScrollEnd()
     }
   }
 
@@ -165,12 +194,6 @@ export default function ScrollTrackingSidebar({
     collapsed: { height: 0, opacity: 0 },
     expanded: { height: 'auto', opacity: 1 },
   }
-
-  const currentTopicLabel = (() => {
-    const chapter = chapters.find((c) => c.slug === activeChapter)
-    const topic = chapter?.topics.find((t) => t.slug === activeTopic)
-    return topic ? `${chapter?.order}. ${chapter?.title} › ${topic.title}` : 'Select topic'
-  })()
 
   return (
     <>
@@ -243,7 +266,7 @@ export default function ScrollTrackingSidebar({
                                   <motion.div
                                     layoutId="activeTopicIndicator"
                                     className="absolute -left-4 top-0 bottom-0 w-0.5 bg-accent"
-                                    transition={spring.default}
+                                    transition={spring.jentacular}
                                   />
                                 )}
                                 <button
