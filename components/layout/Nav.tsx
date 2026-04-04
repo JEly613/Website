@@ -22,7 +22,7 @@ export default function Nav() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 bg-bg/95 backdrop-blur-sm border-b border-border">
+    <nav className="sticky top-0 z-50 bg-transparent">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link 

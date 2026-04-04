@@ -136,9 +136,22 @@ export default function NotesLandingClient({ introductionContent }: NotesLanding
 
       {/* Introduction Section */}
       <section className="max-w-4xl mx-auto px-6 pb-24">
-        <div className="prose prose-lg max-w-none">
+        <motion.div
+          initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ ...spring.jentacular, duration: 0.8 }}
+          className="prose prose-lg max-w-none"
+        >
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ ...spring.jentacular, delay: 0.2 }}
+            className="h-px bg-border origin-left mb-12"
+          />
           {introductionContent}
-        </div>
+        </motion.div>
       </section>
     </main>
   )
