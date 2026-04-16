@@ -1,5 +1,11 @@
-import { redirect } from 'next/navigation'
+import { HomepageHero } from '@/components/home/HomepageHero'
+import { HomepageSections } from '@/components/home/HomepageSections'
 
 export default function HomePage() {
-  redirect('/about')
+  return (
+    <main>
+      <HomepageHero />
+      <HomepageSections />
+    </main>
+  )
 }

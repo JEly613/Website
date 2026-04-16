@@ -14,6 +14,12 @@
   --border: #DEE2D6;
 }
 
+/* Ensure Lottie SVG fills its container */
+[data-lottie-container] svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 @layer base {
   body {
     @apply bg-bg text-text antialiased;
