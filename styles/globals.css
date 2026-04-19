@@ -20,6 +20,17 @@
   height: 100% !important;
 }
 
+/* Projects */
+[data-section="projects"] {
+  --bg: #1B1B2F;
+  --surface: #2A2A4A;
+  --text: #FEFDFF;
+  --text-muted: #8888AA;
+  --accent: #E2B714;
+  --accent-2: #6C63FF;
+  --border: #2A2A4A;
+}
+
 @layer base {
   body {
     @apply bg-bg text-text antialiased;

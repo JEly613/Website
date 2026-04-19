@@ -12,13 +12,28 @@ const sections: {
     animationPath: '/animations/notes.json',
     overlay: {
       id: 'notes',
-      enterAt: 0.3,
-      exitAt: 0.8,
+      enterAt: 0.60,
+      exitAt: 0.98,
       content: (
         <SectionCard
           title="Physics Notes"
           description="Handwritten derivations and notes covering classical mechanics, thermodynamics, and more."
           href="/notes"
+        />
+      ),
+    },
+  },
+  {
+    animationPath: '/animations/projects.json',
+    overlay: {
+      id: 'projects',
+      enterAt: 0.85,
+      exitAt: 0.98,
+      content: (
+        <SectionCard
+          title="Projects"
+          description="A showcase of things I've built — completed work and experiments in progress."
+          href="/projects"
         />
       ),
     },

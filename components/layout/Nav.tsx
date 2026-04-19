@@ -11,6 +11,7 @@ export default function Nav() {
   const links = [
     { href: '/about', label: 'About' },
     { href: '/notes', label: 'Notes' },
+    { href: '/projects', label: 'Projects' },
     { href: '/photography', label: 'Photography' },
     { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
