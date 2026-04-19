@@ -63,7 +63,7 @@ export default function BlogPostPage({ params }: PageProps) {
           readingTime={post.readingTime || ''}
         />
 
-        <div className="prose prose-base sm:prose-lg prose-headings:font-display prose-headings:font-semibold prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-strong:text-text prose-code:text-text prose-code:bg-surface prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none max-w-none">
+        <div className="prose prose-base sm:prose-lg prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-strong:text-text prose-code:text-text prose-code:bg-surface prose-code:px-1 prose-code:py-0.5 prose-code:rounded-sharp prose-code:before:content-none prose-code:after:content-none max-w-none">
           <MDXRemote source={post.content} />
         </div>
       </article>

@@ -14,18 +14,15 @@ interface NotesLandingClientProps {
 export default function NotesLandingClient({ introductionContent }: NotesLandingClientProps) {
   const titleWords = ['Notes', 'Sorted', 'By', 'Topic']
   const heroRef = useRef<HTMLElement>(null)
-  
+
   const { scrollY } = useScroll()
-  
-  // The title starts at pt-64 (256px) and should stop ~160px above the chevrons (which are at bottom-24 = 96px from bottom)
-  // So the title should stop when it reaches roughly viewport height - 96px - 160px - title height
-  // We'll cap the scroll-based movement so the title stops before reaching the chevrons
+
   const maxScroll = typeof window !== 'undefined' ? window.innerHeight - 650 : 400
   const titleY = useTransform(scrollY, [0, maxScroll], [0, maxScroll])
 
   return (
     <main>
-      {/* Hero Section - Full viewport banner */}
+      {/* Hero Section */}
       <motion.section
         ref={heroRef}
         initial={{ opacity: 0 }}
@@ -33,7 +30,6 @@ export default function NotesLandingClient({ introductionContent }: NotesLanding
         transition={spring.jentacular}
         className="relative h-screen w-full overflow-hidden"
       >
-        {/* Banner image - replace src with your image path */}
         <Image
           src="/notes-banner.JPG"
           alt="Physics Notes banner"
@@ -41,21 +37,18 @@ export default function NotesLandingClient({ introductionContent }: NotesLanding
           className="object-cover"
           priority
         />
-        {/* Optional overlay for better text readability */}
-        <div className="absolute inset-0 bg-bg/30" />
-        
-        {/* Hero text - sticky behavior via scroll transform */}
+        <div className="absolute inset-0 bg-text/40" />
+
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...spring.jentacular, delay: 0.2 }}
           style={{ y: titleY, mixBlendMode: 'difference' }}
-          className="absolute top-64 left-0 right-0 z-10 font-display text-6xl sm:text-8xl md:text-9xl font-bold text-white text-center"
+          className="absolute top-64 left-0 right-0 z-10 font-display text-6xl sm:text-8xl md:text-9xl font-bold text-white text-center tracking-tight"
         >
           Physics Notes
         </motion.h1>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -93,7 +86,6 @@ export default function NotesLandingClient({ introductionContent }: NotesLanding
       {/* Subject Section */}
       <section className="max-w-6xl mx-auto px-6 py-24">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-          {/* Left side - "Notes Sorted By Topic" */}
           <div className="lg:w-1/3">
             <div className="lg:sticky lg:top-24">
               {titleWords.map((word, index) => (
@@ -103,15 +95,21 @@ export default function NotesLandingClient({ introductionContent }: NotesLanding
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-100px' }}
                   transition={{ ...spring.jentacular, delay: index * 0.1 }}
-                  className="block font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-text leading-tight"
+                  className="block font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-text leading-tight tracking-tight"
                 >
                   {word}
                 </motion.span>
               ))}
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ ...spring.jentacular, delay: 0.4 }}
+                className="h-1 w-16 bg-accent rounded-full origin-left mt-4"
+              />
             </div>
           </div>
 
-          {/* Right side - Subject rows */}
           <div className="lg:w-2/3">
             <div className="space-y-0">
               {notes.map((subject, index) => (
@@ -148,7 +146,7 @@ export default function NotesLandingClient({ introductionContent }: NotesLanding
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ ...spring.jentacular, delay: 0.2 }}
-            className="h-px bg-border origin-left mb-12"
+            className="h-px bg-border/40 origin-left mb-12"
           />
           {introductionContent}
         </motion.div>

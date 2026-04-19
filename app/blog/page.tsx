@@ -19,7 +19,8 @@ export default function BlogPage() {
     <main className="min-h-screen">
       <div className="max-w-4xl mx-auto px-6 py-16">
         <div className="mb-12 sm:mb-16">
-          <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">Blog</h1>
+          <h1 className="font-display text-4xl sm:text-5xl font-bold mb-3 tracking-tight">Blog</h1>
+          <div className="h-1 w-12 bg-accent rounded-full mb-4" />
           <p className="text-text-muted text-base sm:text-lg">
             Welcome to my personal blog! This is a space where I share my random thoughts (mostly related to math and science).
           </p>
@@ -28,7 +29,7 @@ export default function BlogPage() {
         {posts.length === 0 ? (
           <p className="text-text-muted">No posts yet. Check back soon!</p>
         ) : (
-          <div className="space-y-16">
+          <div className="space-y-6">
             {posts.map((post) => (
               <PostCard key={post.slug} post={post} />
             ))}

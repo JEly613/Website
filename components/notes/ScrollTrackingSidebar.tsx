@@ -33,7 +33,7 @@ function ChapterButton({
         isActiveChapter ? 'text-accent' : 'text-text hover:text-accent'
       }`}
     >
-      <span className="text-sm font-medium">
+      <span className="text-sm font-medium tracking-tight">
         {chapter.order}. {chapter.title}
       </span>
       <motion.svg
@@ -46,9 +46,7 @@ function ChapterButton({
       >
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
       </motion.svg>
-      {/* Static border */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-border" />
-      {/* Animated accent line */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-border/20" />
       <motion.div
         className="absolute bottom-0 left-0 h-0.5 bg-accent origin-left"
         initial={{ scaleX: 0 }}
@@ -73,7 +71,6 @@ export default function ScrollTrackingSidebar({
   const subject = notes.find((s) => s.subject === currentSubject)
   const chapters = subject?.chapters || []
 
-  // Initialize first chapter as expanded and active
   useEffect(() => {
     if (chapters.length > 0 && !activeChapter) {
       const firstChapter = chapters[0]
@@ -85,7 +82,6 @@ export default function ScrollTrackingSidebar({
     }
   }, [chapters, activeChapter])
 
-  // Scroll tracking — disabled during programmatic scrolls
   useEffect(() => {
     const handleScroll = () => {
       if (isScrollingRef.current) return
@@ -138,21 +134,13 @@ export default function ScrollTrackingSidebar({
   const scrollToTopic = (chapterSlug: string, topicSlug: string) => {
     const element = document.getElementById(`topic-${chapterSlug}-${topicSlug}`)
     if (element) {
-      // Disable scroll tracking during programmatic scroll
       isScrollingRef.current = true
-
-      // Immediately update active state and expand the target chapter
       setActiveChapter(chapterSlug)
       setActiveTopic(topicSlug)
-      setExpandedChapters((prev) => ({
-        ...prev,
-        [chapterSlug]: true,
-      }))
-
+      setExpandedChapters((prev) => ({ ...prev, [chapterSlug]: true }))
       element.scrollIntoView({ behavior: 'smooth' })
       setMobileOpen(false)
 
-      // Re-enable scroll tracking after scroll completes
       const checkScrollEnd = () => {
         let scrollTimeout: ReturnType<typeof setTimeout>
         const onScroll = () => {
@@ -163,7 +151,6 @@ export default function ScrollTrackingSidebar({
           }, 100)
         }
         window.addEventListener('scroll', onScroll, { passive: true })
-        // Fallback: re-enable after 2 seconds max
         setTimeout(() => {
           isScrollingRef.current = false
           window.removeEventListener('scroll', onScroll)
@@ -173,7 +160,6 @@ export default function ScrollTrackingSidebar({
     }
   }
 
-  // Build flat list of all topics for mobile dropdown
   const allTopics = chapters.flatMap((chapter) =>
     chapter.topics.map((topic) => ({
       chapterSlug: chapter.slug,
@@ -202,7 +188,7 @@ export default function ScrollTrackingSidebar({
         <select
           value={activeChapter && activeTopic ? `${activeChapter}/${activeTopic}` : ''}
           onChange={handleMobileChange}
-          className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-text focus:outline-none focus:border-accent"
+          className="w-full px-4 py-3 bg-surface border border-border/30 rounded-sharp text-text focus:outline-none focus:border-accent text-sm"
         >
           <option value="">Jump to topic...</option>
           {allTopics.map((topic) => (
@@ -216,10 +202,9 @@ export default function ScrollTrackingSidebar({
       {/* Desktop Sidebar */}
       <aside className="hidden lg:block w-72 flex-shrink-0">
         <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto pr-4">
-          {/* Back to Notes link */}
           <Link
             href="/notes"
-            className="inline-flex items-center text-text-muted hover:text-accent transition-colors mb-6 text-sm"
+            className="inline-flex items-center text-text-muted hover:text-accent transition-colors mb-6 text-sm uppercase tracking-wider"
           >
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -227,8 +212,7 @@ export default function ScrollTrackingSidebar({
             All Subjects
           </Link>
 
-          {/* Subject title */}
-          <h2 className="font-display font-semibold text-text text-lg mb-4">
+          <h2 className="font-display font-bold text-text text-lg mb-4 tracking-tight">
             {subject?.label}
           </h2>
 
@@ -256,7 +240,7 @@ export default function ScrollTrackingSidebar({
                         transition={spring.default}
                         className="overflow-hidden"
                       >
-                        <ul className="pl-4 border-l border-border space-y-1 py-1">
+                        <ul className="pl-4 border-l border-border/20 space-y-1 py-1">
                           {chapter.topics.map((topic) => {
                             const isActive = activeChapter === chapter.slug && activeTopic === topic.slug
 
@@ -273,7 +257,7 @@ export default function ScrollTrackingSidebar({
                                   onClick={() => scrollToTopic(chapter.slug, topic.slug)}
                                   className={`block w-full text-left py-1 text-sm transition-colors ${
                                     isActive
-                                      ? 'text-accent-2 font-medium'
+                                      ? 'text-accent font-medium'
                                       : 'text-text-muted hover:text-accent'
                                   }`}
                                 >

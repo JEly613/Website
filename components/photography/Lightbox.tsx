@@ -40,11 +40,11 @@ export default function Lightbox({ photos }: LightboxProps) {
     <>
       <Masonry
         breakpointCols={breakpointColumns}
-        className="flex -ml-6 w-auto"
-        columnClassName="pl-6 bg-clip-padding"
+        className="flex -ml-4 w-auto"
+        columnClassName="pl-4 bg-clip-padding"
       >
         {photos.map((photo, index) => (
-          <div key={index} className="mb-6">
+          <div key={index} className="mb-4">
             <motion.button
               onClick={() => {
                 setPhotoIndex(index)
@@ -52,7 +52,7 @@ export default function Lightbox({ photos }: LightboxProps) {
               }}
               whileHover={{ scale: 1.02 }}
               transition={spring.default}
-              className="relative overflow-hidden rounded-lg w-full cursor-pointer"
+              className="relative overflow-hidden rounded-sharp w-full cursor-pointer border border-border/20"
             >
               <Image
                 src={photo.src}
@@ -74,7 +74,7 @@ export default function Lightbox({ photos }: LightboxProps) {
         index={photoIndex}
         slides={slides}
         styles={{
-          container: { backgroundColor: 'rgba(0, 0, 0, 0.95)' },
+          container: { backgroundColor: 'rgba(29, 46, 48, 0.97)' },
         }}
       />
     </>

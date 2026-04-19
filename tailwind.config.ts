@@ -20,10 +20,17 @@ const config: Config = {
           2: 'var(--accent-2)',
         },
         border: 'var(--border)',
+        pop: 'var(--pop)',
+        detail: 'var(--detail)',
+        'soft-pop': 'var(--soft-pop)',
+        cyan: 'var(--cyan)',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'serif'],
+        display: ['var(--font-display)', 'sans-serif'],
         body: ['var(--font-body)', 'sans-serif'],
+      },
+      borderRadius: {
+        sharp: '6px',
       },
     },
   },

@@ -28,8 +28,7 @@ function getTopicImages(subject: string, chapter: string, topic: string): string
   try {
     const topicDir = path.join(process.cwd(), 'public', 'notes-images', subject, chapter, topic)
     const files = fs.readdirSync(topicDir)
-    
-    // Filter for image files and sort by page number
+
     const imageFiles = files
       .filter(f => /\.(png|jpg|jpeg|webp)$/i.test(f))
       .sort((a, b) => {
@@ -37,7 +36,7 @@ function getTopicImages(subject: string, chapter: string, topic: string): string
         const bNum = parseInt(b.match(/page-?(\d+)/i)?.[1] || b.match(/(\d+)/)?.[1] || '0')
         return aNum - bNum
       })
-    
+
     return imageFiles.map(f => `/notes-images/${subject}/${chapter}/${topic}/${f}`)
   } catch (err) {
     console.warn(`No images found for ${subject}/${chapter}/${topic}`)
@@ -57,10 +56,13 @@ export default function SubjectPage({ params }: PageProps) {
       <div className="space-y-20">
         {subject.chapters.map((chapter) => (
           <section key={chapter.slug} className="space-y-12">
-            <h2 className="font-display text-3xl sm:text-5xl font-bold text-text border-b border-border pb-4">
-              {chapter.order}. {chapter.title}
-            </h2>
-            
+            <div>
+              <h2 className="font-display text-3xl sm:text-5xl font-bold text-text tracking-tight">
+                {chapter.order}. {chapter.title}
+              </h2>
+              <div className="h-px w-full bg-border/30 mt-4" />
+            </div>
+
             <div className="space-y-16">
               {chapter.topics.map((topic) => {
                 const images = getTopicImages(params.subject, chapter.slug, topic.slug)
@@ -71,7 +73,7 @@ export default function SubjectPage({ params }: PageProps) {
                     id={`topic-${chapter.slug}-${topic.slug}`}
                     className="scroll-mt-24"
                   >
-                    <h3 className="font-display text-2xl font-semibold text-text mb-6">
+                    <h3 className="font-display text-2xl font-bold text-text mb-6 tracking-tight">
                       {chapter.order}.{topic.order} {topic.title}
                     </h3>
                     <NoteImages

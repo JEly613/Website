@@ -1,17 +1,17 @@
 import type { Metadata } from 'next'
-import { Cormorant, Source_Sans_3 } from 'next/font/google'
+import { Space_Grotesk, DM_Sans } from 'next/font/google'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import '@/styles/globals.css'
 
-const cormorant = Cormorant({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
-  weight: ['400', '600', '700'],
+  weight: ['400', '500', '600', '700'],
 })
 
-const sourceSans = Source_Sans_3({
+const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
@@ -51,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${sourceSans.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${dmSans.variable}`}>
       <body className="font-body">
         <Nav />
         {children}

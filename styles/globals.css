@@ -5,13 +5,17 @@
 @import 'katex/dist/katex.min.css';
 
 :root {
-  --bg: #FEFDFF;
-  --surface: #EBE9E9;
-  --text: #1a1a1a;
-  --text-muted: #6b7280;
-  --accent: #FCB07E;
-  --accent-2: #3581B8;
-  --border: #DEE2D6;
+  --bg: #F9FBF2;
+  --surface: #E0E4D9;
+  --text: #1D2E30;
+  --text-muted: #3D5A61;
+  --accent: #E15A72;
+  --accent-2: #6BD2A6;
+  --border: #326B61;
+  --pop: #F6BD60;
+  --detail: #326B61;
+  --soft-pop: #ED8E7C;
+  --cyan: #4A99A8;
 }
 
 /* Ensure Lottie SVG fills its container */
@@ -22,40 +26,81 @@
 
 /* Projects */
 [data-section="projects"] {
-  --bg: #1B1B2F;
-  --surface: #2A2A4A;
-  --text: #FEFDFF;
-  --text-muted: #8888AA;
-  --accent: #E2B714;
-  --accent-2: #6C63FF;
-  --border: #2A2A4A;
+  --bg: #1D2E30;
+  --surface: #2A4045;
+  --text: #F9FBF2;
+  --text-muted: #6BD2A6;
+  --accent: #F6BD60;
+  --accent-2: #E15A72;
+  --border: #4A99A8;
+  --pop: #F6BD60;
+}
+
+/* Notes */
+[data-section="notes"] {
+  --bg: #FEFDFF;
+  --surface: #E0E4D9;
+  --text: #1D2E30;
+  --text-muted: #3D5A61;
+  --accent: #E15A72;
+  --accent-2: #326B61;
+  --border: #4A99A8;
+}
+
+/* Photography */
+[data-section="photography"] {
+  --bg: #1D2E30;
+  --surface: #2A4045;
+  --text: #F9FBF2;
+  --text-muted: #4A99A8;
+  --accent: #ED8E7C;
+  --accent-2: #6BD2A6;
+  --border: #326B61;
+}
+
+/* Blog */
+[data-section="blog"] {
+  --bg: #F9FBF2;
+  --surface: #E0E4D9;
+  --text: #1D2E30;
+  --text-muted: #3D5A61;
+  --accent: #326B61;
+  --accent-2: #E15A72;
+  --border: #4A99A8;
+}
+
+/* Subtle dot-grid texture on main background */
+.dot-grid-bg {
+  background-image: radial-gradient(circle, var(--detail) 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
 }
 
 @layer base {
   body {
     @apply bg-bg text-text antialiased;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
-  
+
   .prose {
     @apply text-text leading-relaxed;
   }
-  
+
   .prose p {
     @apply text-lg;
   }
-  
+
   .prose h2 {
     @apply text-text mt-12 mb-4;
   }
-  
+
   .prose h3 {
     @apply text-text mt-8 mb-3;
   }
-  
+
   .prose ul, .prose ol {
     @apply text-lg;
   }
-  
+
   .prose li {
     @apply text-text;
   }

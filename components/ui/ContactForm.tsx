@@ -47,7 +47,6 @@ export default function ContactForm() {
     setStatus('submitting')
 
     try {
-      // Replace with your Formspree form ID
       const response = await fetch('https://formspree.io/f/xvzwpyyy', {
         method: 'POST',
         headers: {
@@ -73,18 +72,20 @@ export default function ContactForm() {
   ) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
-    // Clear error for this field when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }))
     }
   }
 
+  const inputBase = 'w-full px-4 py-3 bg-bg border rounded-sharp focus:outline-none focus:ring-2 transition-all text-text'
+  const inputValid = 'border-border/40 focus:ring-accent-2/30 focus:border-accent-2'
+  const inputError = 'border-accent focus:ring-accent/20'
+
   return (
     <div className="w-full">
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Name Field */}
+      <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-text mb-2">
+          <label htmlFor="name" className="block text-sm font-medium text-text mb-2 uppercase tracking-wider">
             Name
           </label>
           <input
@@ -93,21 +94,16 @@ export default function ContactForm() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className={`w-full px-4 py-3 bg-surface border rounded-lg focus:outline-none focus:ring-2 transition-all ${
-              errors.name
-                ? 'border-red-500 focus:ring-red-500/20'
-                : 'border-border focus:ring-accent/20 focus:border-accent'
-            }`}
+            className={`${inputBase} ${errors.name ? inputError : inputValid}`}
             disabled={status === 'submitting'}
           />
           {errors.name && (
-            <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+            <p className="mt-1 text-sm text-accent">{errors.name}</p>
           )}
         </div>
 
-        {/* Email Field */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-text mb-2">
+          <label htmlFor="email" className="block text-sm font-medium text-text mb-2 uppercase tracking-wider">
             Email
           </label>
           <input
@@ -116,21 +112,16 @@ export default function ContactForm() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className={`w-full px-4 py-3 bg-surface border rounded-lg focus:outline-none focus:ring-2 transition-all ${
-              errors.email
-                ? 'border-red-500 focus:ring-red-500/20'
-                : 'border-border focus:ring-accent/20 focus:border-accent'
-            }`}
+            className={`${inputBase} ${errors.email ? inputError : inputValid}`}
             disabled={status === 'submitting'}
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+            <p className="mt-1 text-sm text-accent">{errors.email}</p>
           )}
         </div>
 
-        {/* Message Field */}
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-text mb-2">
+          <label htmlFor="message" className="block text-sm font-medium text-text mb-2 uppercase tracking-wider">
             Message
           </label>
           <textarea
@@ -139,41 +130,34 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             rows={6}
-            className={`w-full px-4 py-3 bg-surface border rounded-lg focus:outline-none focus:ring-2 transition-all resize-none ${
-              errors.message
-                ? 'border-red-500 focus:ring-red-500/20'
-                : 'border-border focus:ring-accent/20 focus:border-accent'
-            }`}
+            className={`${inputBase} resize-none ${errors.message ? inputError : inputValid}`}
             disabled={status === 'submitting'}
           />
           {errors.message && (
-            <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+            <p className="mt-1 text-sm text-accent">{errors.message}</p>
           )}
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="w-full px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent-2 focus:outline-none focus:ring-2 focus:ring-accent/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full px-6 py-3 bg-accent text-white font-medium rounded-sharp hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed uppercase tracking-wider text-sm"
         >
           {status === 'submitting' ? 'Sending...' : 'Send Message'}
         </button>
       </form>
 
-      {/* Success Message */}
       {status === 'success' && (
-        <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-          <p className="text-green-800 text-sm">
-            Thank you for your message! I'll get back to you soon.
+        <div className="mt-6 p-4 bg-accent-2/10 border border-accent-2/30 rounded-sharp">
+          <p className="text-detail text-sm">
+            Thank you for your message! I&apos;ll get back to you soon.
           </p>
         </div>
       )}
 
-      {/* Error Message */}
       {status === 'error' && (
-        <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-          <p className="text-red-800 text-sm">
+        <div className="mt-6 p-4 bg-accent/10 border border-accent/30 rounded-sharp">
+          <p className="text-accent text-sm">
             Something went wrong. Please try again or email me directly.
           </p>
         </div>
