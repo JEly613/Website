@@ -20,7 +20,7 @@ interface ScrollOverlayProps {
   sections: OverlaySection[]
 }
 
-const FADE_BUFFER = 0.02
+const FADE_BUFFER = 0.06
 
 function OverlaySectionItem({
   section,

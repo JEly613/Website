@@ -13,7 +13,7 @@ const sections: {
     overlay: {
       id: 'notes',
       enterAt: 0.60,
-      exitAt: 0.98,
+      exitAt: 0.94,
       content: (
         <SectionCard
           title="Physics Notes"
@@ -94,6 +94,7 @@ export function HomepageSections() {
           animationPath={section.animationPath}
           scrollTrackHeight="300vh"
           overlaySections={[section.overlay]}
+          seamless
         />
       ))}
     </>

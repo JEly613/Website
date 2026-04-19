@@ -12,21 +12,33 @@ interface SectionCardProps {
 
 export function SectionCard({ title, description, href }: SectionCardProps) {
   return (
-    <motion.article
-      className="w-full max-w-sm rounded-2xl border border-border/30 bg-bg/60 p-8 backdrop-blur-md"
-      whileHover={{ scale: 1.03 }}
-      transition={spring.snappy}
-    >
-      <h2 className="font-display text-3xl font-semibold text-text">
-        {title}
-      </h2>
-      <p className="mt-3 text-text-muted">{description}</p>
-      <Link
-        href={href}
-        className="mt-6 inline-block text-accent-2 transition-colors hover:text-accent"
+    <Link href={href} className="block">
+      <motion.article
+        className="max-w-md overflow-hidden rounded-2xl bg-accent-2 px-10 py-9 shadow-2xl"
+        whileHover={{ scale: 1.02, y: -2 }}
+        transition={spring.snappy}
       >
-        Explore →
-      </Link>
-    </motion.article>
+        <h2 className="font-display text-5xl font-bold tracking-tight text-white sm:text-6xl">
+          <span className="italic font-normal text-accent">Explore</span>{' '}
+          {title}
+        </h2>
+
+        <div className="mt-3 h-px w-full bg-white/25" />
+
+        <p className="mt-4 text-base leading-relaxed text-white/70">
+          {description}
+        </p>
+
+        <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-accent">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-accent/60 bg-accent/10">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </span>
+          View Section
+        </span>
+      </motion.article>
+    </Link>
   )
 }

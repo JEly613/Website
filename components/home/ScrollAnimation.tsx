@@ -16,6 +16,8 @@ interface ScrollAnimationProps {
   smoothingFactor?: number
   /** Optional overlay sections rendered on top of the animation */
   overlaySections?: OverlaySection[]
+  /** Whether to pull this section up by 100vh to eliminate the gap between sections */
+  seamless?: boolean
   /** Optional children rendered inside the sticky wrapper on top of the canvas */
   children?: ReactNode
 }
@@ -23,8 +25,9 @@ interface ScrollAnimationProps {
 export function ScrollAnimation({
   animationPath,
   scrollTrackHeight = '400vh',
-  smoothingFactor = 0.05,
+  smoothingFactor = 0.1,
   overlaySections,
+  seamless = false,
   children,
 }: ScrollAnimationProps) {
   const trackRef = useRef<HTMLDivElement>(null)
@@ -43,8 +46,11 @@ export function ScrollAnimation({
   }, [])
 
   return (
-    <div ref={trackRef} style={{ height: scrollTrackHeight }} className="relative">
-      <div className="sticky top-0 h-screen w-full relative overflow-hidden">
+    <div
+      ref={trackRef}
+      style={{ height: scrollTrackHeight, marginTop: seamless ? '-100vh' : undefined }}
+      className="relative"
+    >      <div className="sticky top-0 h-screen w-full relative overflow-hidden">
         <div ref={containerRef} className="absolute inset-0" data-lottie-container />
         <LottieCanvas
           containerRef={containerRef}
