@@ -30,9 +30,10 @@ export default function Nav() {
         <div className="flex items-center justify-between">
           <Link
             href="/"
-            className="text-xl font-display font-bold text-text tracking-tight hover:text-accent transition-colors"
+            className="group flex items-center gap-2 text-xl font-display font-bold text-text tracking-tight hover:text-accent transition-colors"
           >
-            JE
+            <span className="flex items-center justify-center w-8 h-8 rounded-sharp bg-pop text-text text-sm font-bold">J</span>
+            <span>E</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,7 +52,7 @@ export default function Nav() {
                 {isActive(link.href) && (
                   <motion.div
                     layoutId="navIndicator"
-                    className="absolute bottom-0 left-1 right-1 h-0.5 bg-accent"
+                    className="absolute bottom-0 left-1 right-1 h-0.5 bg-gradient-to-r from-pop via-accent to-cyan"
                     transition={spring.snappy}
                   />
                 )}

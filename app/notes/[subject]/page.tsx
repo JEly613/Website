@@ -57,10 +57,18 @@ export default function SubjectPage({ params }: PageProps) {
         {subject.chapters.map((chapter) => (
           <section key={chapter.slug} className="space-y-12">
             <div>
+              <div className="flex items-center gap-3 mb-2">
+                <span className="flex items-center justify-center w-8 h-8 rounded-sharp bg-pop/15 text-pop text-sm font-bold font-display">{chapter.order}</span>
+                <div className="h-px flex-1 bg-border/20" />
+              </div>
               <h2 className="font-display text-3xl sm:text-5xl font-bold text-text tracking-tight">
-                {chapter.order}. {chapter.title}
+                {chapter.title}
               </h2>
-              <div className="h-px w-full bg-border/30 mt-4" />
+              <div className="flex gap-1 mt-3">
+                <div className="h-0.5 w-6 bg-accent rounded-full" />
+                <div className="h-0.5 w-3 bg-pop rounded-full" />
+                <div className="h-0.5 w-4 bg-cyan rounded-full" />
+              </div>
             </div>
 
             <div className="space-y-16">

@@ -13,19 +13,32 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen dot-grid-bg">
-      <div className="max-w-4xl mx-auto px-6 py-16 sm:py-24">
+    <main className="min-h-screen dot-grid-bg relative overflow-hidden">
+      {/* Decorative geometric shapes */}
+      <div className="absolute top-20 right-10 w-40 h-40 border-2 border-pop/20 rounded-full" />
+      <div className="absolute top-32 right-20 w-20 h-20 bg-accent-2/10 rotate-12 rounded-sharp" />
+      <div className="absolute bottom-40 left-8 w-32 h-32 border-2 border-cyan/15 rotate-45" />
+      <div className="absolute bottom-20 left-24 w-6 h-6 bg-soft-pop/30 rounded-full" />
+      <div className="absolute top-1/2 left-4 w-3 h-3 bg-pop/40 rounded-full" />
+      <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-accent/30 rounded-full" />
+
+      <div className="max-w-4xl mx-auto px-6 py-16 sm:py-24 relative">
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12">
-          {/* Profile Photo */}
-          <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-sharp overflow-hidden border-2 border-detail flex-shrink-0">
-            <Image
-              src="/profile.svg"
-              alt="Profile photo"
-              fill
-              sizes="(max-width: 640px) 160px, 192px"
-              className="object-cover"
-              priority
-            />
+          {/* Profile Photo with colored border accent */}
+          <div className="relative flex-shrink-0">
+            <div className="absolute -inset-2 bg-gradient-to-b from-pop/40 via-accent/30 to-cyan/40 rounded-sharp blur-sm" />
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-sharp overflow-hidden border-2 border-detail">
+              <Image
+                src="/profile.svg"
+                alt="Profile photo"
+                fill
+                sizes="(max-width: 640px) 160px, 192px"
+                className="object-cover"
+                priority
+              />
+            </div>
+            {/* Small accent dot */}
+            <div className="absolute -bottom-2 -right-2 w-5 h-5 bg-pop rounded-full border-2 border-bg" />
           </div>
 
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
@@ -34,21 +47,34 @@ export default function AboutPage() {
               Your Name
             </h1>
 
-            {/* Accent bar */}
-            <div className="h-1 w-16 bg-accent rounded-full" />
+            {/* Multi-color accent bar */}
+            <div className="flex gap-1">
+              <div className="h-1 w-8 bg-accent rounded-full" />
+              <div className="h-1 w-4 bg-pop rounded-full" />
+              <div className="h-1 w-6 bg-cyan rounded-full" />
+            </div>
 
             {/* Bio */}
             <p className="text-base sm:text-lg leading-relaxed text-text-muted max-w-2xl">
               Bio
             </p>
 
+            {/* Skill/interest chips */}
+            <div className="flex flex-wrap gap-2 pt-1">
+              {['Physics', 'Photography', 'Writing'].map((item) => (
+                <span key={item} className="px-3 py-1 text-xs font-medium uppercase tracking-wider rounded-sharp bg-surface border border-cyan/25 text-cyan">
+                  {item}
+                </span>
+              ))}
+            </div>
+
             {/* Social Links */}
-            <div className="flex gap-4 pt-2">
+            <div className="flex gap-3 pt-2">
               <a
                 href="https://github.com/JEly613"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-sharp bg-surface border border-border/30 text-text hover:text-accent hover:border-accent transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-sharp bg-surface border border-border/30 text-text hover:text-bg hover:bg-accent-2 hover:border-accent-2 transition-colors"
                 aria-label="GitHub"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -58,7 +84,7 @@ export default function AboutPage() {
 
               <a
                 href="mailto:jely6@jh.edu"
-                className="flex items-center justify-center w-10 h-10 rounded-sharp bg-surface border border-border/30 text-text hover:text-accent hover:border-accent transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-sharp bg-surface border border-border/30 text-text hover:text-bg hover:bg-pop hover:border-pop transition-colors"
                 aria-label="Email"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

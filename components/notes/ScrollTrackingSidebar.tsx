@@ -48,7 +48,7 @@ function ChapterButton({
       </motion.svg>
       <div className="absolute bottom-0 left-0 right-0 h-px bg-border/20" />
       <motion.div
-        className="absolute bottom-0 left-0 h-0.5 bg-accent origin-left"
+        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-pop via-accent to-cyan"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: isHovered || isActiveChapter ? 1 : 0 }}
         transition={spring.jentacular}

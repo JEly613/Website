@@ -34,3 +34,6 @@ next-env.d.ts
 
 # kiro steering
 .kiro
+
+# kiro skills
+frontend-design

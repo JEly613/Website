@@ -84,7 +84,11 @@ export default function NotesLandingClient({ introductionContent }: NotesLanding
       </motion.section>
 
       {/* Subject Section */}
-      <section className="max-w-6xl mx-auto px-6 py-24">
+      <section className="max-w-6xl mx-auto px-6 py-24 relative">
+        {/* Decorative geometry */}
+        <div className="absolute bottom-20 left-4 w-20 h-20 bg-pop/5 rotate-12 rounded-sharp" />
+        <div className="absolute top-1/2 right-4 w-3 h-3 bg-accent-2/20 rounded-full" />
+
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
           <div className="lg:w-1/3">
             <div className="lg:sticky lg:top-24">
@@ -105,8 +109,12 @@ export default function NotesLandingClient({ introductionContent }: NotesLanding
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
                 transition={{ ...spring.jentacular, delay: 0.4 }}
-                className="h-1 w-16 bg-accent rounded-full origin-left mt-4"
-              />
+                className="flex gap-1 origin-left mt-4"
+              >
+                <div className="h-1 w-8 bg-accent rounded-full" />
+                <div className="h-1 w-4 bg-pop rounded-full" />
+                <div className="h-1 w-6 bg-cyan rounded-full" />
+              </motion.div>
             </div>
           </div>
 

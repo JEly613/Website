@@ -20,11 +20,16 @@ export default function PostHeader({ title, date, tags, readingTime }: PostHeade
         {title}
       </h1>
 
-      <div className="h-1 w-12 bg-accent rounded-full mb-4 sm:mb-6" />
+      {/* Multi-color accent bar */}
+      <div className="flex gap-1 mb-4 sm:mb-6">
+        <div className="h-1 w-8 bg-accent rounded-full" />
+        <div className="h-1 w-4 bg-pop rounded-full" />
+        <div className="h-1 w-6 bg-cyan rounded-full" />
+      </div>
 
       <div className="flex items-center gap-3 text-sm text-text-muted mb-4 sm:mb-6">
         <time dateTime={date}>{formattedDate}</time>
-        <span className="w-1 h-1 rounded-full bg-cyan" />
+        <span className="w-1.5 h-1.5 rounded-full bg-pop" />
         <span>{readingTime}</span>
       </div>
 
