@@ -31,7 +31,7 @@ export default function PhotographyPage() {
       <div className="absolute bottom-48 right-16 w-2 h-2 bg-accent/30 rounded-full" />
 
       <main>
-        <div className="max-w-7xl mx-auto px-6 py-16 relative">
+        <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 relative">
           <div className="mb-12 sm:mb-16">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-3 h-3 bg-accent rounded-full" />

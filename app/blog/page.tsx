@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getAllPosts } from '@/lib/blog'
-import PostCard from '@/components/blog/PostCard'
+import BlogListing from '@/components/blog/BlogListing'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -23,7 +23,7 @@ export default function BlogPage() {
       <div className="absolute bottom-32 left-6 w-20 h-20 bg-cyan/5 rotate-45 rounded-sharp" />
       <div className="absolute top-1/3 left-4 w-3 h-3 bg-pop/30 rounded-full" />
 
-      <div className="max-w-4xl mx-auto px-6 py-16 relative">
+      <div className="max-w-4xl mx-auto px-6 pt-20 pb-16 relative">
         <div className="mb-12 sm:mb-16">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-3 h-3 bg-pop rounded-full" />
@@ -40,20 +40,7 @@ export default function BlogPage() {
           </p>
         </div>
 
-        {posts.length === 0 ? (
-          <div className="p-12 rounded-sharp border border-border/20 bg-surface/20 text-center">
-            <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-pop/10 flex items-center justify-center">
-              <div className="w-4 h-4 bg-pop/40 rounded-full" />
-            </div>
-            <p className="text-text-muted">No posts yet. Check back soon!</p>
-          </div>
-        ) : (
-          <div className="space-y-6">
-            {posts.map((post) => (
-              <PostCard key={post.slug} post={post} />
-            ))}
-          </div>
-        )}
+        <BlogListing posts={posts} />
       </div>
     </main>
   )

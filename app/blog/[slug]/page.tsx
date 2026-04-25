@@ -59,7 +59,7 @@ export default function BlogPostPage({ params }: PageProps) {
       <div className="absolute top-20 right-8 w-32 h-32 border border-pop/10 rounded-full" />
       <div className="absolute bottom-40 left-6 w-20 h-20 bg-cyan/5 rotate-45 rounded-sharp" />
 
-      <article className="max-w-2xl mx-auto px-6 py-12 sm:py-16 relative">
+      <article className="max-w-2xl mx-auto px-6 pt-20 pb-12 sm:pt-20 sm:pb-16 relative">
         <PostHeader
           title={post.title}
           date={post.date}
