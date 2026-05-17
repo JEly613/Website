@@ -4,96 +4,67 @@ import { ScrollAnimation } from '@/components/home/ScrollAnimation'
 import { SectionCard } from '@/components/home/SectionCard'
 import type { OverlaySection } from '@/components/home/ScrollOverlay'
 
-const sections: {
+const lottieSections: {
   animationPath: string
-  overlay: OverlaySection
+  overlays: OverlaySection[]
 }[] = [
   {
     animationPath: '/animations/notes.json',
-    overlay: {
-      id: 'notes',
-      enterAt: 0.60,
-      exitAt: 0.94,
-      content: (
-        <SectionCard
-          title="Physics Notes"
-          description="Handwritten derivations and notes covering classical mechanics, thermodynamics, and more."
-          href="/notes"
-        />
-      ),
-    },
+    overlays: [
+      {
+        id: 'notes',
+        enterAt: 0.5,
+        exitAt: 0.65,
+        content: (
+          <SectionCard
+            title="Physics Notes"
+            description="Handwritten derivations and notes covering classical mechanics, thermodynamics, and more."
+            href="/notes"
+          />
+        ),
+      },
+      {
+        id: 'projects',
+        enterAt: 0.75,
+        exitAt: 0.9,
+        content: (
+          <SectionCard
+            title="Projects"
+            description="A showcase of things I've built — completed work and experiments in progress."
+            href="/projects"
+          />
+        ),
+      },
+    ],
   },
   {
-    animationPath: '/animations/projects.json',
-    overlay: {
-      id: 'projects',
-      enterAt: 0.85,
-      exitAt: 0.98,
-      content: (
-        <SectionCard
-          title="Projects"
-          description="A showcase of things I've built — completed work and experiments in progress."
-          href="/projects"
-        />
-      ),
-    },
-  },
-  {
-    animationPath: '/animations/photography.json',
-    overlay: {
-      id: 'photography',
-      enterAt: 0.3,
-      exitAt: 0.8,
-      content: (
-        <SectionCard
-          title="Photography"
-          description="A collection of moments captured through the lens — landscapes, street, and everything in between."
-          href="/photography"
-        />
-      ),
-    },
-  },
-  {
-    animationPath: '/animations/blog.json',
-    overlay: {
-      id: 'blog',
-      enterAt: 0.3,
-      exitAt: 0.8,
-      content: (
-        <SectionCard
-          title="Blog"
-          description="Long-form writing on physics, photography, and the things I find interesting."
-          href="/blog"
-        />
-      ),
-    },
-  },
-  {
-    animationPath: '/animations/contact.json',
-    overlay: {
-      id: 'contact',
-      enterAt: 0.3,
-      exitAt: 0.8,
-      content: (
-        <SectionCard
-          title="Contact"
-          description="Want to get in touch? Drop me a message."
-          href="/contact"
-        />
-      ),
-    },
+    animationPath: '/animations/Photography.json',
+    overlays: [
+      {
+        id: 'photography',
+        enterAt: 0.3,
+        exitAt: 0.8,
+        content: (
+          <SectionCard
+            title="Photography"
+            description="A collection of moments captured through the lens — landscapes, street, and everything in between."
+            href="/photography"
+          />
+        ),
+      },
+    ],
   },
 ]
 
 export function HomepageSections() {
   return (
     <>
-      {sections.map((section) => (
+      {lottieSections.map((section) => (
         <ScrollAnimation
-          key={section.overlay.id}
+          key={section.overlays[0].id}
           animationPath={section.animationPath}
           scrollTrackHeight="300vh"
-          overlaySections={[section.overlay]}
+          overlaySections={section.overlays}
           seamless
         />
       ))}
